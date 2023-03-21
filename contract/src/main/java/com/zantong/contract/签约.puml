@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+activate 商户
+activate 平台
+商户 -> 平台: 由柜面填写签约申请材料,发起签约申请
+平台 -> 平台: 校验申请材料合法性
+平台 -> 平台: 处理签约申请
+平台 -> 商户: 返回合约详情和签约结果
+deactivate 商户
+activate 客户
+客户 -> 平台: 根据商户项目代码填写签约申请材料并发起签约申请
+平台 -> 平台: 校验申请材料合法性
+平台 -> 平台: 处理签约申请
+平台 -> 客户: 返回合约详情和签约结果
+deactivate 平台
+deactivate 客户
+@enduml
