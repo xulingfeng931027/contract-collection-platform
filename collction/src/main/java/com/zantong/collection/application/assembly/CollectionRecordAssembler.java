@@ -1,14 +1,16 @@
 package com.zantong.collection.application.assembly;
 
+import com.zantong.collection.application.dto.CollectionInfoDto;
+import com.zantong.collection.application.dto.CollectionParamDto;
+import com.zantong.collection.domain.collectionInfoAggregation.entity.CollectionInfo;
 import com.zantong.collection.domain.collectionInfoAggregation.valueobject.BusinessContract;
 import com.zantong.collection.domain.collectionInfoAggregation.valueobject.CustomerContract;
-import com.zantong.collection.domain.collectionRecordAggregation.entity.CollectionInfo;
-import com.zantong.contract.application.dto.CollectionInfoDto;
+import com.zantong.collection.domain.collectionRecordAggregation.entity.CollectionRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -22,16 +24,17 @@ public interface CollectionRecordAssembler {
 
     CollectionInfo toEntity(CollectionInfoDto dto);
 
-    default CollectionInfo toEntity(BusinessContract businessContract, CustomerContract customerContract, BigDecimal amount, Map<String, Object> result) {
-        CollectionInfo toEntity = new CollectionInfo();
-        toEntity.setAmount(amount);
-        toEntity.setCustomerContract(customerContract);
-        toEntity.setBusinessContract(businessContract);
-        toEntity.setCustomerAccountInfoId(customerContract.getAccountInfoId());
-        toEntity.setBusinessAccountInfoId(businessContract.getAccountInfoId());
-        toEntity.setResult((Integer) result.get("result"));
-        toEntity.setAccountSerialNumber((String) result.get("accountSerialNumber"));
-        return toEntity;
+    CollectionRecord toEntity(CollectionParamDto dto);
+
+    default CollectionRecord toRecord(BusinessContract businessContract, CustomerContract customerContract, BigDecimal amount) {
+        CollectionRecord record = new CollectionRecord();
+        record.setAmount(amount);
+        record.setCustomerContractId(customerContract.getId());
+        record.setBusinessContractId(customerContract.getBusinessContractId());
+        record.setCustomerAccountInfoId(customerContract.getAccountInfoId());
+        record.setBusinessAccountInfoId(businessContract.getAccountInfoId());
+        record.setCreateTime(new Date());
+        return record;
     }
 
 

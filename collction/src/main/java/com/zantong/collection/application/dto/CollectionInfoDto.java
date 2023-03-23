@@ -1,4 +1,4 @@
-package com.zantong.contract.application.dto;
+package com.zantong.collection.application.dto;
 
 import lombok.Data;
 

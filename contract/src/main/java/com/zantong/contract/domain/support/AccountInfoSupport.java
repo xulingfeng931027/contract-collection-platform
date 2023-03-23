@@ -1,7 +1,6 @@
 package com.zantong.contract.domain.support;
 
-import java.math.BigDecimal;
-import java.util.Map;
+import java.util.List;
 
 /**
  * @author xulingfeng
@@ -16,13 +15,14 @@ public interface AccountInfoSupport {
      * @param accountId
      * @return
      */
-    void checkAccountInfo(String accountId,String ruleCode);
+    void checkAccountInfo(String accountId, String ruleCode);
 
     /**
-     * 执行收款
+     * 批量校验账户信息
      *
+     * @param accountId
      * @return
      */
-    Map<String,Object> executeCollection(String payAccountId,String receiveAccountId,  BigDecimal amount);
+    void checkAccountInfo(List<String> accountId, String ruleCode);
 
 }

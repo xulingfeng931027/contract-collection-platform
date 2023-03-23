@@ -1,4 +1,4 @@
-package com.zantong.collection.domain.support;
+package com.zantong.collection.application.support;
 
 /**
  * @author xulingfeng

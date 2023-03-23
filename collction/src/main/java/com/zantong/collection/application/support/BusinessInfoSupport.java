@@ -1,4 +1,4 @@
-package com.zantong.collection.domain.support;
+package com.zantong.collection.application.support;
 
 import com.zantong.collection.domain.collectionRecordAggregation.valueobject.BusinessInfo;
 

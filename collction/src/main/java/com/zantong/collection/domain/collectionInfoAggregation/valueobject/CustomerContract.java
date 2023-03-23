@@ -44,7 +44,7 @@ public class CustomerContract{
     /**
      * 关联的商户合约id
      */
-    private String customerContractId;
+    private String businessContractId;
     /**
      * 关联的商户合约id
      */

@@ -1,7 +1,9 @@
-package com.zantong.collection.domain.support;
+package com.zantong.collection.application.support;
 
 import com.zantong.collection.domain.collectionInfoAggregation.valueobject.BusinessContract;
 import com.zantong.collection.domain.collectionInfoAggregation.valueobject.CustomerContract;
+
+import java.util.List;
 
 /**
  * @author xulingfeng
@@ -18,5 +20,10 @@ public interface ContractSupport {
      * 查客户合约
      */
     CustomerContract queryCustomerContract(String projectCode,String userCode);
+
+    /**
+     * 批量查客户合约
+     */
+    List<CustomerContract> queryCustomerContract(String projectCode, List<String> userCode);
 
 }

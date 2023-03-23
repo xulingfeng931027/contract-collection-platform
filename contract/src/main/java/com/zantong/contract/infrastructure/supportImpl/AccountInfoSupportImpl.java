@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +28,18 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
      */
     @Override
     public void checkAccountInfo(String accountId, String ruleCode) {
+
+    }
+
+    /**
+     * 批量校验账户信息
+     *
+     * @param accountId
+     * @param ruleCode
+     * @return
+     */
+    @Override
+    public void checkAccountInfo(List<String> accountId, String ruleCode) {
 
     }
 

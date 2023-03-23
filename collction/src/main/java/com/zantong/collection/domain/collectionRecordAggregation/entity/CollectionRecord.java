@@ -1,4 +1,6 @@
-package com.zantong.collection.domain.collectionRecordAggregation;
+package com.zantong.collection.domain.collectionRecordAggregation.entity;
+
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.Date;
  * @date 2023/3/19
  * @description 代收信息
  */
+@Data
 public class CollectionRecord {
 
     /**
@@ -15,13 +18,13 @@ public class CollectionRecord {
      */
     private BigDecimal amount;
     /**
-     * 客户合约
+     * 收款结果   0成功 1失败  2收款中
      */
     private Integer result;
     /**
      * 商户账户信息
      */
-    private String businessAccountInfo;
+    private String businessAccountInfoId;
     /**
      * 商户账户信息
      */
@@ -38,4 +41,10 @@ public class CollectionRecord {
      * 创建时间
      */
     private Date createTime;
+    private String accountSerialNumber;
+    /**
+     * 批次号
+     */
+    private String batchNumber;
+
 }
