@@ -7,6 +7,8 @@ import com.zantong.contract.domain.repository.CustomerContractRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,8 +28,12 @@ public class BusinessContractController implements BusinessContractServiceApi {
 
 
     @PostMapping("/signContract")
-    public BusinessContractDto signContract(BusinessContractDto businessContractDto) {
+    public BusinessContractDto signContract(@RequestBody BusinessContractDto businessContractDto) {
         return contractService.signContract(businessContractDto);
     }
 
+    @Override
+    public BusinessContractDto queryContract(@RequestParam String userCode,@RequestParam String projectCode) {
+        return null;
+    }
 }

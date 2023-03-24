@@ -1,4 +1,4 @@
-package com.zantong.collection.domain.collectionRecordAggregation.valueobject;
+package com.zantong.pay.domain.payRecordAggregation.valueobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,13 @@ import lombok.Getter;
 /**
  * @author xulingfeng
  * @date 2023/3/17
- * @description 商户信息
+ * @description 账户信息
  */
-//todo 由于值对象整个使用,不能修改单个属性,因此不提供set方法,如果需要修改,请通过构造方法或者builder重新创建一个新的值对象并覆盖.
 @Getter
 @Builder
 @AllArgsConstructor
-public class BusinessInfo {
+public class CustomerInfo {
+
     /**
      * 名称
      */
@@ -27,15 +27,20 @@ public class BusinessInfo {
      */
     private Integer status;
     /**
-     * 法人证件号
+     * 用户编号
      */
-    private String legalPersonId;
-
+    private String customerCode;
+    /**
+     * 证件号
+     */
+    private String idCard;
     public boolean checkStatus() {
         return status == 1;
     }
 
     public boolean checkLegalPersonId() {
-        return legalPersonId != null;
+        return idCard != null;
     }
+
 }
+
