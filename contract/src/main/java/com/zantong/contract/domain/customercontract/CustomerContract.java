@@ -1,22 +1,18 @@
 package com.zantong.contract.domain.customercontract;
 
-import com.zantong.contract.domain.valueobject.AccountInfo;
-import com.zantong.contract.domain.valueobject.AgencyTypeEnum;
-import com.zantong.contract.domain.valueobject.ContractStatusEnum;
-import com.zantong.contract.domain.valueobject.CustomerInfo;
-import lombok.Data;
+import com.zantong.common.api.AbstractIdObject;
+import com.zantong.contract.domain.valueobject.*;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author xulingfeng
  * @date 2023/3/17
  * @description 客户合约
  */
-@Data
-public class CustomerContract{
-    /**
-     * 合约id
-     */
-    private String id;
+@Getter
+@SuperBuilder
+public class CustomerContract extends AbstractIdObject<String> {
     /**
      * 合约名称
      */
@@ -32,7 +28,7 @@ public class CustomerContract{
     /**
      * 收费种类
      */
-    private String chargeType;
+    private ChargeTypeEnum chargeType;
 
     /**
      * 签约模式 本行/他行卡
@@ -56,7 +52,7 @@ public class CustomerContract{
     /**
      * 关联的商户合约id
      */
-    private String customerContractId;
+    private String commercialTenantContractId;
     /**
      * 状态校验
      */

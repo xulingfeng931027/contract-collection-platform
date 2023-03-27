@@ -13,7 +13,7 @@ public enum BaseAppCode implements AppCode {
 
     REPEAT_SIGN(1000, "不允许重复签约!"),
 
-
+    PARAM_CHECK_FAILED(-2, "参数校验失败"),
     UNKNOWN_EXCEPTION(-1, "未知异常");
     private final int code;
     private final String message;

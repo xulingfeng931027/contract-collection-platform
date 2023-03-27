@@ -5,9 +5,7 @@ import com.zantong.contract.domain.support.AccountInfoSupport;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author xulingfeng
@@ -41,18 +39,5 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
     @Override
     public void checkAccountInfo(List<String> accountId, String ruleCode) {
 
-    }
-
-    /**
-     * 执行收款
-     *
-     * @param payAccountId
-     * @param receiveAccountId
-     * @param amount
-     * @return
-     */
-    @Override
-    public Map<String, Object> executeCollection(String payAccountId, String receiveAccountId, BigDecimal amount) {
-        return null;
     }
 }
