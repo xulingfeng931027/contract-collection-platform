@@ -1,10 +1,9 @@
 package com.zantong.contract.adapter.web;
 
-import com.zantong.contract.adapter.api.CustomerContractServiceApi;
-import com.zantong.contract.application.assembly.ContractMapStruct;
-import com.zantong.contract.application.dto.CustomerContractDto;
-import com.zantong.contract.application.service.CustomerContractService;
-import com.zantong.contract.domain.repository.CustomerContractRepository;
+import com.zantong.contract.application.CommercialTenantContract.assembler.CommercialTenantContractAssembler;
+import com.zantong.contract.application.customerContract.dto.CustomerContractDto;
+import com.zantong.contract.application.customerContract.service.CustomerContractService;
+import com.zantong.contract.application.customerContract.support.api.CustomerContractServiceApi;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,13 +22,12 @@ public class CustomerContractController implements CustomerContractServiceApi {
     @Autowired
     private CustomerContractService customerContractService;
     @Autowired
-    private CustomerContractRepository contractRepository;
-
+    private CommercialTenantContractAssembler assembler;
 
     @Override
     public CustomerContractDto queryContract(String userCode, String projectCode) {
-        var customerContract = contractRepository.queryCustomerContractByProjectCode(userCode, projectCode);
-        return ContractMapStruct.INSTANCE.toDto(customerContract);
+        var customerContract = customerContractService.queryCustomerContractByProjectCode(userCode, projectCode);
+        return assembler.toDto(customerContract);
     }
 
     @PostMapping("/signContract")

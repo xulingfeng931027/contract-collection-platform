@@ -1,6 +1,6 @@
 package com.zantong.contract.domain.support;
 
-import com.zantong.contract.domain.entity.valueobject.CustomerInfo;
+import com.zantong.contract.domain.valueobject.CustomerInfo;
 
 /**
  * @author xulingfeng

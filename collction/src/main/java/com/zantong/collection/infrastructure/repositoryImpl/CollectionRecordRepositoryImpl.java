@@ -1,7 +1,7 @@
 package com.zantong.collection.infrastructure.repositoryImpl;
 
-import com.zantong.collection.domain.collectionInfoAggregation.entity.CollectionInfo;
-import com.zantong.collection.domain.collectionRecordAggregation.repository.CollectionRepository;
+import com.zantong.collection.domain.collectionInfo.entity.CollectionInfo;
+import com.zantong.collection.domain.collectionRecord.repository.CollectionRepository;
 import com.zantong.collection.infrastructure.mapper.CollectionMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

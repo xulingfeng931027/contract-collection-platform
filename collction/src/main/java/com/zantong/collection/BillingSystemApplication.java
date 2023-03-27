@@ -1,5 +1,6 @@
 package com.zantong.collection;
 
+import com.zantong.contract.ContractSystemApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class BillingSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(com.zantong.contract.BillingSystemApplication.class, args);
+		SpringApplication.run(ContractSystemApplication.class, args);
 	}
 
 }

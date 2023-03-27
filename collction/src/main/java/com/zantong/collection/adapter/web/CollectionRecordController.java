@@ -1,6 +1,6 @@
 package com.zantong.collection.adapter.web;
 
-import com.zantong.collection.application.service.CollectionService;
+import com.zantong.collection.application.collectionInfo.service.CollectionService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

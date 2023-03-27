@@ -1,11 +1,11 @@
 package com.zantong.pay.adapter.web;
 
 import com.zantong.common.api.Response;
-import com.zantong.contract.application.service.CustomerContractService;
-import com.zantong.pay.application.assembly.PayableInfoAssembler;
-import com.zantong.pay.application.dto.PayRecordDto;
-import com.zantong.pay.application.service.PayRecordService;
-import com.zantong.pay.domain.payRecordAggregation.entity.PayRecord;
+import com.zantong.pay.application.payRecord.assembler.PayRecordAssembler;
+import com.zantong.pay.application.payRecord.dto.PayRecordReqDto;
+import com.zantong.pay.application.payRecord.dto.PayRecordResDto;
+import com.zantong.pay.application.payRecord.service.PayRecordService;
+import com.zantong.pay.domain.payRecord.entity.PayRecord;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,15 +27,15 @@ import java.util.List;
 public class PayController {
 
     @Autowired
-    private CustomerContractService customerContractService;
-    @Autowired
     private PayRecordService payRecordService;
+    @Autowired
+    private PayRecordAssembler payRecordAssembler;
 
 
     @PostMapping("/query")
-    public Response<PayRecordDto> queryRecord(@RequestBody PayRecordDto dto) {
+    public Response<List<PayRecordResDto>> queryRecord(@RequestBody PayRecordReqDto dto) {
         List<PayRecord> payRecords = payRecordService.queryPageRecord(dto);
-        return Response.ok(PayableInfoAssembler.INSTANCE.toDto(payRecords));
+        return Response.ok(payRecordAssembler.toDto(payRecords));
     }
 
 }
