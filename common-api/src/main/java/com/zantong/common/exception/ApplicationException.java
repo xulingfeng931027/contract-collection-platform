@@ -1,8 +1,7 @@
 package com.zantong.common.exception;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * ApplicationException 自定义异常
@@ -10,14 +9,15 @@ import lombok.Setter;
  * @author lingfeng.xu
  * @version $Id: ApplicationException.java,v 0.1 2018年01月10日 下午 16:35 $Exp
  */
-@Getter
-@Setter
+@Data
 public class ApplicationException extends RuntimeException {
 
     /**
      * 错误码 必填
      */
-    private AppCode appCode;
+    private Integer code;
+
+    private String description;
 
 
     /**
@@ -26,17 +26,16 @@ public class ApplicationException extends RuntimeException {
      * @param appCode 错误码
      */
     public ApplicationException(AppCode appCode) {
-        this.appCode = appCode;
+        this.code = appCode.getCode();
+        this.description = appCode.getDescription();
     }
-
 
     /**
-     * @see Throwable#toString()
+     * 创建一个<code>BasePromotionException</code>
      */
-    @Override
-    public final String toString() {
-        String s = getClass().getName();
-        String description = getAppCode().getDescription();
-        return s + ": " + appCode.getCode() + "[" + description + "]。";
+    public ApplicationException(String description) {
+        this.description = description;
+        this.code = BaseAppCode.BIZ_COMMON_EXCEPTION.getCode();
     }
+
 }

@@ -1,5 +1,6 @@
 package com.zantong.contract.domain.commercialTenantContract.entity;
 
+import com.zantong.common.exception.ApplicationException;
 import com.zantong.contract.domain.valueobject.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -70,4 +71,9 @@ public class CommercialTenantContract {
      */
     private CommercialTenantInfo commercialTenantInfo;
 
+    public void checkStatusIfValid() {
+        if (status != ContractStatusEnum.VALID) {
+            throw new ApplicationException("合约状态不合法");
+        }
+    }
 }

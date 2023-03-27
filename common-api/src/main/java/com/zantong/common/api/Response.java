@@ -19,6 +19,11 @@ public class Response<T> {
     private Integer code;
 
 
+    public Response(String msg, Integer code) {
+        this.msg = msg;
+        this.code = code;
+    }
+
     public Response(AppCode appCode) {
         this.code = appCode.getCode();
         this.msg = appCode.getDescription();

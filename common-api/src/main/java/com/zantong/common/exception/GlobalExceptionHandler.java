@@ -27,9 +27,9 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ApplicationException.class)
     public Response applicationException(ApplicationException e) {
-        log.info("applicationException: [{},{}]", e.getAppCode().getCode(), e.getAppCode().getDescription(), e);
+        log.info("applicationException: [{},{}]", e.getCode(), e.getDescription(), e);
         log.info("stackTrace: {}", e.getStackTrace()[0]);
-        return new Response<>(e.getAppCode());
+        return new Response<>(e.getDescription(), e.getCode());
     }
 
 

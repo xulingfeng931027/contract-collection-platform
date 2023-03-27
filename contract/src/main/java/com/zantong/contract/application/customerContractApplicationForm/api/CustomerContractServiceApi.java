@@ -1,6 +1,6 @@
 package com.zantong.contract.application.customerContractApplicationForm.api;
 
-import com.zantong.contract.application.customerContractApplicationForm.dto.CustomerContractDto;
+import com.zantong.contract.application.customerContractApplicationForm.dto.CustomerContractApplicationFormDto;
 import io.swagger.annotations.Api;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +20,6 @@ public interface CustomerContractServiceApi {
 
 
     @GetMapping("/queryContract")
-    CustomerContractDto queryContract(@RequestParam String userCode, @RequestParam String projectCode);
+    CustomerContractApplicationFormDto queryContract(@RequestParam String userCode, @RequestParam String projectCode);
 
 }

@@ -1,6 +1,7 @@
 package com.zantong.contract.application.customerContractApplicationForm.dto;
 
 import com.zantong.contract.domain.valueobject.AccountInfo;
+import com.zantong.contract.domain.valueobject.ChargeTypeEnum;
 import lombok.Data;
 
 /**
@@ -9,7 +10,7 @@ import lombok.Data;
  * @description
  */
 @Data
-public class CustomerContractDto {
+public class CustomerContractApplicationFormDto {
 
     /**
      * 用户编码
@@ -26,12 +27,12 @@ public class CustomerContractDto {
     /**
      * 收费种类
      */
-    private String chargeType;
+    private ChargeTypeEnum chargeType;
     /**
      * 客户账户信息
      */
     private AccountInfo accountInfo;
-    private String projectCode;
+    private String commercialTenantContractId;
 
     private String address;
 
