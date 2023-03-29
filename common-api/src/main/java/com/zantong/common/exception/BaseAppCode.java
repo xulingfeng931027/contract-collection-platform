@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum BaseAppCode implements AppCode {
 
-    REPEAT_SIGN(1000, "不允许重复签约!"),
+    REPEAT_AGENCY(1000, "不允许重复签约!"),
     BIZ_COMMON_EXCEPTION(-3, "通用业务异常"),
     PARAM_CHECK_FAILED(-2, "参数校验失败"),
     UNKNOWN_EXCEPTION(-1, "未知异常");

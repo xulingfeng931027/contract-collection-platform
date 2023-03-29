@@ -39,7 +39,7 @@ public class CustomerContractApplicationFormDto {
     /**
      * 校验签约要素
      */
-    public boolean checkSignElement() {
+    public boolean checkAgencyElement() {
         return true;
     }
 }

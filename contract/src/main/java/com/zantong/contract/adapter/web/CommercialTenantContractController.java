@@ -31,9 +31,9 @@ public class CommercialTenantContractController implements CommercialTenantContr
      * @param commercialTenantContractApplicationFormDto
      * @return
      */
-    @PostMapping("/signContract")
-    public CommercialTenantContractApplicationFormDto signContract(@RequestBody @Validated CommercialTenantContractApplicationFormDto commercialTenantContractApplicationFormDto) {
-        return commercialTenantContractApplicationFormService.signContract(commercialTenantContractApplicationFormDto);
+    @PostMapping("/agencyContract")
+    public CommercialTenantContractApplicationFormDto agencyContract(@RequestBody @Validated CommercialTenantContractApplicationFormDto commercialTenantContractApplicationFormDto) {
+        return commercialTenantContractApplicationFormService.agencyContract(commercialTenantContractApplicationFormDto);
     }
 
     @Override

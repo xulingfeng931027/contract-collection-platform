@@ -43,7 +43,7 @@ public class CustomerContractApplicationFormService {
     @Transactional(rollbackFor = Exception.class)
     public CustomerContractApplicationFormDto signContract(CustomerContractApplicationFormDto customerContractApplicationFormDto) {
         //检查签约要素
-        customerContractApplicationFormDto.checkSignElement();
+        customerContractApplicationFormDto.checkAgencyElement();
         //从客户管理系统查询客户信息
         // 校验客户信息
         CustomerInfo customerInfo = customerInfoSupport.queryCustomerInfo(customerContractApplicationFormDto.getIdCard());

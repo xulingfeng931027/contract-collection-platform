@@ -51,7 +51,7 @@ public class CommercialTenantContractApplicationFormService {
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public CommercialTenantContractApplicationFormDto signContract(CommercialTenantContractApplicationFormDto commercialTenantContractApplicationFormDto) {
+    public CommercialTenantContractApplicationFormDto agencyContract(CommercialTenantContractApplicationFormDto commercialTenantContractApplicationFormDto) {
         //先将入参转为实体
         CommercialTenantContractApplicationForm applicationForm = commercialTenantContractApplicationFormAssembler.toEntity(commercialTenantContractApplicationFormDto);
         //todo 1.按照用户故事地图的命令进行流程编排
@@ -62,7 +62,7 @@ public class CommercialTenantContractApplicationFormService {
         commercialTenantInfo.checkStatusIfNormal();
         if (commercialTenantContractService.queryContract(applicationForm.getCommercialTenantInfo().getLegalPersonNumber(), commercialTenantContractApplicationFormDto.getChargeType()) != null) {
             //todo 重复签约
-            throw new ApplicationException(BaseAppCode.REPEAT_SIGN);
+            throw new ApplicationException(BaseAppCode.REPEAT_AGENCY);
         }
         //校验商户结算账户信息
         accountInfoSupport.checkAccountInfo(applicationForm.getSettlementAccountInfo().getId(), ACCOUNT_RULE_CODE);

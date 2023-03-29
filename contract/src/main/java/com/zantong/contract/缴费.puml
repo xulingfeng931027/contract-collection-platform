@@ -2,16 +2,16 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-商户 -> 平台: 发起代收申请
-activate 商户
+客户 -> 平台: 发起缴费申请
 activate 平台
 平台 -> 平台: 校验商户合约和账户合法性
 平台 -> 核心系统: 发起扣款
 activate 核心系统
 核心系统 -> 平台: 返回扣款结果
 deactivate 核心系统
-平台 --> 商户: 通知代收结果
+activate 商户
+平台 --> 商户: 通知缴费结果
 deactivate 商户
-平台 --> 客户: 通知代收结果
+平台 --> 客户: 通知缴费结果
 deactivate 平台
 @enduml
