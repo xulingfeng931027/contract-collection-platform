@@ -1,0 +1,30 @@
+package com.agree.collection.interfaces.consumer;
+
+import com.agree.collection.application.collectionrecord.dto.ModifyCollectionRecordReqDto;
+import com.agree.collection.application.collectionrecord.service.CollectionRecordService;
+import com.alibaba.fastjson2.JSON;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+/**
+ * @author xulingfeng
+ * @description 接收代收结果事件消息
+ * @date 2022/9/11
+ */
+@Component
+public class CollectionResultConsumer {
+
+    @Autowired
+    private CollectionRecordService collectionRecordService;
+
+    @KafkaListener(topics = {"collectionResult"})
+    public void handMessage(ConsumerRecord<String, String> record) {
+        String msg = record.value();
+        List<ModifyCollectionRecordReqDto> list = JSON.parseArray(msg, ModifyCollectionRecordReqDto.class);
+        collectionRecordService.updateCollectionRecordStatus(list);
+    }
+}

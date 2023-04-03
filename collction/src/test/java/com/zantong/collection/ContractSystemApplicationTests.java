@@ -1,4 +1,4 @@
-package com.zantong.collection;
+package com.agree.collection;
 
 import com.billing.system.domain.entity.handler.BillHandleContext;
 import org.junit.jupiter.api.Test;
