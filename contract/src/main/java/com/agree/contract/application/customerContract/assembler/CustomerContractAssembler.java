@@ -1,7 +1,7 @@
 package com.agree.contract.application.customerContract.assembler;
 
 import com.agree.contract.application.customerContract.dto.CustomerContractDto;
-import com.agree.contract.domain.customercontract.CustomerContract;
+import com.agree.contract.domain.customercontract.entity.CustomerContract;
 import org.mapstruct.Mapper;
 
 /**

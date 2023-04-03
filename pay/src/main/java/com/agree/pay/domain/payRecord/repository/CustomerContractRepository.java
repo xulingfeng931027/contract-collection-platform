@@ -1,6 +1,6 @@
 package com.agree.pay.domain.payRecord.repository;
 
-import com.agree.contract.domain.customercontract.CustomerContract;
+import com.agree.contract.domain.customercontract.entity.CustomerContract;
 
 /**
  * @author xulingfeng

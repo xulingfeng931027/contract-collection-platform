@@ -41,12 +41,6 @@ public class CommercialTenantContractApplicationFormReqDto {
     @NotNull
     private FundGatherModeEnum fundGatherMode;
     /**
-     * 手续费
-     */
-    @NotNull
-    @Min(0)
-    private BigDecimal commissionCharge;
-    /**
      * 结算账户信息
      */
     @NotNull

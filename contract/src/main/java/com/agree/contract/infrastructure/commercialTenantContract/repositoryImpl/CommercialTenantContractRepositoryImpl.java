@@ -3,9 +3,9 @@ package com.agree.contract.infrastructure.commercialTenantContract.repositoryImp
 import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.commercialTenantContract.repository.CommercialTenantContractRepository;
 import com.agree.contract.domain.valueobject.ChargeTypeEnum;
-import com.agree.contract.infrastructure.commercialTenantContract.converter.BusinessContractConverter;
-import com.agree.contract.infrastructure.commercialTenantContract.mapper.BusinessContractMapper;
-import com.agree.contract.infrastructure.commercialTenantContract.po.CommercialTenantContractApplicationFormPo;
+import com.agree.contract.infrastructure.commercialTenantContract.converter.CommercialTenantContractConverter;
+import com.agree.contract.infrastructure.commercialTenantContract.mapper.CommercialTenantContractMapper;
+import com.agree.contract.infrastructure.commercialTenantContract.po.CommercialTenantContractPo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,7 +21,9 @@ import org.springframework.stereotype.Repository;
 public class CommercialTenantContractRepositoryImpl implements CommercialTenantContractRepository {
 
     @Autowired
-    private BusinessContractMapper contractMapper;
+    private CommercialTenantContractMapper contractMapper;
+    @Autowired
+    private CommercialTenantContractConverter commercialTenantContractConverter;
 
     /**
      * 保存商户合约
@@ -31,7 +33,7 @@ public class CommercialTenantContractRepositoryImpl implements CommercialTenantC
      */
     @Override
     public String saveContract(CommercialTenantContract contract) {
-        CommercialTenantContractApplicationFormPo po = BusinessContractConverter.INSTANCE.toPo(contract);
+        CommercialTenantContractPo po = commercialTenantContractConverter.toPo(contract);
         contractMapper.insert(po);
         return po.getId();
     }
@@ -45,9 +47,8 @@ public class CommercialTenantContractRepositoryImpl implements CommercialTenantC
      */
     @Override
     public CommercialTenantContract getById(String id) {
-        CommercialTenantContractApplicationFormPo po = contractMapper.selectById(id);
-        CommercialTenantContract entity = BusinessContractConverter.INSTANCE.toEntity(po);
-        return entity;
+        CommercialTenantContractPo po = contractMapper.selectById(id);
+        return commercialTenantContractConverter.toEntity(po);
     }
 
     /**

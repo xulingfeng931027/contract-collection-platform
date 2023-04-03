@@ -8,7 +8,7 @@
 //import com.agree.contract.application.customerContractApplicationForm.dto.CustomerContractApplicationFormDto;
 //import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 //import com.agree.contract.domain.customerContractApplicationForm.entity.CustomerContractApplicationForm;
-//import com.agree.contract.domain.customercontract.CustomerContract;
+//import com.agree.contract.domain.customercontract.entity.CustomerContract;
 //import com.agree.contract.application.CommercialTenantContractApplicationForm.support.AccountInfoSupport;
 //import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CommercialTenantInfoSupport;
 //import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CustomerInfoSupport;

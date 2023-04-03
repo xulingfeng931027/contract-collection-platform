@@ -13,11 +13,6 @@ import lombok.Data;
 public class CustomerContractApplicationFormDto {
 
     /**
-     * 合约名称
-     */
-    private String name;
-
-    /**
      * 合约申请单状态
      */
     private ContractApplicationFormStatusEnum status;

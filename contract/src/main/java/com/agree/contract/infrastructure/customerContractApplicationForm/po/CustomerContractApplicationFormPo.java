@@ -22,11 +22,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class CustomerContractApplicationFormPo extends AbstractPo<String> {
     /**
-     * 合约名称
-     */
-    private String name;
-
-    /**
      * 合约申请单状态
      */
     private ContractApplicationFormStatusEnum status;

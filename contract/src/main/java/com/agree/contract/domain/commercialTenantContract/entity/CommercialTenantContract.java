@@ -36,11 +36,6 @@ public class CommercialTenantContract {
      */
     private String contractApplicationFormId;
     /**
-     * 合约名称
-     */
-    private String name;
-
-    /**
      * 合约状态
      */
     private ContractStatusEnum status;

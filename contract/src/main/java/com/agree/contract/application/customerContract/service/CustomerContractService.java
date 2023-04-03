@@ -4,7 +4,7 @@ import com.agree.contract.application.CommercialTenantContractApplicationForm.su
 import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CommercialTenantInfoSupport;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CustomerInfoSupport;
 import com.agree.contract.domain.commercialTenantContract.repository.CommercialTenantContractRepository;
-import com.agree.contract.domain.customercontract.CustomerContract;
+import com.agree.contract.domain.customercontract.entity.CustomerContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

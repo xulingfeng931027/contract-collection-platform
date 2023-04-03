@@ -1,4 +1,4 @@
-package com.agree.contract.domain.customercontract;
+package com.agree.contract.domain.customercontract.entity;
 
 import com.agree.common.api.AbstractIdObject;
 import com.agree.contract.domain.valueobject.*;
@@ -13,10 +13,6 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 public class CustomerContract extends AbstractIdObject<String> {
-    /**
-     * 合约名称
-     */
-    private String name;
     /**
      * 合约类型
      */

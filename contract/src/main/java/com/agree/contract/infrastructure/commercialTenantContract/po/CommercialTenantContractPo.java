@@ -1,9 +1,6 @@
 package com.agree.contract.infrastructure.commercialTenantContract.po;
 
-import com.agree.contract.domain.valueobject.AccountInfo;
-import com.agree.contract.domain.valueobject.CommercialTenantInfo;
-import com.agree.contract.domain.valueobject.ContractStatusEnum;
-import com.agree.contract.domain.valueobject.FundGatherModeEnum;
+import com.agree.contract.domain.valueobject.*;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,32 +12,28 @@ import java.math.BigDecimal;
 /**
  * @author xulingfeng
  * @date 2023/3/17
- * @description
+ * @description 客户合约
  */
 @Data
-@TableName(value = "business_contract", autoResultMap = true)
-public class CommercialTenantContractApplicationFormPo {
+@TableName("commercial_tenant_contract")
+public class CommercialTenantContractPo {
     /**
      * 合约id
      */
     @TableId
     private String id;
     /**
-     * 合约名称
+     * 合约申请单id
      */
-    private String name;
-    /**
-     * 合约类型 todo 用枚举
-     */
-    private String type;
+    private String contractApplicationFormId;
     /**
      * 合约状态
      */
     private ContractStatusEnum status;
     /**
-     * 收费种类
+     * 收费种类  todo 具有明显的业务意义，应该用枚举
      */
-    private String chargeType;
+    private ChargeTypeEnum chargeType;
 
     /**
      * 资金归集模式
@@ -51,35 +44,20 @@ public class CommercialTenantContractApplicationFormPo {
      */
     private BigDecimal commissionCharge;
     /**
-     * 法人证件号
-     */
-    private String idCard;
-    /**
-     * 纳税人编码
-     */
-    private String taxCode;
-    /**
      * 结算账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo accountInfo;
+    private AccountInfo settlementAccountInfo;
 
     /**
      * 暂存账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo tempAccountInfo;
+    private AccountInfo stagingAccountInfo;
     /**
      * 商户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private CommercialTenantInfo commercialTenantInfo;
-
-    /**
-     * 状态校验
-     */
-    public boolean checkStatus() {
-        return status == ContractStatusEnum.VALID;
-    }
 
 }

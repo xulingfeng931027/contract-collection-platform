@@ -16,16 +16,11 @@ import lombok.Getter;
 @Builder
 public class CustomerContractApplicationForm extends AbstractIdObject<String> {
     /**
-     * 合约名称
-     */
-    private String name;
-
-    /**
      * 合约申请单状态
      */
     private ContractApplicationFormStatusEnum status;
     /**
-     * 收费种类  todo 具有明显的业务意义，应该用枚举
+     * 收费种类
      */
     private ChargeTypeEnum chargeType;
     /**
@@ -51,8 +46,6 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
      * 校验商户合约申请单
      */
     public void checkIfValid() {
-        // todo 对于某一类数据的校验 如申请单相关数据的校验 可以写在一个充血方法里
-        //  而对于每一个细项的校验 可以封装private方法 便于后续维护
         checkCommissionChargeIfValid();
         checkChargeTypeIfValid();
     }
@@ -61,9 +54,6 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
      * 校验商户合约收费类型
      */
     private void checkChargeTypeIfValid() {
-        // todo 校验逻辑
-        //1.场景1 如果仅校验参数是否合法  可以在dto的参数校验中实现
-        //  场景2 如果校验具有业务含义 例如某类商户只能使用某些收费类型 那可以封装在充血方法中
     }
 
     /**

@@ -1,14 +1,13 @@
 package com.agree.contract.infrastructure.commercialTenantContractApplicationForm.po;
 
-import com.agree.contract.domain.valueobject.AccountInfo;
-import com.agree.contract.domain.valueobject.CommercialTenantInfo;
-import com.agree.contract.domain.valueobject.ContractStatusEnum;
-import com.agree.contract.domain.valueobject.FundGatherModeEnum;
+import com.agree.contract.domain.valueobject.*;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
 
@@ -18,7 +17,7 @@ import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
  * @description
  */
 @Data
-@TableName(value = "business_contract", autoResultMap = true)
+@TableName(value = "commercial_tenant_contract_application_form", autoResultMap = true)
 public class CommercialTenantContractApplicationFormPo {
     /**
      * 合约id
@@ -26,21 +25,13 @@ public class CommercialTenantContractApplicationFormPo {
     @TableId(type = ASSIGN_ID)
     private String id;
     /**
-     * 合约名称
+     * 合约申请单状态
      */
-    private String name;
+    private ContractApplicationFormStatusEnum status;
     /**
-     * 合约类型 todo 用枚举
+     * 收费种类  todo 具有明显的业务意义，应该用枚举
      */
-    private String type;
-    /**
-     * 合约状态
-     */
-    private ContractStatusEnum status;
-    /**
-     * 收费种类
-     */
-    private String chargeType;
+    private ChargeTypeEnum chargeType;
 
     /**
      * 资金归集模式
@@ -49,15 +40,11 @@ public class CommercialTenantContractApplicationFormPo {
     /**
      * 手续费
      */
-    private Integer fee;
+    private BigDecimal commissionCharge;
     /**
-     * 法人证件号
+     * 扣费方式
      */
-    private String idCard;
-    /**
-     * 纳税人编码
-     */
-    private String taxCode;
+    private ChargeMethodEnum chargeMethod;
     /**
      * 结算账户信息
      */
