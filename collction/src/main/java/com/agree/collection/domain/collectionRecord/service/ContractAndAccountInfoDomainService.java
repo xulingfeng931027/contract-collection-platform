@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -44,9 +45,21 @@ public class ContractAndAccountInfoDomainService {
         //批量查询客户合约
         List<String> customerContractIdList = collectionInfoList.stream().map(e -> e.getCustomerContract().getId()).collect(Collectors.toList());
         List<CustomerContract> customerContractList = contractSupport.queryCustomerContract(customerContractIdList);
+        completeCustomerContract(collectionInfoList, customerContractList);
         //校验客户合约
         customerContractList.forEach(CustomerContract::statusIfValid);
         //校验客户账户
-        accountInfoSupport.checkAccountInfo(collectionInfoList.stream().map(e -> e.getCustomerAccountInfo().getId()).collect(Collectors.toList()), ACCOUNT_RULE_CODE);
+        accountInfoSupport.checkAccountInfo(collectionInfoList.stream().map(e -> e.getCustomerContract().getCustomerAccountInfo().getId()).collect(Collectors.toList()), ACCOUNT_RULE_CODE);
+    }
+
+    /**
+     * 完善客户合约信息
+     *
+     * @param collectionInfoList
+     * @param customerContractList
+     */
+    private void completeCustomerContract(List<CollectionInfo> collectionInfoList, List<CustomerContract> customerContractList) {
+        Map<String, CustomerContract> map = customerContractList.stream().collect(Collectors.toMap(CustomerContract::getId, e -> e));
+        collectionInfoList.forEach(e -> e.completeCustomerContract(map.get(e.getCustomerContract().getId())));
     }
 }

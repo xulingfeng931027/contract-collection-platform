@@ -1,7 +1,8 @@
 package com.agree.pay.application.payRecord.support;
 
-import com.agree.pay.application.payRecord.dto.CollectionParamDto;
-import com.alibaba.fastjson2.JSONObject;
+import com.agree.pay.application.payableInfo.dto.ExecutePayReqDto;
+
+import java.util.Map;
 
 /**
  * @author xulingfeng
@@ -11,18 +12,18 @@ import com.alibaba.fastjson2.JSONObject;
  */
 public interface AccountInfoSupport {
     /**
-     * 校验账户信息
-     *
-     * @param accountId
-     * @return
-     */
-    void checkAccountInfo(String accountId);
-
-    /**
      * 执行收款
      *
      * @return
      */
-    JSONObject executeCollection(CollectionParamDto collectionParamDto);
+    Map<String, Object> executeCollection(ExecutePayReqDto executeCollectionReqDto);
 
+
+    /**
+     * 单个校验账户信息
+     *
+     * @param accountId
+     * @param ruleCode
+     */
+    void checkAccountInfo(String accountId, String ruleCode);
 }

@@ -1,6 +1,6 @@
 package com.agree.collection.application.support;
 
-import com.agree.collection.domain.collectionRecord.valueobject.BusinessInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantInfo;
 
 /**
  * @author xulingfeng
@@ -8,13 +8,13 @@ import com.agree.collection.domain.collectionRecord.valueobject.BusinessInfo;
  * @description 防腐层  调用商户系统
  * @date 2022/9/11
  */
-public interface BusinessInfoSupport {
+public interface CommercialTenantInfoSupport {
     /**
      * 查询商户信息
      *
      * @return
      */
-    BusinessInfo queryBusinessInfo(String idCard);
+    CommercialTenantInfo queryBCommercialTenantInfo(String idCard);
 
 
 }

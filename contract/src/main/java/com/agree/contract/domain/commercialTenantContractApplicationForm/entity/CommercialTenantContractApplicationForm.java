@@ -2,8 +2,8 @@ package com.agree.contract.domain.commercialTenantContractApplicationForm.entity
 
 import com.agree.common.api.AbstractIdObject;
 import com.agree.contract.domain.valueobject.*;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -18,9 +18,9 @@ import java.math.BigDecimal;
  * todo 定义各种数据模型的基类 ???
  */
 @Getter
-@Builder
+@SuperBuilder
 public class CommercialTenantContractApplicationForm extends AbstractIdObject<String> {
-
+String id;
     /**
      * 合约申请单状态
      */

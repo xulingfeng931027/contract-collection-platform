@@ -2,7 +2,9 @@ package com.agree.pay.domain.payRecord;
 
 import com.agree.pay.domain.payRecord.entity.PayRecord;
 import com.agree.pay.domain.payableInfo.entity.PayableInfo;
-import com.alibaba.fastjson2.JSONObject;
+import com.agree.pay.domain.valueobject.PayResultEnum;
+
+import java.util.Map;
 
 /**
  * @author xulingfeng
@@ -10,13 +12,13 @@ import com.alibaba.fastjson2.JSONObject;
  * @description
  */
 public class PayRecordFactory {
-    public static PayRecord toEntity(PayableInfo payableInfo, JSONObject result) {
+    public static PayRecord toEntity(PayableInfo payableInfo, Map<String, Object> result) {
         return PayRecord.builder()
                 .amount(payableInfo.getAmount())
-                .result(result.getInteger("result"))
+                .payStatus((PayResultEnum) result.get("payStatus"))
                 .payInfoCode(payableInfo.getPayInfoCode())
                 .userCode(payableInfo.getUserCode())
-                .businessContract(payableInfo.getBusinessContract())
+                .commercialTenantContract(payableInfo.getCommercialTenantContract())
                 .customerAccountInfo(payableInfo.getCustomerAccountInfo()).build();
     }
 

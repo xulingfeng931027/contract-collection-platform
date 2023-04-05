@@ -1,6 +1,6 @@
-package com.agree.contract;
+package com.agree.collection;
 
-import com.agree.contract.domain.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
+import com.agree.collection.infrastructure.collectionrecord.po.CollectionRecordPo;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -48,7 +48,11 @@ public class TableGenerator {
         sb.append("BLOB");
       } else if (fieldType == java.sql.Clob.class) {
         sb.append("CLOB");
-      } // add more field type mapping here
+      } else if (fieldType.isEnum()) {
+        sb.append("VARCHAR(255)");
+      } else {
+        sb.append("TEXT");
+      }// add more field type mapping here
       
       if (i != fields.length - 1) {
         sb.append(", ");
@@ -81,10 +85,11 @@ public class TableGenerator {
       String username = "xulingfeng";
       String password = "123456";
       conn = DriverManager.getConnection(dbUrl, username, password);
-      
+
       // generate and execute create table SQL statement
-      String sql = generateTableSql(CommercialTenantContractApplicationForm.class, "commercial_tenant_contract_application_form");
-      createTable(conn, "user_table", sql);
+      String sql = generateTableSql(CollectionRecordPo.class, "collection_record");
+      System.out.print(sql);
+      createTable(conn, "1", sql);
     } catch (SQLException e) {
       e.printStackTrace();
     } finally {

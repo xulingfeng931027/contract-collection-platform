@@ -2,11 +2,13 @@ package com.agree.pay.domain.payRecord.entity;
 
 import com.agree.common.api.AbstractIdObject;
 import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.BusinessContract;
+import com.agree.pay.domain.valueobject.CommercialTenantContract;
+import com.agree.pay.domain.valueobject.PayResultEnum;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -17,13 +19,13 @@ import java.math.BigDecimal;
 @SuperBuilder
 public class PayRecord extends AbstractIdObject<String> {
     /**
-     * 收款金额
+     * 缴费金额
      */
     private BigDecimal amount;
     /**
-     * 合约类型
+     * 缴费状态
      */
-    private Integer result;
+    private PayResultEnum payStatus;
     /**
      * 缴费信息编号
      */
@@ -35,12 +37,16 @@ public class PayRecord extends AbstractIdObject<String> {
     /**
      * 商户合约
      */
-    private BusinessContract businessContract;
+    private CommercialTenantContract commercialTenantContract;
 
     /**
      * 客户账户信息
      */
     private AccountInfo customerAccountInfo;
+    /**
+     * 账单时间
+     */
+    private Date billTime;
 
 
 }

@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
 
@@ -49,17 +50,20 @@ public class CommercialTenantContractApplicationFormPo {
      * 结算账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo accountInfo;
+    private AccountInfo settlementAccountInfo;
 
     /**
      * 暂存账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo tempAccountInfo;
+    private AccountInfo stagingAccountInfo;
     /**
      * 商户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private CommercialTenantInfo commercialTenantInfo;
 
+    private Date createTime;
+
+    private Date updateTime;
 }

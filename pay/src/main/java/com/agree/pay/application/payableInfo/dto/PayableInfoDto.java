@@ -1,7 +1,7 @@
 package com.agree.pay.application.payableInfo.dto;
 
 import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.BusinessContract;
+import com.agree.pay.domain.valueobject.CommercialTenantContract;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -38,7 +38,7 @@ public class PayableInfoDto {
     /**
      * 商户合约
      */
-    private BusinessContract businessContract;
+    private CommercialTenantContract commercialTenantContract;
     /**
      * 客户账户信息
      */

@@ -1,4 +1,4 @@
-package com.agree.collection.application.collectionInfo.dto;
+package com.agree.pay.application.payableInfo.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 @Builder
 @Data
-public class ExecuteCollectionReqDto {
+public class ExecutePayReqDto {
     /**
      * 付款账户信息id
      */

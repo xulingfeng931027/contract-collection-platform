@@ -60,7 +60,7 @@ public class GlobalExceptionHandler {
     public Response paramErrorHandler(HttpServletRequest req, HttpServletResponse rsp, Exception e) {
         log.error("baseErrorHandler [ HOST:{} URL:{} STATUS:{}] ", req.getRemoteHost(), req.getRequestURL(), rsp.getStatus(), e);
         rsp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        Response response = new Response(BaseAppCode.PARAM_CHECK_FAILED);
+        Response response = new Response(ContractAppCode.PARAM_CHECK_FAILED);
         response.setMsg(e.getMessage());
         return response;
     }

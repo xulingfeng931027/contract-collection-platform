@@ -1,6 +1,6 @@
 package com.agree.pay.application.payRecord.support;
 
-import com.agree.pay.domain.valueobject.BusinessContract;
+import com.agree.pay.domain.valueobject.CommercialTenantContract;
 
 /**
  * @author xulingfeng
@@ -15,5 +15,5 @@ public interface CommercialTenantContractSupport {
         *
         * @return
         */
-        BusinessContract queryContract(String projectCode, String userCode);
+        CommercialTenantContract queryContract(String projectCode, String userCode);
 }

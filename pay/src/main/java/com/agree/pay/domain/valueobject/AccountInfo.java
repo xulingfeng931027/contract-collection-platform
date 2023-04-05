@@ -13,7 +13,7 @@ public class AccountInfo extends AbstractValueObject {
     /**
      * 账户id
      */
-    private String accountInfoId;
+    private String id;
     /**
      * 账户名
      */

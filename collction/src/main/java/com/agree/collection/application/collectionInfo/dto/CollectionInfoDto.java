@@ -1,9 +1,11 @@
 package com.agree.collection.application.collectionInfo.dto;
 
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
+import com.agree.collection.domain.valueobject.CustomerContract;
 import lombok.Data;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -17,15 +19,18 @@ public class CollectionInfoDto {
     /**
      * 收款金额
      */
-    @Min(0)
     private BigDecimal amount;
     /**
-     * 用户编码
+     * 客户合约
      */
-    @NotBlank
-    private String userCode;
+    @NotNull
+    @Valid
+    private CustomerContract customerContract;
+
     /**
-    * 商户项目id
+     * 商户合约
      */
-    private String contractId;
+    @NotNull
+    @Valid
+    private CommercialTenantContract commercialTenantContract;
 }

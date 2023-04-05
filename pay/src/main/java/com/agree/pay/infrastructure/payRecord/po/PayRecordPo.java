@@ -1,7 +1,8 @@
 package com.agree.pay.infrastructure.payRecord.po;
 
 import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.BusinessContract;
+import com.agree.pay.domain.valueobject.CommercialTenantContract;
+import com.agree.pay.domain.valueobject.PayResultEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,6 +11,7 @@ import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -25,13 +27,13 @@ public class PayRecordPo {
     @TableId(type = IdType.ASSIGN_ID)
     private String id;
     /**
-     * 收款金额
+     * 缴费金额
      */
     private BigDecimal amount;
     /**
-     * 合约类型
+     * 缴费状态
      */
-    private Integer result;
+    private PayResultEnum payStatus;
     /**
      * 缴费信息编号
      */
@@ -44,12 +46,15 @@ public class PayRecordPo {
      * 商户合约
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private BusinessContract businessContract;
+    private CommercialTenantContract commercialTenantContract;
 
     /**
      * 客户账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private AccountInfo customerAccountInfo;
-
+    /**
+     * 账单时间
+     */
+    private Date billTime;
 }

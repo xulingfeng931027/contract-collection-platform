@@ -53,4 +53,15 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
     public List<String> checkAccountInfo(List<String> accountId, String ruleCode) {
         return new ArrayList<>();
     }
+
+    /**
+     * 单个校验账户信息
+     *
+     * @param accountId
+     * @param ruleCode
+     */
+    @Override
+    public void checkAccountInfo(String accountId, String ruleCode) {
+
+    }
 }

@@ -62,7 +62,7 @@ public class CollectionInfoService {
      * @return
      */
     private static List<ExecuteCollectionReqDto> assemblyCollectionParamsReq(List<CollectionInfo> collectionInfoList, String receiveAccountId) {
-        return collectionInfoList.stream().map(e -> ExecuteCollectionReqDto.builder().payAccountInfoId(e.getCustomerAccountInfo().getId()).receiveAccountInfoId(receiveAccountId).amount(e.getAmount()).build()).collect(Collectors.toList());
+        return collectionInfoList.stream().map(e -> ExecuteCollectionReqDto.builder().payAccountInfoId(e.getCustomerContract().getCustomerAccountInfo().getId()).receiveAccountInfoId(receiveAccountId).amount(e.getAmount()).build()).collect(Collectors.toList());
     }
 
     /**
@@ -73,29 +73,33 @@ public class CollectionInfoService {
     @Transactional(rollbackFor = Exception.class)
     public CollectionInfoDto singleCollection(CollectionInfoDto collectionInfoDto) {
         CollectionInfo collectionInfo = collectionInfoAssembler.toEntity(collectionInfoDto);
-        String contractId = collectionInfoDto.getContractId();
+        String commercialTenantContractId = collectionInfo.getCommercialTenantContract().getId();
         //查询商户合约
-        CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(contractId);
+        CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(commercialTenantContractId);
         if (commercialTenantContract == null) {
             throw new ApplicationException("商户合约不存在");
         }
         //校验商户合约
-        commercialTenantContract.checkStatus();
+        commercialTenantContract.statusIfValid();
+        collectionInfo.completeCommercialTenantContract(commercialTenantContract);
         //校验商户账户信息
-        accountInfoSupport.checkAccountInfo(commercialTenantContract.getAccountInfoId(), ACCOUNT_RULE_CODE);
-        if (StringUtils.isNoneBlank(commercialTenantContract.getTempAccountInfoId())) {
-            accountInfoSupport.checkAccountInfo(commercialTenantContract.getTempAccountInfoId(), ACCOUNT_RULE_CODE);
+        String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
+        accountInfoSupport.checkAccountInfo(settlementAccountId, ACCOUNT_RULE_CODE);
+        String stagingAccountInfoId = commercialTenantContract.getStagingAccountInfo().getId();
+        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+            accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId(), ACCOUNT_RULE_CODE);
         }
         //todo 此处使用了领域服务  查询并校验客户合约
         contractAndAccountInfoDomainService.checkCustomerContractAndCustomerAccountInfo(Lists.newArrayList(collectionInfo));
         String receiveAccountId;
-        if (StringUtils.isNoneBlank(commercialTenantContract.getTempAccountInfoId())) {
-            receiveAccountId = commercialTenantContract.getTempAccountInfoId();
+        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+            receiveAccountId = stagingAccountInfoId;
         } else {
-            receiveAccountId = commercialTenantContract.getAccountInfoId();
+            receiveAccountId = settlementAccountId;
         }
         //调用核心系统执行代收
-        Map<String, Object> collectionResult = accountInfoSupport.executeCollection(ExecuteCollectionReqDto.builder().payAccountInfoId(collectionInfo.getCustomerAccountInfo().getId()).receiveAccountInfoId(receiveAccountId).amount(collectionInfoDto.getAmount()).build());
+        Map<String, Object> collectionResult = accountInfoSupport.executeCollection(assemblyCollectionParamsReq(Lists.newArrayList(collectionInfo), receiveAccountId).get(0));
+
         //生成并保存代收记录
         CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(collectionInfo, receiveAccountId, collectionResult);
         //发送消息通知
@@ -125,26 +129,29 @@ public class CollectionInfoService {
         }
         List<CollectionInfo> collectionInfoList = collectionInfoAssembler.toEntity(collectionInfoDtoList);
         //获取商户合约id
-        String contractId = getContractId(collectionInfoDtoList);
+        String contractId = getCommercialTenantContractId(collectionInfoDtoList);
         //查询商户合约
         CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(contractId);
         if (commercialTenantContract == null) {
             throw new ApplicationException("商户合约不存在");
         }
         //校验商户合约
-        commercialTenantContract.checkStatus();
+        commercialTenantContract.statusIfValid();
+        collectionInfoList.forEach(e -> e.completeCommercialTenantContract(commercialTenantContract));
         //校验商户账户信息
-        accountInfoSupport.checkAccountInfo(commercialTenantContract.getAccountInfoId(), ACCOUNT_RULE_CODE);
-        if (StringUtils.isNoneBlank(commercialTenantContract.getTempAccountInfoId())) {
-            accountInfoSupport.checkAccountInfo(commercialTenantContract.getTempAccountInfoId(), ACCOUNT_RULE_CODE);
+        String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
+        accountInfoSupport.checkAccountInfo(settlementAccountId, ACCOUNT_RULE_CODE);
+        String stagingAccountInfoId = commercialTenantContract.getStagingAccountInfo().getId();
+        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+            accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId(), ACCOUNT_RULE_CODE);
         }
         //todo 此处使用了领域服务  查询并校验客户合约
         contractAndAccountInfoDomainService.checkCustomerContractAndCustomerAccountInfo(collectionInfoList);
         String receiveAccountId;
-        if (StringUtils.isNoneBlank(commercialTenantContract.getTempAccountInfoId())) {
-            receiveAccountId = commercialTenantContract.getTempAccountInfoId();
+        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+            receiveAccountId = stagingAccountInfoId;
         } else {
-            receiveAccountId = commercialTenantContract.getAccountInfoId();
+            receiveAccountId = settlementAccountId;
         }
         List<ExecuteCollectionReqDto> executeCollectionReqDtos = assemblyCollectionParamsReq(collectionInfoList, receiveAccountId);
         //调用核心接口代收
@@ -161,7 +168,7 @@ public class CollectionInfoService {
      *
      * @return
      */
-    private String getContractId(List<CollectionInfoDto> collectionInfoDtoList) {
-        return collectionInfoDtoList.get(0).getContractId();
+    private String getCommercialTenantContractId(List<CollectionInfoDto> collectionInfoDtoList) {
+        return collectionInfoDtoList.get(0).getCommercialTenantContract().getId();
     }
 }

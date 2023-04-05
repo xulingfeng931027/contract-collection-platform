@@ -1,13 +1,11 @@
-package com.agree.collection.infrastructure.repositoryImpl;
+package com.agree.collection.infrastructure.collectionrecord.repositoryImpl;
 
-import com.agree.collection.domain.collectionInfo.entity.CollectionInfo;
+import com.agree.collection.domain.collectionRecord.entity.CollectionRecord;
 import com.agree.collection.domain.collectionRecord.repository.CollectionRepository;
-import com.agree.collection.infrastructure.mapper.CollectionMapper;
+import com.agree.collection.infrastructure.collectionrecord.mapper.CollectionRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.Map;
 
 /**
  * @author xulingfeng
@@ -20,17 +18,21 @@ import java.util.Map;
 public class CollectionRecordRepositoryImpl implements CollectionRepository {
 
     @Autowired
-    private CollectionMapper collectionMapper;
+    private CollectionRecordMapper collectionRecordMapper;
+
+    @Override
+    public String save(CollectionRecord collectionRecord) {
+        return null;
+    }
 
     /**
-     * 保存商户合约
+     * 修改代收记录状态
      *
-     * @param collectionInfo
-     * @param result
+     * @param collectionRecord
      * @return
      */
     @Override
-    public Integer saveRecord(CollectionInfo collectionInfo, Map<String, Object> result) {
+    public Integer updateStatus(CollectionRecord collectionRecord) {
         return null;
     }
 }

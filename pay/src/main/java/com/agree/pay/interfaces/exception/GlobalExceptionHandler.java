@@ -1,8 +1,8 @@
 package com.agree.pay.interfaces.exception;
 
-import com.agree.collection.infrastructure.exception.BaseAppCode;
 import com.agree.common.api.Response;
 import com.agree.common.exception.ApplicationException;
+import com.agree.pay.infrastructure.exception.PayAppCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -46,7 +46,7 @@ public class GlobalExceptionHandler {
     public Response baseErrorHandler(HttpServletRequest req, HttpServletResponse rsp, Exception e) {
         log.error("baseErrorHandler [ HOST:{} URL:{} STATUS:{}] ", req.getRemoteHost(), req.getRequestURL(), rsp.getStatus(), e);
         rsp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        return new Response(BaseAppCode.UNKNOWN_EXCEPTION);
+        return new Response(PayAppCode.UNKNOWN_EXCEPTION);
     }
 
     /**
@@ -60,7 +60,7 @@ public class GlobalExceptionHandler {
     public Response paramErrorHandler(HttpServletRequest req, HttpServletResponse rsp, Exception e) {
         log.error("baseErrorHandler [ HOST:{} URL:{} STATUS:{}] ", req.getRemoteHost(), req.getRequestURL(), rsp.getStatus(), e);
         rsp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        Response response = new Response(BaseAppCode.PARAM_CHECK_FAILED);
+        Response response = new Response(PayAppCode.PARAM_CHECK_FAILED);
         response.setMsg(e.getMessage());
         return response;
     }

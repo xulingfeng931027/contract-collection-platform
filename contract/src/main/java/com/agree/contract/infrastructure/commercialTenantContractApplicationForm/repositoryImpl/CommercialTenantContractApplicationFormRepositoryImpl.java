@@ -29,7 +29,7 @@ public class CommercialTenantContractApplicationFormRepositoryImpl implements Co
 
 
     /**
-     * 保存合约
+     * 保存合约申请单
      *
      * @param form
      * @return 主键

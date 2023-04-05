@@ -1,4 +1,4 @@
-package com.agree.pay.domain.payableInfo.repository;
+package com.agree.pay.domain.payRecord.repository;
 
 import com.agree.pay.domain.payRecord.entity.PayRecord;
 

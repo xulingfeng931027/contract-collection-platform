@@ -2,7 +2,7 @@ package com.agree.pay.domain.payableInfo.entity;
 
 import com.agree.common.api.AbstractIdObject;
 import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.BusinessContract;
+import com.agree.pay.domain.valueobject.CommercialTenantContract;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -30,13 +30,13 @@ public class PayableInfo extends AbstractIdObject<String> {
      */
     private String payInfoCode;
     /**
-     * 账单时间
+     * 账单生成时间
      */
     private Date billTime;
     /**
      * 商户合约
      */
-    private BusinessContract businessContract;
+    private CommercialTenantContract commercialTenantContract;
     /**
      * 客户账户信息
      */

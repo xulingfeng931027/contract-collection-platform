@@ -1,6 +1,7 @@
 package com.agree.collection.application.collectionInfo.support;
 
-import com.agree.collection.domain.collectionRecord.valueobject.BusinessInfo;
+
+import com.agree.collection.domain.valueobject.CommercialTenantInfo;
 
 /**
  * @author xulingfeng
@@ -14,7 +15,7 @@ public interface BusinessInfoSupport {
      *
      * @return
      */
-    BusinessInfo queryBusinessInfo(String idCard);
+    CommercialTenantInfo queryCommercialTenantInfo(String idCard);
 
 
 }

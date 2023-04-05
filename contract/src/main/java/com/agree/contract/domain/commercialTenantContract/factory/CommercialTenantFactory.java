@@ -14,7 +14,6 @@ public class CommercialTenantFactory {
     public static CommercialTenantContract generateCommercialTenantContract(CommercialTenantContractApplicationForm commercialTenantContractApplicationForm, String id) {
         return CommercialTenantContract.builder()
                 .contractApplicationFormId(id)
-                .name(commercialTenantContractApplicationForm.getName())
                 .status(ContractStatusEnum.VALID)
                 .chargeType(commercialTenantContractApplicationForm.getChargeType())
                 .fundGatherMode(commercialTenantContractApplicationForm.getFundGatherMode())

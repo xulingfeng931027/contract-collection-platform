@@ -24,11 +24,9 @@ public class CollectionRecordFactory {
     public static CollectionRecord generateCollectionRecordForBatch(CollectionInfo collectionInfo, String receiveAccountInfoId, Map<String, Object> result) {
         return CollectionRecord.builder()
                 .amount(collectionInfo.getAmount())
+                .commercialTenantContract(collectionInfo.getCommercialTenantContract())
+                .customerContract(collectionInfo.getCustomerContract())
                 .createTime(new Date())
-                .customerAccountInfoId(receiveAccountInfoId)
-                .businessAccountInfoId(collectionInfo.getCustomerAccountInfo().getId())
-                .customerContractId(collectionInfo.getCustomerContract().getId())
-                .businessContractId(collectionInfo.getCommercialTenantContract().getId())
                 .result(((CollctionResultEnum) result.get("result")))
                 .accountSerialNumber(result.get("accountSerialNumber").toString())
                 .build();
@@ -43,11 +41,9 @@ public class CollectionRecordFactory {
     public static CollectionRecord generateCollectionRecordForBatch(CollectionInfo collectionInfo, String receiveAccountId) {
         return CollectionRecord.builder()
                 .amount(collectionInfo.getAmount())
+                .commercialTenantContract(collectionInfo.getCommercialTenantContract())
+                .customerContract(collectionInfo.getCustomerContract())
                 .createTime(new Date())
-                .customerAccountInfoId(receiveAccountId)
-                .businessAccountInfoId(collectionInfo.getCustomerAccountInfo().getId())
-                .customerContractId(collectionInfo.getCustomerContract().getId())
-                .businessContractId(collectionInfo.getCommercialTenantContract().getId())
                 .result(CollctionResultEnum.PROCESSING)
                 .build();
 

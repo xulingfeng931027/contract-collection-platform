@@ -2,19 +2,12 @@ package com.agree.pay.application.payRecord.service;
 
 import com.agree.common.mq.BaseMqMessage;
 import com.agree.pay.application.payRecord.assembler.PayRecordAssembler;
-import com.agree.pay.application.payRecord.dto.CollectionParamDto;
 import com.agree.pay.application.payRecord.dto.PayRecordReqDto;
-import com.agree.pay.application.payRecord.dto.PayRecordResDto;
-import com.agree.pay.application.payRecord.dto.PayableInfoDto;
 import com.agree.pay.application.payRecord.support.AccountInfoSupport;
 import com.agree.pay.application.payRecord.support.CommercialTenantContractSupport;
 import com.agree.pay.application.payableInfo.assembly.PayableInfoAssembler;
-import com.agree.pay.domain.payRecord.PayRecordFactory;
 import com.agree.pay.domain.payRecord.entity.PayRecord;
-import com.agree.pay.domain.payableInfo.entity.PayableInfo;
-import com.agree.pay.domain.payableInfo.repository.PayRecordRepository;
-import com.agree.pay.domain.valueobject.BusinessContract;
-import com.alibaba.fastjson2.JSONObject;
+import com.agree.pay.domain.payRecord.repository.PayRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 
@@ -41,37 +34,7 @@ public class PayRecordService {
     @Autowired
     private PayableInfoAssembler payableInfoAssembler;
 
-    /**
-     * 单笔缴费
-     *
-     * @return
-     */
-    public PayRecord singlePay(PayableInfoDto payableInfoDto) {
-        PayableInfo payableInfo = payableInfoAssembler.toEntity(payableInfoDto);
-        //查询商户合约
-        BusinessContract businessContract = contractSupport.queryContract(payableInfoDto.getBusinessContract().getId(), payableInfoDto.getUserCode());
-        businessContract.checkStatus();
-        //校验商户账户信息
-        accountInfoSupport.checkAccountInfo(businessContract.getAccountId());
-        //校验客户账户信息
-        accountInfoSupport.checkAccountInfo(payableInfoDto.getAccountId());
-        //执行缴费
-        JSONObject result = accountInfoSupport.executeCollection(CollectionParamDto.builder().receiveAccountInfoId(businessContract.getAccountId()).payAccountInfoId(payableInfoDto.getAccountId()).amount(payableInfoDto.getAmount()).build());
-        PayRecord payRecord = PayRecordFactory.toEntity(payableInfo, result);
-        payRecordRepository.saveRecord(payRecord);
-        notice(payRecord, result);
-        return payRecord;
-    }
 
-    private void notice(PayRecord payRecord, JSONObject result) {
-        // 成功则通知商户
-        if ("true".equals(result.getString("result"))) {
-            PayRecordResDto dto = payRecordAssembler.toResDto(payRecord);
-            BaseMqMessage message = BaseMqMessage.builder().topic(TOPIC).data(JSONObject.toJSONString(dto)).build();
-            kafkaTemplate.send(TOPIC, message);
-        }
-        //通知客户缴费结果 调用发送sms的接口
-    }
 
 
     /**

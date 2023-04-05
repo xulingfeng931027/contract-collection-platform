@@ -15,6 +15,10 @@ public enum ChargeTypeEnum {
      * 电费
      */
     ELECTRICITY_FEE,
+    /**
+     * 燃气费
+     */
+    GAS_FEE,
     ;
 
 }

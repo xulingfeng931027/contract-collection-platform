@@ -3,8 +3,8 @@ package com.agree.collection.domain.valueobject;
 import com.agree.common.api.AbstractValueObject;
 import com.agree.common.exception.ApplicationException;
 import com.agree.contract.domain.valueobject.AgencyTypeEnum;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * @date 2023/3/17
  * @description 客户合约
  */
-@SuperBuilder
+@Builder
 @Getter
 public class CustomerContract extends AbstractValueObject {
     /**
@@ -38,6 +38,11 @@ public class CustomerContract extends AbstractValueObject {
      * 手续费
      */
     private BigDecimal commissionCharge;
+
+    /**
+     * 客户账户信息
+     */
+    private AccountInfo customerAccountInfo;
 
     /**
      * 状态校验

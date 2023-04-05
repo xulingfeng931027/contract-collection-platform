@@ -1,11 +1,13 @@
-package com.agree.collection.domain.collectionRecord.entity;
+package com.agree.collection.infrastructure.collectionrecord.po;
 
 import com.agree.collection.domain.valueobject.CollctionResultEnum;
 import com.agree.collection.domain.valueobject.CommercialTenantContract;
 import com.agree.collection.domain.valueobject.CustomerContract;
-import com.agree.common.api.AbstractIdObject;
-import lombok.Data;
-import lombok.experimental.SuperBuilder;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,10 +17,13 @@ import java.util.Date;
  * @date 2023/3/19
  * @description 代收信息
  */
-@Data
-@SuperBuilder
-public class CollectionRecord extends AbstractIdObject<String> {
-
+@TableName(value = "collection_record", autoResultMap = true)
+public class CollectionRecordPo {
+    /**
+     * id
+     */
+    @TableId(type = IdType.ASSIGN_ID)
+    private String id;
     /**
      * 收款金额
      */
@@ -30,11 +35,13 @@ public class CollectionRecord extends AbstractIdObject<String> {
     /**
      * 客户合约
      */
+    @TableField(typeHandler = FastjsonTypeHandler.class)
     private CustomerContract customerContract;
 
     /**
      * 商户合约
      */
+    @TableField(typeHandler = FastjsonTypeHandler.class)
     private CommercialTenantContract commercialTenantContract;
     /**
      * 创建时间

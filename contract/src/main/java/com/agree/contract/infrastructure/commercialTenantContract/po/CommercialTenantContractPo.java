@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -31,7 +32,7 @@ public class CommercialTenantContractPo {
      */
     private ContractStatusEnum status;
     /**
-     * 收费种类  todo 具有明显的业务意义，应该用枚举
+     * 收费种类
      */
     private ChargeTypeEnum chargeType;
 
@@ -59,5 +60,9 @@ public class CommercialTenantContractPo {
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private CommercialTenantInfo commercialTenantInfo;
+
+    private Date createTime;
+
+    private Date updateTime;
 
 }

@@ -3,8 +3,8 @@ package com.agree.contract.domain.customerContractApplicationForm.entity;
 import com.agree.common.api.AbstractIdObject;
 import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.valueobject.*;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author xulingfeng
@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 
 @Getter
-@Builder
+@SuperBuilder
 public class CustomerContractApplicationForm extends AbstractIdObject<String> {
     /**
      * 合约申请单状态

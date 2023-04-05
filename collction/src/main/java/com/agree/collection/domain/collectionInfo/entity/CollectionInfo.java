@@ -1,6 +1,5 @@
 package com.agree.collection.domain.collectionInfo.entity;
 
-import com.agree.collection.domain.valueobject.AccountInfo;
 import com.agree.collection.domain.valueobject.CommercialTenantContract;
 import com.agree.collection.domain.valueobject.CustomerContract;
 import com.agree.common.api.AbstractIdObject;
@@ -23,14 +22,6 @@ public class CollectionInfo extends AbstractIdObject<String> {
      */
     private BigDecimal amount;
     /**
-     * 商户账户信息
-     */
-    private AccountInfo customerAccountInfo;
-    /**
-     * 商户账户信息
-     */
-    private AccountInfo commercialTenantAccountInfo;
-    /**
      * 客户合约
      */
     private CustomerContract customerContract;
@@ -39,5 +30,23 @@ public class CollectionInfo extends AbstractIdObject<String> {
      * 商户合约
      */
     private CommercialTenantContract commercialTenantContract;
+
+    /**
+     * 补全合约信息
+     *
+     * @param customerContract
+     */
+    public void completeCustomerContract(CustomerContract customerContract) {
+        this.customerContract = customerContract;
+    }
+
+    /**
+     * 补全合约信息
+     *
+     * @param commercialTenantContract
+     */
+    public void completeCommercialTenantContract(CommercialTenantContract commercialTenantContract) {
+        this.commercialTenantContract = commercialTenantContract;
+    }
 
 }
