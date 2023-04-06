@@ -1,18 +1,27 @@
-package com.agree.contract.domain.customercontract.entity;
+package com.agree.contract.infrastructure.customerContract.po;
 
-import com.agree.common.api.AbstractIdObject;
 import com.agree.contract.domain.valueobject.*;
-import lombok.Getter;
-import lombok.experimental.SuperBuilder;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
+import lombok.Data;
+
+import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
 
 /**
  * @author xulingfeng
  * @date 2023/3/17
  * @description 客户合约
  */
-@Getter
-@SuperBuilder
-public class CustomerContract extends AbstractIdObject<String> {
+@Data
+@TableName(value = "customer_contract", autoResultMap = true)
+public class CustomerContractPo {
+    /**
+     * 合约id
+     */
+    @TableId(type = ASSIGN_ID)
+    private String id;
     /**
      * 合约类型
      */
@@ -33,28 +42,18 @@ public class CustomerContract extends AbstractIdObject<String> {
     /**
      * 客户信息
      */
+    @TableField(typeHandler = FastjsonTypeHandler.class)
     private CustomerInfo customerInfo;
 
     /**
      * 客户账户信息
      */
+    @TableField(typeHandler = FastjsonTypeHandler.class)
     private AccountInfo customerAccountInfo;
-
-    /**
-     * 用户编号
-     */
-    private String customerCode;
 
     /**
      * 关联的商户合约id
      */
     private String commercialTenantContractId;
-
-    /**
-     * 客户合约校验
-     */
-    public boolean statusIsValid() {
-        return status == ContractStatusEnum.VALID;
-    }
 
 }

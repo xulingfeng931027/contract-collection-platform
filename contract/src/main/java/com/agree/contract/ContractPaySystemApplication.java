@@ -1,13 +1,12 @@
-package com.agree.collection;
+package com.agree.contract;
 
-import com.agree.contract.ContractPaySystemApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
-public class BillingSystemApplication {
+public class ContractPaySystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ContractPaySystemApplication.class, args);

@@ -1,8 +1,10 @@
 package com.agree.contract.domain.customerContractApplicationForm.entity;
 
 import com.agree.common.api.AbstractIdObject;
-import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
-import com.agree.contract.domain.valueobject.*;
+import com.agree.contract.domain.valueobject.AccountInfo;
+import com.agree.contract.domain.valueobject.AgencyTypeEnum;
+import com.agree.contract.domain.valueobject.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.valueobject.CustomerInfo;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -20,10 +22,6 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
      */
     private ContractApplicationFormStatusEnum status;
     /**
-     * 收费种类
-     */
-    private ChargeTypeEnum chargeType;
-    /**
      * 签约模式
      */
     private AgencyTypeEnum agencyTypeEnum;
@@ -33,33 +31,11 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
     private AccountInfo customerAccountInfo;
 
     /**
-     * 商户合约
+     * 关联的商户合约id
      */
-    private CommercialTenantContract commercialTenantContract;
+    private String commercialTenantContractId;
     /**
      * 客户信息
      */
     private CustomerInfo customerInfo;
-
-
-    /**
-     * 校验商户合约申请单
-     */
-    public void checkIfValid() {
-        checkCommissionChargeIfValid();
-        checkChargeTypeIfValid();
-    }
-
-    /**
-     * 校验商户合约收费类型
-     */
-    private void checkChargeTypeIfValid() {
-    }
-
-    /**
-     * 校验商户合约手续费
-     */
-    private void checkCommissionChargeIfValid() {
-        // todo 校验逻辑
-    }
 }

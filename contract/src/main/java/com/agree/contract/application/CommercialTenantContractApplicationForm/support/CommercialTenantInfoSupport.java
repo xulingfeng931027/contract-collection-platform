@@ -19,6 +19,4 @@ public interface CommercialTenantInfoSupport {
      * @return
      */
     CommercialTenantInfo queryBusinessInfo(String idCard);
-
-
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -8,11 +8,11 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.collction.system</groupId>
-	<artifactId>collction-system</artifactId>
+	<groupId>com.collctionpay.system</groupId>
+	<artifactId>collction-pay-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>collction-system</name>
-	<description>代收系统</description>
+	<name>collction-pay-system</name>
+	<description>代收缴费系统</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -1,13 +1,9 @@
 package com.agree.collection.infrastructure.collectionrecord.po;
 
 import com.agree.collection.domain.valueobject.CollctionResultEnum;
-import com.agree.collection.domain.valueobject.CommercialTenantContract;
-import com.agree.collection.domain.valueobject.CustomerContract;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -33,16 +29,14 @@ public class CollectionRecordPo {
      */
     private CollctionResultEnum result;
     /**
-     * 客户合约
+     * 客户合约id
      */
-    @TableField(typeHandler = FastjsonTypeHandler.class)
-    private CustomerContract customerContract;
+    private String customerContractId;
 
     /**
-     * 商户合约
+     * 商户合约id
      */
-    @TableField(typeHandler = FastjsonTypeHandler.class)
-    private CommercialTenantContract commercialTenantContract;
+    private String commercialTenantContractId;
     /**
      * 创建时间
      */

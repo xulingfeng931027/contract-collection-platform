@@ -1,6 +1,5 @@
 package com.agree.contract.application.CommercialTenantContract.dto;
 
-import com.agree.contract.domain.valueobject.AccountInfo;
 import com.agree.contract.domain.valueobject.FundGatherModeEnum;
 import lombok.Data;
 
@@ -41,13 +40,11 @@ public class CommercialTenantContractDto {
     /**
      * 结算账户信息
      */
-    private AccountInfo accountInfo;
+    private String settlementAccountInfoId;
 
     /**
      * 暂存账户信息
      */
-    private AccountInfo tempAccountInfo;
-
-    private String projectCode;
+    private String tempAccountInfoId;
 
 }

@@ -1,11 +1,11 @@
 package com.agree.collection.domain.valueobject;
 
 import com.agree.common.api.AbstractValueObject;
-import com.agree.common.exception.ApplicationException;
 import com.agree.contract.domain.valueobject.ChargeTypeEnum;
 import com.agree.contract.domain.valueobject.FundGatherModeEnum;
 import lombok.Builder;
 import lombok.Getter;
+import org.apache.kafka.common.errors.ApiException;
 
 import java.math.BigDecimal;
 
@@ -50,10 +50,12 @@ public class CommercialTenantContract extends AbstractValueObject {
      */
     private AccountInfo stagingAccountInfo;
 
-    public void statusIfValid() {
-        //校验合约状态
+    /**
+     * 判定商户合约状态是否正常
+     */
+    public void checkStatusIfNormal() {
         if (status != ContractStatusEnum.VALID) {
-            throw new ApplicationException("商户合约状态不正常，无法进行代收");
+            throw new ApiException("商户合约状态不正常");
         }
     }
 }

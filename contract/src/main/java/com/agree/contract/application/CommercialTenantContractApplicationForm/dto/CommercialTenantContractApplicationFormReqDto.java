@@ -1,13 +1,11 @@
 package com.agree.contract.application.CommercialTenantContractApplicationForm.dto;
 
-import com.agree.contract.domain.valueobject.AccountInfo;
 import com.agree.contract.domain.valueobject.ChargeTypeEnum;
-import com.agree.contract.domain.valueobject.CommercialTenantInfo;
 import com.agree.contract.domain.valueobject.FundGatherModeEnum;
 import lombok.Data;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
@@ -43,21 +41,18 @@ public class CommercialTenantContractApplicationFormReqDto {
     /**
      * 结算账户信息
      */
-    @NotNull
-    @Valid
-    private AccountInfo settlementAccountInfo;
+    @NotBlank
+    private String settlementAccountInfoId;
 
     /**
      * 暂存账户信息
      */
-    @NotNull
-    @Valid
-    private AccountInfo stagingAccountInfo;
+    @NotBlank
+    private String tempAccountInfoId;
     /**
      * 商户信息
      */
-    @NotNull
-    @Valid
-    private CommercialTenantInfo commercialTenantInfo;
+    @NotBlank
+    private String commercialTenantInfoId;
 
 }
