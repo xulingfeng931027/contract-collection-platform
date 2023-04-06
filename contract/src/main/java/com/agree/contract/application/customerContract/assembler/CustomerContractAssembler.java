@@ -1,7 +1,5 @@
 package com.agree.contract.application.customerContract.assembler;
 
-import com.agree.contract.application.customerContract.dto.CustomerContractDto;
-import com.agree.contract.domain.customercontract.entity.CustomerContract;
 import org.mapstruct.Mapper;
 
 /**
@@ -12,5 +10,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CustomerContractAssembler {
 
-    CustomerContractDto toDto(CustomerContract entity);
+//    CustomerContractResDto toDto(CustomerContract entity);
 }

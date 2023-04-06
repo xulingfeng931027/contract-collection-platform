@@ -1,9 +1,10 @@
 package com.agree.contract.domain.commercialTenantContract.entity;
 
+import com.agree.common.api.AbstractIdObject;
 import com.agree.common.exception.ApplicationException;
 import com.agree.contract.domain.valueobject.*;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -25,12 +26,8 @@ import java.math.BigDecimal;
  *   商户合约实体是他的聚合根
  */
 @Getter
-@Builder
-public class CommercialTenantContract {
-    /**
-     * 合约id
-     */
-    private String id;
+@SuperBuilder
+public class CommercialTenantContract extends AbstractIdObject<String> {
     /**
      * 合约申请单id
      */

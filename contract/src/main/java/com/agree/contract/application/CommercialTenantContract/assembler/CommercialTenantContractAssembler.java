@@ -1,6 +1,6 @@
 package com.agree.contract.application.CommercialTenantContract.assembler;
 
-import com.agree.contract.application.customerContract.dto.CustomerContractDto;
+import com.agree.contract.application.CommercialTenantContract.dto.CommercialTenantContractResDto;
 import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 import org.mapstruct.Mapper;
 
@@ -12,9 +12,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CommercialTenantContractAssembler {
 
-
-    CustomerContractDto toDto(CommercialTenantContract contractContractDto);
-
-    CommercialTenantContract toEntity(CustomerContractDto contractContractDto);
+    CommercialTenantContractResDto toDto(CommercialTenantContract contractContractDto);
 
 }

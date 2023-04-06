@@ -1,6 +1,6 @@
 package com.agree.contract.interfaces.web;
 
-import com.agree.contract.application.CommercialTenantContract.dto.CommercialTenantContractDto;
+import com.agree.contract.application.CommercialTenantContract.dto.CommercialTenantContractResDto;
 import com.agree.contract.application.CommercialTenantContract.support.api.CommercialTenantContractServiceApi;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormReqDto;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.service.CommercialTenantContractApplicationFormService;
@@ -37,7 +37,7 @@ public class CommercialTenantContractController implements CommercialTenantContr
     }
 
     @Override
-    public CommercialTenantContractDto queryContract(@RequestParam String userCode, @RequestParam String projectCode) {
+    public CommercialTenantContractResDto queryContract(@RequestParam String contractId) {
         return null;
     }
 }

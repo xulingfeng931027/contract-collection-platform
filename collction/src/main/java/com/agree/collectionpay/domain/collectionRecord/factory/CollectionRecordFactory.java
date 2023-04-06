@@ -27,7 +27,7 @@ public class CollectionRecordFactory {
                 .commercialTenantContract(collectionInfo.getCommercialTenantContract())
                 .customerContract(collectionInfo.getCustomerContract())
                 .createTime(new Date())
-                .result(((CollctionResultEnum) result.get("result")))
+                .status(((CollctionResultEnum) result.get("result")))
                 .accountSerialNumber(result.get("accountSerialNumber").toString())
                 .build();
     }
@@ -44,7 +44,7 @@ public class CollectionRecordFactory {
                 .commercialTenantContract(collectionInfo.getCommercialTenantContract())
                 .customerContract(collectionInfo.getCustomerContract())
                 .createTime(new Date())
-                .result(CollctionResultEnum.PROCESSING)
+                .status(CollctionResultEnum.PROCESSING)
                 .build();
 
     }

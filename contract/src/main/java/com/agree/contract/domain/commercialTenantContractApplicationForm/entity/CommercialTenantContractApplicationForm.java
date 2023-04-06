@@ -20,13 +20,12 @@ import java.math.BigDecimal;
 @Getter
 @SuperBuilder
 public class CommercialTenantContractApplicationForm extends AbstractIdObject<String> {
-String id;
     /**
      * 合约申请单状态
      */
     private ContractApplicationFormStatusEnum status;
     /**
-     * 收费种类  todo 具有明显的业务意义，应该用枚举
+     * 收费种类
      */
     private ChargeTypeEnum chargeType;
 

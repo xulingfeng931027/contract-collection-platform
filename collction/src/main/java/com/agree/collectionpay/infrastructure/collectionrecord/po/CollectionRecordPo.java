@@ -25,7 +25,7 @@ public class CollectionRecordPo  extends AbstractPo<String> {
     /**
      * 代收记录状态
      */
-    private CollctionResultEnum result;
+    private CollctionResultEnum status;
     /**
      * 客户合约id
      */
