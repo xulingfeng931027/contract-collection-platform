@@ -3,11 +3,10 @@ package com.agree.collectionpay.infrastructure.payRecord.repositoryImpl;
 import com.agree.collectionpay.domain.payRecord.entity.PayRecord;
 import com.agree.collectionpay.domain.payRecord.repository.PayRecordRepository;
 import com.agree.collectionpay.infrastructure.payRecord.mapper.PayRecordMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @author xulingfeng
@@ -35,7 +34,7 @@ public class PayRecordRepositoryImpl implements PayRecordRepository {
      * @return
      */
     @Override
-    public List<PayRecord> queryRecordPage(PayRecord payRecordPo) {
+    public Page<PayRecord> queryRecordPage(PayRecord payRecordPo) {
         return null;
     }
 

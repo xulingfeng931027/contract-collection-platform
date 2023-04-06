@@ -1,7 +1,7 @@
 package com.agree.collectionpay.application.collectionrecord.assembler;
 
-import com.agree.collectionpay.application.collectionInfo.dto.ExecuteCollectionReqDto;
 import com.agree.collectionpay.application.collectionrecord.dto.ModifyCollectionRecordReqDto;
+import com.agree.collectionpay.application.payableInfo.dto.ExecutePayReqDto;
 import com.agree.collectionpay.domain.collectionRecord.entity.CollectionRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -16,7 +16,7 @@ public interface CollectionRecordAssembler {
 
     CollectionRecordAssembler INSTANCE = Mappers.getMapper(CollectionRecordAssembler.class);
 
-    CollectionRecord toEntity(ExecuteCollectionReqDto dto);
+    CollectionRecord toEntity(ExecutePayReqDto dto);
 
 
     CollectionRecord toEntity(ModifyCollectionRecordReqDto dto);

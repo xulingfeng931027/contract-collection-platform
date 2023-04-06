@@ -1,10 +1,9 @@
 package com.agree.contract.domain.valueobject;
 
+import com.agree.common.api.AbstractValueObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * @author xulingfeng
@@ -14,26 +13,22 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Builder
 @AllArgsConstructor
-public class AccountInfo {
+public class AccountInfo extends AbstractValueObject {
     /**
      * 账户id
      */
-    @NotBlank
     private String id;
     /**
      * 账户名
      */
-    @NotBlank
     private String name;
     /**
      * 账号
      */
-    @NotBlank
     private String number;
     /**
      * 开户行
      */
-    @NotBlank
     private String bankName;
 
 

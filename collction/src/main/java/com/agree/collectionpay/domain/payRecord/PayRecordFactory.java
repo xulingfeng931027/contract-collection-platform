@@ -18,7 +18,7 @@ public class PayRecordFactory {
                 .payStatus((PayResultEnum) result.get("payStatus"))
                 .payInfoCode(payableInfo.getPayInfoCode())
                 .userCode(payableInfo.getUserCode())
-                .commercialTenantContract(payableInfo.getCommercialTenantContract())
+                .commercialTenantContractId(payableInfo.getCommercialTenantContract().getId())
                 .customerAccountInfo(payableInfo.getCustomerAccountInfo()).build();
     }
 

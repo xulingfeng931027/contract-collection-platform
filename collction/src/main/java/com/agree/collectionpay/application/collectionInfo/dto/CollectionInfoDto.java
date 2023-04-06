@@ -1,10 +1,8 @@
 package com.agree.collectionpay.application.collectionInfo.dto;
 
-import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
-import com.agree.collectionpay.domain.valueobject.CustomerContract;
 import lombok.Data;
 
-import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
@@ -19,18 +17,17 @@ public class CollectionInfoDto {
     /**
      * 收款金额
      */
+    @NotNull
     private BigDecimal amount;
     /**
      * 客户合约
      */
-    @NotNull
-    @Valid
-    private CustomerContract customerContract;
+    @NotBlank
+    private String customerContractId;
 
     /**
      * 商户合约
      */
-    @NotNull
-    @Valid
-    private CommercialTenantContract commercialTenantContract;
+    @NotBlank
+    private String commercialTenantContractId;
 }

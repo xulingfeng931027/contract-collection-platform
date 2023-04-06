@@ -1,5 +1,6 @@
 package com.agree.contract.domain.valueobject;
 
+import com.agree.common.api.AbstractValueObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class CustomerInfo {
+public class CustomerInfo  extends AbstractValueObject {
 
     /**
      * 名称

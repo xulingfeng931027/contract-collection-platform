@@ -1,8 +1,9 @@
 package com.agree.collectionpay.infrastructure.supportImpl;
 
 
-import com.agree.collectionpay.application.collectionInfo.dto.ExecuteCollectionReqDto;
-import com.agree.collectionpay.application.collectionInfo.support.AccountInfoSupport;
+import com.agree.collectionpay.application.payableInfo.dto.ExecutePayReqDto;
+import com.agree.collectionpay.application.support.AccountInfoSupport;
+import com.agree.collectionpay.domain.valueobject.AccountInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -23,22 +24,22 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
     /**
      * 执行收款
      *
-     * @param executeCollectionReqDto
+     * @param ExecutePayReqDto
      * @return
      */
     @Override
-    public Map<String, Object> executeCollection(ExecuteCollectionReqDto executeCollectionReqDto) {
+    public Map<String, Object> executeCollection(ExecutePayReqDto ExecutePayReqDto) {
         return null;
     }
 
     /**
      * 批量执行收款
      *
-     * @param executeCollectionReqDto
+     * @param ExecutePayReqDto
      * @return
      */
     @Override
-    public boolean executeCollection(List<ExecuteCollectionReqDto> executeCollectionReqDto) {
+    public boolean executeCollection(List<ExecutePayReqDto> ExecutePayReqDto) {
         return false;
     }
 
@@ -63,5 +64,15 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
     @Override
     public void checkAccountInfo(String accountId, String ruleCode) {
 
+    }
+
+    /**
+     * 查询账户信息
+     *
+     * @param accountId
+     */
+    @Override
+    public AccountInfo queryAccountInfo(String accountId) {
+        return null;
     }
 }

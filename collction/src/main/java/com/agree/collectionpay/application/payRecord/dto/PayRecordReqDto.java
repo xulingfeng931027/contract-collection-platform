@@ -1,5 +1,6 @@
 package com.agree.collectionpay.application.payRecord.dto;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
  * @description 缴费记录查询
  */
 @Data
-public class PayRecordReqDto {
+public class PayRecordReqDto extends Page<PayRecordResDto> {
     /**
      * 商户合约id
      */
@@ -28,5 +29,7 @@ public class PayRecordReqDto {
      * 账单时间
      */
     private Date billTime;
+
+
 
 }

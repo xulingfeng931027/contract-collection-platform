@@ -15,12 +15,10 @@ import java.util.List;
 public interface PayRecordAssembler {
 
 
-    PayRecordResDto toResDto(PayRecord payRecord);
+    PayRecordResDto toDto(PayRecord payRecord);
 
 
     PayRecord toEntity(PayRecordReqDto dto);
-
-    PayRecordReqDto toReqDto(PayRecord dto);
 
 
     List<PayRecordResDto> toDto(List<PayRecord> dto);

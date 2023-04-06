@@ -1,12 +1,9 @@
 package com.agree.collectionpay.application.payableInfo.assembly;
 
-import com.agree.collectionpay.application.payRecord.dto.PayRecordResDto;
-import com.agree.collectionpay.application.payRecord.dto.PayableInfoDto;
-import com.agree.collectionpay.domain.payRecord.entity.PayRecord;
+import com.agree.collectionpay.application.payableInfo.dto.PayableInfoReqDto;
+import com.agree.collectionpay.application.payableInfo.dto.PayableInfoResDto;
 import com.agree.collectionpay.domain.payableInfo.entity.PayableInfo;
 import org.mapstruct.Mapper;
-
-import java.util.List;
 
 /**
  * @author xulingfeng
@@ -17,8 +14,8 @@ import java.util.List;
 public interface PayableInfoAssembler {
 
 
-    PayableInfo toEntity(PayableInfoDto dto);
+    PayableInfo toEntity(PayableInfoReqDto dto);
 
 
-    List<PayRecordResDto> toDto(List<PayRecord> dto);
+    PayableInfoResDto toDto(PayableInfo entity);
 }

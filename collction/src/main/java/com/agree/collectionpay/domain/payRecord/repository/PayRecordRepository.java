@@ -1,8 +1,7 @@
 package com.agree.collectionpay.domain.payRecord.repository;
 
 import com.agree.collectionpay.domain.payRecord.entity.PayRecord;
-
-import java.util.List;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 /**
  * @author xulingfeng
@@ -15,6 +14,6 @@ public interface PayRecordRepository {
 
     Integer saveRecord(PayRecord payRecord);
 
-    List<PayRecord> queryRecordPage(PayRecord payRecord);
+    Page<PayRecord> queryRecordPage(PayRecord payRecord);
 
 }

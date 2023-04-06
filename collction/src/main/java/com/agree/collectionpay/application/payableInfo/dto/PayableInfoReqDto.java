@@ -1,9 +1,8 @@
 package com.agree.collectionpay.application.payableInfo.dto;
 
-import com.agree.collectionpay.domain.valueobject.AccountInfo;
-import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,35 +12,36 @@ import java.util.Date;
  * @description 应缴信息
  */
 @Data
-public class PayableInfoDto {
-    private String id;
+public class PayableInfoReqDto {
     /**
      * 收款金额
      */
+    @NotBlank
     private BigDecimal amount;
     /**
      * 用户编号
      */
+    @NotBlank
     private String userCode;
     /**
-     * 用户账户id
+     * 客户账户id
      */
-    private String accountId;
+    @NotBlank
+    private String customerAccountInfoId;
     /**
      * 缴费信息编号
      */
+    @NotBlank
     private String payInfoCode;
     /**
      * 账单时间
      */
+    @NotBlank
     private Date billTime;
     /**
-     * 商户合约
+     * 商户合约id
      */
-    private CommercialTenantContract commercialTenantContract;
-    /**
-     * 客户账户信息
-     */
-    private AccountInfo customerAccountInfo;
+    @NotBlank
+    private String commercialTenantContractId;
 
 }

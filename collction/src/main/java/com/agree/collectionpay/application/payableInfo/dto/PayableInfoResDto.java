@@ -1,4 +1,4 @@
-package com.agree.collectionpay.application.payRecord.dto;
+package com.agree.collectionpay.application.payableInfo.dto;
 
 import com.agree.collectionpay.domain.valueobject.AccountInfo;
 import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
@@ -13,7 +13,9 @@ import java.util.Date;
  * @description 应缴信息
  */
 @Data
-public class PayableInfoDto {
+public class PayableInfoResDto {
+
+    private String id;
     /**
      * 收款金额
      */
@@ -27,7 +29,7 @@ public class PayableInfoDto {
      */
     private String payInfoCode;
     /**
-     * 账单生成时间
+     * 账单时间
      */
     private Date billTime;
     /**
@@ -39,5 +41,15 @@ public class PayableInfoDto {
      */
     private AccountInfo customerAccountInfo;
 
+    /**
+     * 补全缴费信息
+     *
+     * @param commercialTenantContract
+     * @param customerAccountInfo
+     */
+    public void completePayableInfo(CommercialTenantContract commercialTenantContract, AccountInfo customerAccountInfo) {
+        this.commercialTenantContract = commercialTenantContract;
+        this.customerAccountInfo = customerAccountInfo;
+    }
 
 }

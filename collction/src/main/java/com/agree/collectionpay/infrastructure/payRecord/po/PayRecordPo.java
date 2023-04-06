@@ -1,7 +1,6 @@
 package com.agree.collectionpay.infrastructure.payRecord.po;
 
 import com.agree.collectionpay.domain.valueobject.AccountInfo;
-import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
 import com.agree.collectionpay.domain.valueobject.PayResultEnum;
 import com.agree.common.api.AbstractPo;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -39,10 +38,9 @@ public class PayRecordPo extends AbstractPo<String> {
      */
     private String userCode;
     /**
-     * 商户合约
+     * 商户合约id
      */
-    @TableField(typeHandler = FastjsonTypeHandler.class)
-    private CommercialTenantContract commercialTenantContract;
+    private String commercialTenantContractId;
 
     /**
      * 客户账户信息

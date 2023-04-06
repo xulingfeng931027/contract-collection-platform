@@ -1,7 +1,7 @@
 package com.agree.collectionpay.application.collectionInfo.assembler;
 
 import com.agree.collectionpay.application.collectionInfo.dto.CollectionInfoDto;
-import com.agree.collectionpay.application.collectionInfo.dto.ExecuteCollectionReqDto;
+import com.agree.collectionpay.application.payableInfo.dto.ExecutePayReqDto;
 import com.agree.collectionpay.domain.collectionInfo.entity.CollectionInfo;
 import com.agree.collectionpay.domain.collectionRecord.entity.CollectionRecord;
 import org.mapstruct.Mapper;
@@ -20,7 +20,7 @@ public interface CollectionInfoAssembler {
     CollectionInfo toEntity(CollectionInfoDto dto);
     List<CollectionInfo> toEntity(List<CollectionInfoDto> dtos);
 
-    CollectionRecord toEntity(ExecuteCollectionReqDto dto);
+    CollectionRecord toEntity(ExecutePayReqDto dto);
 
 
 }

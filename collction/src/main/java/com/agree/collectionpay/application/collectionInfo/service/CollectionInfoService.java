@@ -3,10 +3,10 @@ package com.agree.collectionpay.application.collectionInfo.service;
 import cn.hutool.core.collection.CollectionUtil;
 import com.agree.collectionpay.application.collectionInfo.assembler.CollectionInfoAssembler;
 import com.agree.collectionpay.application.collectionInfo.dto.CollectionInfoDto;
-import com.agree.collectionpay.application.collectionInfo.dto.ExecuteCollectionReqDto;
-import com.agree.collectionpay.application.collectionInfo.support.AccountInfoSupport;
-import com.agree.collectionpay.application.collectionInfo.support.ContractSupport;
 import com.agree.collectionpay.application.collectionrecord.service.CollectionRecordService;
+import com.agree.collectionpay.application.payableInfo.dto.ExecutePayReqDto;
+import com.agree.collectionpay.application.support.AccountInfoSupport;
+import com.agree.collectionpay.application.support.ContractSupport;
 import com.agree.collectionpay.application.support.SMSNotifySupport;
 import com.agree.collectionpay.domain.collectionInfo.entity.CollectionInfo;
 import com.agree.collectionpay.domain.collectionRecord.entity.CollectionRecord;
@@ -61,8 +61,8 @@ public class CollectionInfoService {
      * @param receiveAccountId   收款账户id
      * @return
      */
-    private static List<ExecuteCollectionReqDto> assemblyCollectionParamsReq(List<CollectionInfo> collectionInfoList, String receiveAccountId) {
-        return collectionInfoList.stream().map(e -> ExecuteCollectionReqDto.builder().payAccountInfoId(e.getCustomerContract().getCustomerAccountInfo().getId()).receiveAccountInfoId(receiveAccountId).amount(e.getAmount()).build()).collect(Collectors.toList());
+    private static List<ExecutePayReqDto> assemblyCollectionParamsReq(List<CollectionInfo> collectionInfoList, String receiveAccountId) {
+        return collectionInfoList.stream().map(e -> ExecutePayReqDto.builder().payAccountInfoId(e.getCustomerContract().getCustomerAccountInfo().getId()).receiveAccountInfoId(receiveAccountId).amount(e.getAmount()).build()).collect(Collectors.toList());
     }
 
     /**
@@ -153,9 +153,9 @@ public class CollectionInfoService {
         } else {
             receiveAccountId = settlementAccountId;
         }
-        List<ExecuteCollectionReqDto> executeCollectionReqDtos = assemblyCollectionParamsReq(collectionInfoList, receiveAccountId);
+        List<ExecutePayReqDto> ExecutePayReqDtos = assemblyCollectionParamsReq(collectionInfoList, receiveAccountId);
         //调用核心接口代收
-        accountInfoSupport.executeCollection(executeCollectionReqDtos);
+        accountInfoSupport.executeCollection(ExecutePayReqDtos);
         collectionInfoList.forEach(e -> {
             CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(e, receiveAccountId);
             //todo 优化为批量插入
@@ -169,6 +169,6 @@ public class CollectionInfoService {
      * @return
      */
     private String getCommercialTenantContractId(List<CollectionInfoDto> collectionInfoDtoList) {
-        return collectionInfoDtoList.get(0).getCommercialTenantContract().getId();
+        return collectionInfoDtoList.get(0).getCommercialTenantContractId();
     }
 }

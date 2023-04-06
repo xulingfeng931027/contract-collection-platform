@@ -4,11 +4,12 @@ import com.agree.collectionpay.domain.valueobject.CollctionResultEnum;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author xulingfeng
  * @date 2023/3/19
- * @description 代收信息
+ * @description 核心系统回调代收服务参数
  */
 @Data
 public class ModifyCollectionRecordReqDto {
@@ -36,6 +37,6 @@ public class ModifyCollectionRecordReqDto {
     /**
      * 0 成功  1 失败
      */
-    @NotBlank
+    @NotNull
     private CollctionResultEnum status;
 }

@@ -1,8 +1,8 @@
 package com.agree.collectionpay.domain.collectionRecord.service;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.agree.collectionpay.application.collectionInfo.support.AccountInfoSupport;
-import com.agree.collectionpay.application.collectionInfo.support.ContractSupport;
+import com.agree.collectionpay.application.support.AccountInfoSupport;
+import com.agree.collectionpay.application.support.ContractSupport;
 import com.agree.collectionpay.domain.collectionInfo.entity.CollectionInfo;
 import com.agree.collectionpay.domain.valueobject.CustomerContract;
 import org.springframework.beans.factory.annotation.Autowired;

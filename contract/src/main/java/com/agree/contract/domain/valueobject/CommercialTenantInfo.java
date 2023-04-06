@@ -1,5 +1,6 @@
 package com.agree.contract.domain.valueobject;
 
+import com.agree.common.api.AbstractValueObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,8 +21,7 @@ import org.apache.kafka.common.errors.ApiException;
 @Getter
 @Builder
 @AllArgsConstructor
-//@Value
-public class CommercialTenantInfo {
+public class CommercialTenantInfo  extends AbstractValueObject {
     /**
      * 商户名称
      */

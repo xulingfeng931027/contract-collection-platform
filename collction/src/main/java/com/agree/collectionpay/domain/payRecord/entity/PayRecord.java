@@ -1,7 +1,6 @@
 package com.agree.collectionpay.domain.payRecord.entity;
 
 import com.agree.collectionpay.domain.valueobject.AccountInfo;
-import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
 import com.agree.collectionpay.domain.valueobject.PayResultEnum;
 import com.agree.common.api.AbstractIdObject;
 import lombok.Getter;
@@ -35,9 +34,9 @@ public class PayRecord extends AbstractIdObject<String> {
      */
     private String userCode;
     /**
-     * 商户合约
+     * 商户合约id
      */
-    private CommercialTenantContract commercialTenantContract;
+    private String commercialTenantContractId;
 
     /**
      * 客户账户信息

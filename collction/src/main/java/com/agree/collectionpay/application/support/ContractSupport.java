@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author xulingfeng
  * @className NumberSupport
- * @description 防腐层  调用账户系统
+ * @description 防腐层  调用签约服务
  * @date 2022/9/11
  */
 public interface ContractSupport {

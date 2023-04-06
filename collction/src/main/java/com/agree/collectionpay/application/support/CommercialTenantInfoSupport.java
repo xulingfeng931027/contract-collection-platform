@@ -11,10 +11,10 @@ import com.agree.collectionpay.domain.valueobject.CommercialTenantInfo;
 public interface CommercialTenantInfoSupport {
     /**
      * 查询商户信息
-     *
+     * @param legalPersonId 商户法人证件号
      * @return
      */
-    CommercialTenantInfo queryBCommercialTenantInfo(String idCard);
+    CommercialTenantInfo queryBCommercialTenantInfo(String legalPersonId);
 
 
 }

@@ -30,7 +30,7 @@ public class PayableInfo extends AbstractIdObject<String> {
      */
     private String payInfoCode;
     /**
-     * 账单生成时间
+     * 账单时间
      */
     private Date billTime;
     /**
@@ -41,5 +41,15 @@ public class PayableInfo extends AbstractIdObject<String> {
      * 客户账户信息
      */
     private AccountInfo customerAccountInfo;
+
+    /**
+     * 补全缴费信息
+     * @param commercialTenantContract
+     * @param customerAccountInfo
+     */
+    public void completePayableInfo(CommercialTenantContract commercialTenantContract, AccountInfo customerAccountInfo) {
+        this.commercialTenantContract = commercialTenantContract;
+        this.customerAccountInfo = customerAccountInfo;
+    }
 
 }

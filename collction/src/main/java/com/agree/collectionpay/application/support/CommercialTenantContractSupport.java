@@ -1,4 +1,4 @@
-package com.agree.collectionpay.application.payRecord.support;
+package com.agree.collectionpay.application.support;
 
 
 import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
