@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 /**
  * @author xulingfeng
  * @className BillingRecordRepositoryImpl
- * @description 计费记录仓储接口实现
+ * @description 客户合约申请单仓储接口实现
  * @date 2023/2
  */
 @Repository
@@ -26,9 +26,9 @@ public class CustomerContractApplicationFormRepositoryImpl implements CustomerCo
 
 
     /**
-     * 保存合约申请单
+     * 保存客户合约申请单
      *
-     * @param form
+     * @param form 客户合约申请单
      * @return 主键
      */
     @Override

@@ -30,7 +30,9 @@ public class AccountInfo extends AbstractValueObject {
      * 开户行
      */
     private String bankName;
-
-
+    /**
+     * 账户状态
+     */
+    private AccountStatusEnum status;
 }
 

@@ -1,6 +1,7 @@
 package com.agree.contract.domain.customercontract.entity;
 
 import com.agree.common.api.AbstractIdObject;
+import com.agree.common.exception.ApplicationException;
 import com.agree.contract.domain.valueobject.AccountInfo;
 import com.agree.contract.domain.valueobject.AgencyTypeEnum;
 import com.agree.contract.domain.valueobject.ContractStatusEnum;
@@ -30,6 +31,11 @@ public class CustomerContract extends AbstractIdObject<String> {
      * 签约模式 本行/他行卡
      */
     private AgencyTypeEnum agencyType;
+
+    /**
+     * 关联的商户合约id
+     */
+    private String commercialTenantContractId;
     /**
      * 客户信息
      */
@@ -41,15 +47,16 @@ public class CustomerContract extends AbstractIdObject<String> {
     private AccountInfo customerAccountInfo;
 
     /**
-     * 关联的商户合约id
-     */
-    private String commercialTenantContractId;
-
-    /**
      * 客户合约校验
      */
-    public boolean statusIsValid() {
-        return status == ContractStatusEnum.VALID;
+    public void checkStatusIfValid() {
+        if (status != ContractStatusEnum.VALID) {
+            throw new ApplicationException("合约状态不合法");
+        }
     }
+
+//    public boolean statusIsValid() {
+//        return status == ContractStatusEnum.VALID;
+//    }
 
 }

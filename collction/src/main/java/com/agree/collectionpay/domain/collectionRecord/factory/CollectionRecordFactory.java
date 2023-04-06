@@ -24,8 +24,8 @@ public class CollectionRecordFactory {
     public static CollectionRecord generateCollectionRecordForBatch(CollectionInfo collectionInfo, String receiveAccountInfoId, Map<String, Object> result) {
         return CollectionRecord.builder()
                 .amount(collectionInfo.getAmount())
-                .commercialTenantContract(collectionInfo.getCommercialTenantContract())
-                .customerContract(collectionInfo.getCustomerContract())
+                .commercialTenantContractId(collectionInfo.getCommercialTenantContract().getId())
+                .customerContractId(collectionInfo.getCustomerContract().getId())
                 .createTime(new Date())
                 .status(((CollctionResultEnum) result.get("result")))
                 .accountSerialNumber(result.get("accountSerialNumber").toString())
@@ -41,8 +41,8 @@ public class CollectionRecordFactory {
     public static CollectionRecord generateCollectionRecordForBatch(CollectionInfo collectionInfo, String receiveAccountId) {
         return CollectionRecord.builder()
                 .amount(collectionInfo.getAmount())
-                .commercialTenantContract(collectionInfo.getCommercialTenantContract())
-                .customerContract(collectionInfo.getCustomerContract())
+                .commercialTenantContractId(collectionInfo.getCommercialTenantContract().getId())
+                .customerContractId(collectionInfo.getCustomerContract().getId())
                 .createTime(new Date())
                 .status(CollctionResultEnum.PROCESSING)
                 .build();

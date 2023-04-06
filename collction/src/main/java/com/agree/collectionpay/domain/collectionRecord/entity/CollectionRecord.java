@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * @author xulingfeng
  * @date 2023/3/19
- * @description 代收信息
+ * @description 代收记录
  */
 @Data
 @SuperBuilder
@@ -24,29 +24,28 @@ public class CollectionRecord extends AbstractIdObject<String> {
      */
     private BigDecimal amount;
     /**
-     * 代收记录状态
+     * 批次号
      */
-    private CollctionResultEnum status;
-    /**
-     * 客户合约
-     */
-    private CustomerContract customerContract;
-
-    /**
-     * 商户合约
-     */
-    private CommercialTenantContract commercialTenantContract;
-    /**
-     * 创建时间
-     */
-    private Date createTime;
+    private String batchNumber;
     /**
      * 代收流水号
      */
     private String accountSerialNumber;
     /**
-     * 批次号
+     * 代收记录状态
      */
-    private String batchNumber;
+    private CollctionResultEnum status;
+    /**
+     * 客户合约ID
+     */
+    private String customerContractId;
+    /**
+     * 商户合约ID
+     */
+    private String commercialTenantContractId;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
 }

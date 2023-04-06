@@ -27,6 +27,10 @@ public class CommercialTenantContract extends AbstractValueObject {
      */
     private ContractStatusEnum status;
     /**
+     * 手续费
+     */
+    private BigDecimal commissionCharge;
+    /**
      * 收费种类
      */
     private ChargeTypeEnum chargeType;
@@ -35,10 +39,6 @@ public class CommercialTenantContract extends AbstractValueObject {
      * 资金归集模式
      */
     private FundGatherModeEnum fundGatherMode;
-    /**
-     * 手续费
-     */
-    private BigDecimal commissionCharge;
 
     /**
      * 结算账户信息

@@ -40,15 +40,23 @@ public class CommercialTenantContract extends AbstractIdObject<String> {
      * 收费种类  todo 具有明显的业务意义，应该用枚举
      */
     private ChargeTypeEnum chargeType;
+    /**
+     * 手续费
+     */
+    private BigDecimal commissionCharge;
+    /**
+     * 扣费方式
+     */
+    private ChargeMethodEnum chargeMethod;
 
     /**
      * 资金归集模式
      */
     private FundGatherModeEnum fundGatherMode;
     /**
-     * 手续费
+     * 商户信息
      */
-    private BigDecimal commissionCharge;
+    private CommercialTenantInfo commercialTenantInfo;
     /**
      * 结算账户信息
      */
@@ -58,10 +66,6 @@ public class CommercialTenantContract extends AbstractIdObject<String> {
      * 暂存账户信息
      */
     private AccountInfo stagingAccountInfo;
-    /**
-     * 商户信息
-     */
-    private CommercialTenantInfo commercialTenantInfo;
 
     public void checkStatusIfValid() {
         if (status != ContractStatusEnum.VALID) {

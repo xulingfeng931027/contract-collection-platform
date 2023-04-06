@@ -4,6 +4,7 @@ import com.agree.common.api.AbstractValueObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import org.apache.kafka.common.errors.ApiException;
 
 /**
  * @author xulingfeng
@@ -35,8 +36,18 @@ public class CustomerInfo  extends AbstractValueObject {
      * 证件号
      */
     private String idCard;
-    public boolean statusIsNormal() {
-        return status == CustomerStatusEnum.NORMAL;
+
+    /**
+     * 判定客户状态是否正常
+     */
+    public void checkStatusIfNormal() {
+        if (status != CustomerStatusEnum.NORMAL) {
+            throw new ApiException("客户状态不正常");
+        }
     }
+
+//    public boolean statusIsNormal() {
+//        return status == CustomerStatusEnum.NORMAL;
+//    }
 }
 

@@ -6,8 +6,6 @@ import com.agree.contract.domain.valueobject.AgencyTypeEnum;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.math.BigDecimal;
-
 /**
  * @author xulingfeng
  * @date 2023/3/17
@@ -24,20 +22,16 @@ public class CustomerContract extends AbstractValueObject {
      * 合约状态
      */
     private ContractStatusEnum status;
-    /**
-     * 收费种类
-     */
-    private String chargeType;
 
     /**
      * 签约模式 本行/他行卡
      */
     private AgencyTypeEnum agencyType;
 
-    /**
-     * 手续费
-     */
-    private BigDecimal commissionCharge;
+//    /**
+//     * 手续费
+//     */
+//    private BigDecimal commissionCharge;
 
     /**
      * 客户账户信息

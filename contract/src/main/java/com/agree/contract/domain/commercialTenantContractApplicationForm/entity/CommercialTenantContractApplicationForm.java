@@ -42,6 +42,10 @@ public class CommercialTenantContractApplicationForm extends AbstractIdObject<St
      */
     private ChargeMethodEnum chargeMethod;
     /**
+     * 商户信息
+     */
+    private CommercialTenantInfo commercialTenantInfo;
+    /**
      * 结算账户信息
      */
     private AccountInfo settlementAccountInfo;
@@ -50,10 +54,6 @@ public class CommercialTenantContractApplicationForm extends AbstractIdObject<St
      * 暂存账户信息
      */
     private AccountInfo stagingAccountInfo;
-    /**
-     * 商户信息
-     */
-    private CommercialTenantInfo commercialTenantInfo;
 
     /**
      * 校验商户合约申请单
@@ -66,7 +66,7 @@ public class CommercialTenantContractApplicationForm extends AbstractIdObject<St
     }
 
     /**
-     * 校验扣费方式合法
+     * 校验扣费方式是否合法
      */
     private void checkChargeMethodIfValid() {
         // todo 校验逻辑
@@ -75,7 +75,7 @@ public class CommercialTenantContractApplicationForm extends AbstractIdObject<St
     }
 
     /**
-     * 校验扣费类型合法
+     * 校验收费种类是否合法
      */
     private void checkChargeTypeIfValid() {
         // todo 校验逻辑

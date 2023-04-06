@@ -17,22 +17,23 @@ import java.util.Date;
 @Getter
 @SuperBuilder
 public class PayableInfo extends AbstractIdObject<String> {
+
     /**
-     * 收款金额
-     */
-    private BigDecimal amount;
-    /**
-     * 用户编号
-     */
-    private String userCode;
-    /**
-     * 缴费信息编号
+     * 应缴信息编号
      */
     private String payInfoCode;
+    /**
+     * 缴费金额
+     */
+    private BigDecimal amount;
     /**
      * 账单时间
      */
     private Date billTime;
+    /**
+     * 用户编号
+     */
+    private String userCode;
     /**
      * 商户合约
      */

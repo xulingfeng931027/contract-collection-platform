@@ -47,6 +47,7 @@ public class CommercialTenantInfo  extends AbstractValueObject {
     /**
      * 校验商户状态 fixme 不当命名
      */
+    @Deprecated
     public boolean checkStatus() {
         return status == CommercialTenantStatusEnum.NORMAL;
     }

@@ -10,6 +10,7 @@ import lombok.Data;
  * @version $Id: ApplicationException.java,v 0.1 2018年01月10日 下午 16:35 $Exp
  */
 @Data
+//public class ApplicationException extends Exception {
 public class ApplicationException extends RuntimeException {
 
     /**

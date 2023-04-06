@@ -22,9 +22,13 @@ public class PayRecord extends AbstractIdObject<String> {
      */
     private BigDecimal amount;
     /**
-     * 缴费状态
+     * 缴费记录状态
      */
     private PayResultEnum payStatus;
+    /**
+     * 账单时间
+     */
+    private Date billTime;
     /**
      * 缴费信息编号
      */
@@ -34,18 +38,18 @@ public class PayRecord extends AbstractIdObject<String> {
      */
     private String userCode;
     /**
-     * 商户合约id
+     * 商户合约ID
      */
     private String commercialTenantContractId;
+//    /**
+//     * 商户合约
+//     */
+//    private CommercialTenantContract commercialTenantContract;
 
     /**
      * 客户账户信息
      */
     private AccountInfo customerAccountInfo;
-    /**
-     * 账单时间
-     */
-    private Date billTime;
 
 
 }

@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 public class CustomerContractApplicationForm extends AbstractIdObject<String> {
+
     /**
      * 合约申请单状态
      */
@@ -26,11 +27,6 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
      */
     private AgencyTypeEnum agencyTypeEnum;
     /**
-     * 客户账户信息
-     */
-    private AccountInfo customerAccountInfo;
-
-    /**
      * 关联的商户合约id
      */
     private String commercialTenantContractId;
@@ -38,4 +34,9 @@ public class CustomerContractApplicationForm extends AbstractIdObject<String> {
      * 客户信息
      */
     private CustomerInfo customerInfo;
+    /**
+     * 客户账户信息
+     */
+    private AccountInfo customerAccountInfo;
+
 }

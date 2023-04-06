@@ -38,9 +38,14 @@ public class PayRecordPo extends AbstractPo<String> {
      */
     private String userCode;
     /**
-     * 商户合约id
+     * 商户合约ID
      */
     private String commercialTenantContractId;
+//    /**
+//     * 商户合约
+//     */
+//    @TableField(typeHandler = FastjsonTypeHandler.class)
+//    private CommercialTenantContract commercialTenantContract;
 
     /**
      * 客户账户信息
