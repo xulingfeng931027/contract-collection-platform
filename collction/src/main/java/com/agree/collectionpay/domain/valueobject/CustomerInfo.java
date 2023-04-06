@@ -1,4 +1,4 @@
-package com.agree.contract.domain.valueobject;
+package com.agree.collectionpay.domain.valueobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,15 +27,19 @@ public class CustomerInfo {
      */
     private CustomerStatusEnum status;
     /**
-     * 用户编码
+     * 用户编号
      */
-    private String userCode;
+    private String customerCode;
     /**
      * 证件号
      */
     private String idCard;
-    public boolean statusIsNormal() {
-        return status == CustomerStatusEnum.NORMAL;
+    public void checkStatusIsNormal() {
+        if(status != CustomerStatusEnum.NORMAL){
+            throw new RuntimeException("客户状态不正常");
+        }
     }
+
+
 }
 
