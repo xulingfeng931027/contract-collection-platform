@@ -1,14 +1,14 @@
-package com.agree.collection.domain.payRecord.po;
+package com.agree.collection.infrastructure.payRecord.po;
 
-import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
-import com.agree.pay.domain.valueobject.PayResultEnum;
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.agree.collection.domain.valueobject.AccountInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
+import com.agree.collection.domain.valueobject.PayResultEnum;
+import com.agree.common.api.AbstractPo;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -20,12 +20,8 @@ import java.util.Date;
  */
 @Data
 @TableName(value = "pay_record", autoResultMap = true)
-public class PayRecordPo {
-    /**
-     * 合约id
-     */
-    @TableId(type = IdType.ASSIGN_ID)
-    private String id;
+@SuperBuilder
+public class PayRecordPo extends AbstractPo<String> {
     /**
      * 缴费金额
      */

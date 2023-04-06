@@ -80,7 +80,7 @@ public class CollectionInfoService {
             throw new ApplicationException("商户合约不存在");
         }
         //校验商户合约
-        commercialTenantContract.statusIfValid();
+        commercialTenantContract.checkStatusIfNormal();
         collectionInfo.completeCommercialTenantContract(commercialTenantContract);
         //校验商户账户信息
         String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
@@ -136,7 +136,7 @@ public class CollectionInfoService {
             throw new ApplicationException("商户合约不存在");
         }
         //校验商户合约
-        commercialTenantContract.statusIfValid();
+        commercialTenantContract.checkStatusIfNormal();
         collectionInfoList.forEach(e -> e.completeCommercialTenantContract(commercialTenantContract));
         //校验商户账户信息
         String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();

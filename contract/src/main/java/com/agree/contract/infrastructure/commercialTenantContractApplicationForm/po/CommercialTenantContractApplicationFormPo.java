@@ -1,16 +1,15 @@
 package com.agree.contract.infrastructure.commercialTenantContractApplicationForm.po;
 
+import com.agree.common.api.AbstractPo;
 import com.agree.contract.domain.valueobject.*;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
-import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
 
 /**
  * @author xulingfeng
@@ -19,12 +18,8 @@ import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
  */
 @Data
 @TableName(value = "commercial_tenant_contract_application_form", autoResultMap = true)
-public class CommercialTenantContractApplicationFormPo {
-    /**
-     * 合约id
-     */
-    @TableId(type = ASSIGN_ID)
-    private String id;
+@SuperBuilder
+public class CommercialTenantContractApplicationFormPo extends AbstractPo<String> {
     /**
      * 合约申请单状态
      */

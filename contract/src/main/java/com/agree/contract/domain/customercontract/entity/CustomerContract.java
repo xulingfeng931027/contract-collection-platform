@@ -1,7 +1,10 @@
 package com.agree.contract.domain.customercontract.entity;
 
 import com.agree.common.api.AbstractIdObject;
-import com.agree.contract.domain.valueobject.*;
+import com.agree.contract.domain.valueobject.AccountInfo;
+import com.agree.contract.domain.valueobject.AgencyTypeEnum;
+import com.agree.contract.domain.valueobject.ContractStatusEnum;
+import com.agree.contract.domain.valueobject.CustomerInfo;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -13,18 +16,15 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 public class CustomerContract extends AbstractIdObject<String> {
+
     /**
-     * 合约类型
+     * 申请单id
      */
-    private String type;
+    private String applicationFormId;
     /**
      * 合约状态
      */
     private ContractStatusEnum status;
-    /**
-     * 收费种类
-     */
-    private ChargeTypeEnum chargeType;
 
     /**
      * 签约模式 本行/他行卡
@@ -39,11 +39,6 @@ public class CustomerContract extends AbstractIdObject<String> {
      * 客户账户信息
      */
     private AccountInfo customerAccountInfo;
-
-    /**
-     * 用户编号
-     */
-    private String customerCode;
 
     /**
      * 关联的商户合约id

@@ -1,11 +1,12 @@
 package com.agree.contract.infrastructure.commercialTenantContract.po;
 
+import com.agree.common.api.AbstractPo;
 import com.agree.contract.domain.valueobject.*;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,12 +18,8 @@ import java.util.Date;
  */
 @Data
 @TableName("commercial_tenant_contract")
-public class CommercialTenantContractPo {
-    /**
-     * 合约id
-     */
-    @TableId
-    private String id;
+@SuperBuilder
+public class CommercialTenantContractPo extends AbstractPo<String> {
     /**
      * 合约申请单id
      */

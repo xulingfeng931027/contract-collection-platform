@@ -1,6 +1,6 @@
 package com.agree.collection.infrastructure.payRecord.mapper;
 
-import com.agree.pay.infrastructure.payRecord.po.PayRecordPo;
+import com.agree.collection.infrastructure.payRecord.po.PayRecordPo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

@@ -1,4 +1,4 @@
-package com.agree.collection.domain.payableInfo.enumTypes;
+package com.agree.collection.domain.valueobject;
 
 /**
  * @author xulingfeng

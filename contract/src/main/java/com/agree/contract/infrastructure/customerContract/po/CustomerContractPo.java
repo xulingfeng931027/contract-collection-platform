@@ -1,13 +1,15 @@
 package com.agree.contract.infrastructure.customerContract.po;
 
-import com.agree.contract.domain.valueobject.*;
+import com.agree.common.api.AbstractPo;
+import com.agree.contract.domain.valueobject.AccountInfo;
+import com.agree.contract.domain.valueobject.AgencyTypeEnum;
+import com.agree.contract.domain.valueobject.ContractStatusEnum;
+import com.agree.contract.domain.valueobject.CustomerInfo;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import lombok.Data;
-
-import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author xulingfeng
@@ -16,25 +18,16 @@ import static com.baomidou.mybatisplus.annotation.IdType.ASSIGN_ID;
  */
 @Data
 @TableName(value = "customer_contract", autoResultMap = true)
-public class CustomerContractPo {
+@SuperBuilder
+public class CustomerContractPo extends AbstractPo<String> {
     /**
-     * 合约id
+     * 申请单id
      */
-    @TableId(type = ASSIGN_ID)
-    private String id;
-    /**
-     * 合约类型
-     */
-    private String type;
+    private String applicationFormId;
     /**
      * 合约状态
      */
     private ContractStatusEnum status;
-    /**
-     * 收费种类
-     */
-    private ChargeTypeEnum chargeType;
-
     /**
      * 签约模式 本行/他行卡
      */

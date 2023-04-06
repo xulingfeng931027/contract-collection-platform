@@ -2,7 +2,7 @@ package com.agree.collection.application.payRecord.assembler;
 
 import com.agree.collection.application.payRecord.dto.PayRecordReqDto;
 import com.agree.collection.application.payRecord.dto.PayRecordResDto;
-import com.agree.pay.domain.payRecord.entity.PayRecord;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
 import org.mapstruct.Mapper;
 
 import java.util.List;

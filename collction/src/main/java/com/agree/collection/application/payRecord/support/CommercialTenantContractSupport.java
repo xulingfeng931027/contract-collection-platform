@@ -1,6 +1,7 @@
 package com.agree.collection.application.payRecord.support;
 
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
+
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
 
 /**
  * @author xulingfeng
@@ -11,7 +12,7 @@ import com.agree.pay.domain.valueobject.CommercialTenantContract;
 public interface CommercialTenantContractSupport {
 
         /**
-        * 查询合同信息
+        * 查询商户合约
         *
         * @return
         */

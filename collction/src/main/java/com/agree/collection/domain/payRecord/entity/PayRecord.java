@@ -1,9 +1,9 @@
 package com.agree.collection.domain.payRecord.entity;
 
+import com.agree.collection.domain.valueobject.AccountInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
+import com.agree.collection.domain.valueobject.PayResultEnum;
 import com.agree.common.api.AbstractIdObject;
-import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
-import com.agree.pay.domain.valueobject.PayResultEnum;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

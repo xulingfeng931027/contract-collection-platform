@@ -1,8 +1,8 @@
 package com.agree.collection.infrastructure.payRecord.repositoryImpl;
 
-import com.agree.pay.domain.payRecord.entity.PayRecord;
-import com.agree.pay.domain.payRecord.repository.PayRecordRepository;
-import com.agree.pay.infrastructure.payRecord.mapper.PayRecordMapper;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
+import com.agree.collection.domain.payRecord.repository.PayRecordRepository;
+import com.agree.collection.infrastructure.payRecord.mapper.PayRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

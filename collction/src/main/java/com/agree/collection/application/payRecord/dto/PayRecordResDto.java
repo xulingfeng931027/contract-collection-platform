@@ -1,6 +1,6 @@
 package com.agree.collection.application.payRecord.dto;
 
-import com.agree.pay.domain.valueobject.PayResultEnum;
+import com.agree.collection.domain.valueobject.PayResultEnum;
 import lombok.Data;
 
 import java.math.BigDecimal;

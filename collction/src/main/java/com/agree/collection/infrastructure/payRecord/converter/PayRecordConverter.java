@@ -1,7 +1,7 @@
 package com.agree.collection.infrastructure.payRecord.converter;
 
-import com.agree.pay.domain.payRecord.entity.PayRecord;
-import com.agree.pay.infrastructure.payRecord.po.PayRecordPo;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
+import com.agree.collection.infrastructure.payRecord.po.PayRecordPo;
 import org.mapstruct.Mapper;
 
 /**

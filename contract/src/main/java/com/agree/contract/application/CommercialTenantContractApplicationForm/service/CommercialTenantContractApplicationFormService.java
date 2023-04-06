@@ -62,7 +62,7 @@ public class CommercialTenantContractApplicationFormService {
             throw new ApplicationException(ContractAppCode.REPEAT_AGENCY);
         }
         //查询商户信息
-        CommercialTenantInfo commercialTenantInfo = commercialTenantInfoSupport.queryBusinessInfo(commercialTenantContractApplicationFormReqDto.getCommercialTenantInfo().getLegalPersonNumber());
+        CommercialTenantInfo commercialTenantInfo = commercialTenantInfoSupport.queryBusinessInfo(commercialTenantContractApplicationFormReqDto.getLegalPersonNumber());
         //校验商户信息
         commercialTenantInfo.checkStatusIfNormal();
         //填充商户信息到实体

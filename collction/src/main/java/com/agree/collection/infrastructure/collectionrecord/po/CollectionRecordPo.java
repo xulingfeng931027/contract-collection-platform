@@ -1,9 +1,10 @@
 package com.agree.collection.infrastructure.collectionrecord.po;
 
 import com.agree.collection.domain.valueobject.CollctionResultEnum;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.agree.common.api.AbstractPo;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,12 +15,9 @@ import java.util.Date;
  * @description 代收信息
  */
 @TableName(value = "collection_record", autoResultMap = true)
-public class CollectionRecordPo {
-    /**
-     * id
-     */
-    @TableId(type = IdType.ASSIGN_ID)
-    private String id;
+@Data
+@SuperBuilder
+public class CollectionRecordPo  extends AbstractPo<String> {
     /**
      * 收款金额
      */

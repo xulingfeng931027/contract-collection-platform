@@ -1,11 +1,11 @@
 package com.agree.collection.interfaces.web;
 
+import com.agree.collection.application.payRecord.assembler.PayRecordAssembler;
+import com.agree.collection.application.payRecord.dto.PayRecordReqDto;
+import com.agree.collection.application.payRecord.dto.PayRecordResDto;
+import com.agree.collection.application.payRecord.service.PayRecordService;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
 import com.agree.common.api.Response;
-import com.agree.pay.application.payRecord.assembler.PayRecordAssembler;
-import com.agree.pay.application.payRecord.dto.PayRecordReqDto;
-import com.agree.pay.application.payRecord.dto.PayRecordResDto;
-import com.agree.pay.application.payRecord.service.PayRecordService;
-import com.agree.pay.domain.payRecord.entity.PayRecord;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

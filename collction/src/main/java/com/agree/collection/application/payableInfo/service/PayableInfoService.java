@@ -8,13 +8,13 @@ import com.agree.collection.application.payRecord.support.CommercialTenantContra
 import com.agree.collection.application.payableInfo.assembly.PayableInfoAssembler;
 import com.agree.collection.application.payableInfo.dto.ExecutePayReqDto;
 import com.agree.collection.application.payableInfo.support.PayableInfoSupport;
+import com.agree.collection.domain.payRecord.PayRecordFactory;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
+import com.agree.collection.domain.payRecord.repository.PayRecordRepository;
+import com.agree.collection.domain.payableInfo.entity.PayableInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
+import com.agree.collection.domain.valueobject.PayResultEnum;
 import com.agree.common.mq.BaseMqMessage;
-import com.agree.pay.domain.payRecord.PayRecordFactory;
-import com.agree.pay.domain.payRecord.entity.PayRecord;
-import com.agree.pay.domain.payRecord.repository.PayRecordRepository;
-import com.agree.pay.domain.payableInfo.entity.PayableInfo;
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
-import com.agree.pay.domain.valueobject.PayResultEnum;
 import com.alibaba.fastjson2.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -67,11 +67,11 @@ public class PayableInfoService {
         CommercialTenantContract commercialTenantContract = contractSupport.queryContract(payableInfoDto.getCommercialTenantContract().getId(), payableInfoDto.getUserCode());
         commercialTenantContract.checkStatusIfNormal();
         //校验商户账户信息
-        accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettleAccountInfo().getId(), CHECK_ROLE_CODE);
+        accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettlementAccountInfo().getId(), CHECK_ROLE_CODE);
         //校验客户账户信息
         accountInfoSupport.checkAccountInfo(payableInfo.getCustomerAccountInfo().getId(), CHECK_ROLE_CODE);
         //执行缴费
-        Map<String, Object> result = accountInfoSupport.executeCollection(ExecutePayReqDto.builder().receiveAccountInfoId(commercialTenantContract.getSettleAccountInfo().getId()).payAccountInfoId(payableInfoDto.getCustomerAccountInfo().getId()).amount(payableInfoDto.getAmount()).build());
+        Map<String, Object> result = accountInfoSupport.executeCollection(ExecutePayReqDto.builder().receiveAccountInfoId(commercialTenantContract.getSettlementAccountInfo().getId()).payAccountInfoId(payableInfoDto.getCustomerAccountInfo().getId()).amount(payableInfoDto.getAmount()).build());
         //生成缴费记录
         PayRecord payRecord = PayRecordFactory.toEntity(payableInfo, result);
         //保存记录

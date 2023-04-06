@@ -1,7 +1,7 @@
 package com.agree.collection.application.payableInfo.dto;
 
-import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
+import com.agree.collection.domain.valueobject.AccountInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
 import lombok.Data;
 
 import java.math.BigDecimal;

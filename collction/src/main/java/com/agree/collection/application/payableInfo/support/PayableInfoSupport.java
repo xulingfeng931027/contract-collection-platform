@@ -1,6 +1,7 @@
 package com.agree.collection.application.payableInfo.support;
 
-import com.agree.pay.domain.payableInfo.entity.PayableInfo;
+
+import com.agree.collection.domain.payableInfo.entity.PayableInfo;
 
 /**
  * @author xulingfeng

@@ -1,7 +1,6 @@
 package com.agree.contract.infrastructure.customerContractApplicationForm.po;
 
 import com.agree.common.api.AbstractPo;
-import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.valueobject.AccountInfo;
 import com.agree.contract.domain.valueobject.AgencyTypeEnum;
 import com.agree.contract.domain.valueobject.ChargeTypeEnum;
@@ -26,7 +25,7 @@ public class CustomerContractApplicationFormPo extends AbstractPo<String> {
      */
     private ContractApplicationFormStatusEnum status;
     /**
-     * 收费种类  todo 具有明显的业务意义，应该用枚举
+     * 收费种类
      */
     private ChargeTypeEnum chargeType;
     /**
@@ -37,14 +36,11 @@ public class CustomerContractApplicationFormPo extends AbstractPo<String> {
      * 客户账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-
     private AccountInfo customerAccountInfo;
 
     /**
-     * 商户合约
+     * 商户合约id
      */
-    @TableField(typeHandler = FastjsonTypeHandler.class)
-
-    private CommercialTenantContract commercialTenantContract;
+    private String commercialTenantContractId;
 
 }

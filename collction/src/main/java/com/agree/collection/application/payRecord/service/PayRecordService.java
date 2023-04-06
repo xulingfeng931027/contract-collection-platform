@@ -5,9 +5,9 @@ import com.agree.collection.application.payRecord.dto.PayRecordReqDto;
 import com.agree.collection.application.payRecord.support.AccountInfoSupport;
 import com.agree.collection.application.payRecord.support.CommercialTenantContractSupport;
 import com.agree.collection.application.payableInfo.assembly.PayableInfoAssembler;
+import com.agree.collection.domain.payRecord.entity.PayRecord;
+import com.agree.collection.domain.payRecord.repository.PayRecordRepository;
 import com.agree.common.mq.BaseMqMessage;
-import com.agree.pay.domain.payRecord.entity.PayRecord;
-import com.agree.pay.domain.payRecord.repository.PayRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 

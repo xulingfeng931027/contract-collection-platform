@@ -1,8 +1,8 @@
 package com.agree.collection.domain.payableInfo.entity;
 
+import com.agree.collection.domain.valueobject.AccountInfo;
+import com.agree.collection.domain.valueobject.CommercialTenantContract;
 import com.agree.common.api.AbstractIdObject;
-import com.agree.pay.domain.valueobject.AccountInfo;
-import com.agree.pay.domain.valueobject.CommercialTenantContract;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

@@ -51,7 +51,7 @@ public class CommercialTenantContract extends AbstractValueObject {
     private AccountInfo stagingAccountInfo;
 
     /**
-     * 判定商户合约状态是否正常
+     * 校验商户合约状态是否正常
      */
     public void checkStatusIfNormal() {
         if (status != ContractStatusEnum.VALID) {

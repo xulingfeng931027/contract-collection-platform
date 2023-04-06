@@ -50,9 +50,9 @@ public class CommercialTenantContractApplicationFormReqDto {
     @NotBlank
     private String tempAccountInfoId;
     /**
-     * 商户信息
+     * 商户法人证件号
      */
     @NotBlank
-    private String commercialTenantInfoId;
+    private String legalPersonNumber;
 
 }
