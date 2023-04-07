@@ -1,6 +1,6 @@
 package com.agree.common.api;
 
-import com.agree.common.exception.AppCode;
+import com.agree.common.exception.BaseErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,9 +24,9 @@ public class Response<T> {
         this.code = code;
     }
 
-    public Response(AppCode appCode) {
-        this.code = appCode.getCode();
-        this.msg = appCode.getDescription();
+    public Response(BaseErrorCode baseErrorCode) {
+        this.code = baseErrorCode.getCode();
+        this.msg = baseErrorCode.getDescription();
     }
 
     public static Response<?> ok() {

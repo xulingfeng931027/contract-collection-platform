@@ -1,5 +1,6 @@
 package com.agree.collectionpay.domain.valueobject;
 
+import com.agree.collectionpay.domain.exception.PayException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,9 +35,10 @@ public class CustomerInfo {
      * 证件号
      */
     private String idCard;
+
     public void checkStatusIsNormal() {
         if(status != CustomerStatusEnum.NORMAL){
-            throw new RuntimeException("客户状态不正常");
+            throw new PayException("客户状态不正常");
         }
     }
 

@@ -8,7 +8,7 @@ package com.agree.common.exception;
  * @date 2023/2
  *
  */
-public interface AppCode {
+public interface BaseErrorCode {
 
     /**
      * @return 错误码

@@ -1,7 +1,7 @@
 package com.agree.contract.domain.commercialTenantContract.entity;
 
 import com.agree.common.api.AbstractIdObject;
-import com.agree.common.exception.ApplicationException;
+import com.agree.common.exception.BaseException;
 import com.agree.contract.domain.valueobject.*;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
@@ -69,7 +69,7 @@ public class CommercialTenantContract extends AbstractIdObject<String> {
 
     public void checkStatusIfValid() {
         if (status != ContractStatusEnum.VALID) {
-            throw new ApplicationException("合约状态不合法");
+            throw new BaseException("合约状态不合法");
         }
     }
 }

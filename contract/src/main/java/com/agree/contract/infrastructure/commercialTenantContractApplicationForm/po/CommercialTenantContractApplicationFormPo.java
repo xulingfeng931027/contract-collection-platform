@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -20,6 +19,8 @@ import java.util.Date;
 @TableName(value = "commercial_tenant_contract_application_form", autoResultMap = true)
 @SuperBuilder
 public class CommercialTenantContractApplicationFormPo extends AbstractPo<String> {
+
+    private String id;
     /**
      * 合约申请单状态
      */
@@ -58,7 +59,4 @@ public class CommercialTenantContractApplicationFormPo extends AbstractPo<String
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private CommercialTenantInfo commercialTenantInfo;
 
-    private Date createTime;
-
-    private Date updateTime;
 }

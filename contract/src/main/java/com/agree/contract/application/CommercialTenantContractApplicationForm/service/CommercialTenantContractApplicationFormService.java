@@ -1,6 +1,6 @@
 package com.agree.contract.application.CommercialTenantContractApplicationForm.service;
 
-import com.agree.common.exception.ApplicationException;
+import com.agree.common.exception.BaseException;
 import com.agree.contract.application.CommercialTenantContract.service.CommercialTenantContractService;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.assembler.CommercialTenantContractApplicationFormAssembler;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormReqDto;
@@ -8,12 +8,12 @@ import com.agree.contract.application.CommercialTenantContractApplicationForm.su
 import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CommercialTenantInfoSupport;
 import com.agree.contract.application.CommercialTenantContractApplicationForm.support.CustomerInfoSupport;
 import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
-import com.agree.contract.domain.commercialTenantContract.factory.CommercialTenantFactory;
 import com.agree.contract.domain.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
 import com.agree.contract.domain.commercialTenantContractApplicationForm.repository.CommercialTenantContractApplicationFormRepository;
+import com.agree.contract.domain.exception.ContractErrorCode;
+import com.agree.contract.domain.factory.CommercialTenantFactory;
 import com.agree.contract.domain.valueobject.CommercialTenantInfo;
 import com.agree.contract.domain.valueobject.FundGatherModeEnum;
-import com.agree.contract.infrastructure.exception.ContractAppCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,7 +59,7 @@ public class CommercialTenantContractApplicationFormService {
         //todo 1.按照用户故事地图的命令进行流程编排
         //校验重复签约
         if (commercialTenantContractService.queryContract(applicationForm.getCommercialTenantInfo().getLegalPersonNumber(), commercialTenantContractApplicationFormReqDto.getChargeType()) != null) {
-            throw new ApplicationException(ContractAppCode.REPEAT_AGENCY);
+            throw new BaseException(ContractErrorCode.REPEAT_AGENCY);
         }
         //查询商户信息
         CommercialTenantInfo commercialTenantInfo = commercialTenantInfoSupport.queryBusinessInfo(commercialTenantContractApplicationFormReqDto.getLegalPersonNumber());

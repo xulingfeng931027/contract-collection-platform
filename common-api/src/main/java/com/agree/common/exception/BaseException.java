@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @Data
 //public class ApplicationException extends Exception {
-public class ApplicationException extends RuntimeException {
+public class BaseException extends RuntimeException {
 
     /**
      * 错误码 必填
@@ -24,19 +24,19 @@ public class ApplicationException extends RuntimeException {
 
 
     /**
-     * 创建一个<code>BasePromotionException</code>
+     * 创建一个<code>BaseException</code>
      *
-     * @param appCode 错误码
+     * @param baseErrorCode 错误码
      */
-    public ApplicationException(AppCode appCode) {
-        this.code = appCode.getCode();
-        this.description = appCode.getDescription();
+    public BaseException(BaseErrorCode baseErrorCode) {
+        this.code = baseErrorCode.getCode();
+        this.description = baseErrorCode.getDescription();
     }
 
     /**
-     * 创建一个<code>BasePromotionException</code>
+     * 创建一个<code>BaseException</code>
      */
-    public ApplicationException(String description) {
+    public BaseException(String description) {
         this.description = description;
         this.code = DEFAULT_CODE;
     }

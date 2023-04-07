@@ -1,4 +1,4 @@
-package com.agree.contract.domain.commercialTenantContract.factory;
+package com.agree.contract.domain.factory;
 
 import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;

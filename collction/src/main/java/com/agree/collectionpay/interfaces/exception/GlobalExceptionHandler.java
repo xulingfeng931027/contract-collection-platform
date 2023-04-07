@@ -1,8 +1,7 @@
 package com.agree.collectionpay.interfaces.exception;
 
-import com.agree.collectionpay.infrastructure.exception.BaseAppCode;
 import com.agree.common.api.Response;
-import com.agree.common.exception.ApplicationException;
+import com.agree.common.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -27,8 +26,8 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(ApplicationException.class)
-    public Response applicationException(ApplicationException e) {
+    @ExceptionHandler(BaseException.class)
+    public Response applicationException(BaseException e) {
         log.info("applicationException: [{},{}]", e.getCode(), e.getDescription(), e);
         log.info("stackTrace: {}", e.getStackTrace()[0]);
         return new Response<>(e.getDescription(), e.getCode());
@@ -46,21 +45,17 @@ public class GlobalExceptionHandler {
     public Response baseErrorHandler(HttpServletRequest req, HttpServletResponse rsp, Exception e) {
         log.error("baseErrorHandler [ HOST:{} URL:{} STATUS:{}] ", req.getRemoteHost(), req.getRequestURL(), rsp.getStatus(), e);
         rsp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        return new Response(BaseAppCode.UNKNOWN_EXCEPTION);
+        return new Response("UNKNOWN_EXCEPTION", -1);
     }
 
     /**
-     * 未知错误(未捕获的异常情况)，状态500
-     *
-     * @param req
-     * @param e
-     * @return
+     * 入参校验失败
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Response paramErrorHandler(HttpServletRequest req, HttpServletResponse rsp, Exception e) {
+    public Response paramErrorHandler(HttpServletRequest req, HttpServletResponse rsp, MethodArgumentNotValidException e) {
         log.error("baseErrorHandler [ HOST:{} URL:{} STATUS:{}] ", req.getRemoteHost(), req.getRequestURL(), rsp.getStatus(), e);
         rsp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        Response response = new Response(BaseAppCode.PARAM_CHECK_FAILED);
+        Response response = new Response(e.getMessage(), -1);
         response.setMsg(e.getMessage());
         return response;
     }

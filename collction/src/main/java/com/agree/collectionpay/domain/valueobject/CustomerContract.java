@@ -1,7 +1,7 @@
 package com.agree.collectionpay.domain.valueobject;
 
+import com.agree.collectionpay.domain.exception.CollectionException;
 import com.agree.common.api.AbstractValueObject;
-import com.agree.common.exception.ApplicationException;
 import com.agree.contract.domain.valueobject.AgencyTypeEnum;
 import lombok.Builder;
 import lombok.Getter;
@@ -44,7 +44,7 @@ public class CustomerContract extends AbstractValueObject {
     public void statusIfValid() {
         //校验合约状态
         if (status != ContractStatusEnum.VALID) {
-            throw new ApplicationException("客户合约状态不正常，无法进行代收");
+            throw new CollectionException("客户合约状态不正常，无法进行代收");
         }
     }
 

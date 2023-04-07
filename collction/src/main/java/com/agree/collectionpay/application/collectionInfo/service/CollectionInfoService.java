@@ -12,10 +12,10 @@ import com.agree.collectionpay.domain.collectionInfo.entity.CollectionInfo;
 import com.agree.collectionpay.domain.collectionRecord.entity.CollectionRecord;
 import com.agree.collectionpay.domain.collectionRecord.factory.CollectionRecordFactory;
 import com.agree.collectionpay.domain.collectionRecord.service.ContractAndAccountInfoDomainService;
+import com.agree.collectionpay.domain.exception.CollectionException;
 import com.agree.collectionpay.domain.valueobject.CollctionResultEnum;
 import com.agree.collectionpay.domain.valueobject.CommercialTenantContract;
 import com.agree.collectionpay.infrastructure.mq.KafkaProducer;
-import com.agree.common.exception.ApplicationException;
 import com.alibaba.fastjson2.JSON;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
@@ -77,7 +77,7 @@ public class CollectionInfoService {
         //查询商户合约
         CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(commercialTenantContractId);
         if (commercialTenantContract == null) {
-            throw new ApplicationException("商户合约不存在");
+            throw new CollectionException("商户合约不存在");
         }
         //校验商户合约
         commercialTenantContract.checkStatusIfNormal();
@@ -133,7 +133,7 @@ public class CollectionInfoService {
         //查询商户合约
         CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(contractId);
         if (commercialTenantContract == null) {
-            throw new ApplicationException("商户合约不存在");
+            throw new CollectionException("商户合约不存在");
         }
         //校验商户合约
         commercialTenantContract.checkStatusIfNormal();

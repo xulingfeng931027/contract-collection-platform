@@ -1,10 +1,10 @@
 package com.agree.collectionpay.domain.valueobject;
 
+import com.agree.contract.domain.exception.CommercialTenantContractException;
 import com.agree.contract.domain.valueobject.CommercialTenantStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.apache.kafka.common.errors.ApiException;
 
 /**
  * //todo   值对象 需要单独定义值对象的dto 不要直接引用领域层的值对象 在应用层不分实体和值对象 全都是dto???  dto需要分req和res
@@ -68,7 +68,7 @@ public class CommercialTenantInfo {
         // 如果方法执行的结果可以影响到后续流程执行 就返回boolean值或者其他类型的结果
         // 1-3 此处方法名也可以叫做 statusIsNormal  更贴近业务含义 这里我们只关心具体的状态 不关心状态变化的原因和规则。
         if (status != CommercialTenantStatusEnum.NORMAL) {
-            throw new ApiException("商户状态不正常");
+            throw new CommercialTenantContractException("商户状态不正常");
         }
     }
 }
