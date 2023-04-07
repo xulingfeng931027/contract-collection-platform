@@ -6,7 +6,7 @@
 属性namespace：空间名，主要在代理中使用。这个namespace是唯一的。
 这里把mapper标签和接口联系在一起了，namespace=写接口路径，映射文件要和接口在同一目录下
  -->
-<mapper namespace="com.agree.pay.infrastructure.payRecord.mapper.PayRecordMapper">
+<mapper namespace="com.agree.collectionpay.infrastructure.payRecord.mapper.PayRecordMapper">
     <!-- =============映射关系标签=============
     属性type:写po类的包名类名，由于之前定义了po类的别名，这里就写这个别名
     属性id：是这个映射标签的唯一标识
@@ -15,10 +15,14 @@
     属性property：是po类里所指定的列名
     通常会在原列名后面加下划线，这是固定的，这里就是id后面_
      -->
-    <resultMap type="com.agree.collection.domain.payRecord.payRecord.po.PayRecordPo" id="userinfoMap">
+    <resultMap type="com.agree.collectionpay.infrastructure.payRecord.po.PayRecordPo" id="userinfoMap">
         <id column="id_" property="id"/>
         <result column="amount" property="amount"/>
-        <result column="result" property="result"/>
+        <result column="pay_status" property="payStatus"/>
         <result column="pay_info_code" property="payInfoCode"/>
+        <result column="user_code" property="userCode"/>
+        <result column="commercial_tenantContract_id" property="commercialTenantContractId"/>
+        <result column="customer_accountinfo" property="customerAccountInfo"/>
+        <result column="bill_time" property="billTime"/>
     </resultMap>
 </mapper>

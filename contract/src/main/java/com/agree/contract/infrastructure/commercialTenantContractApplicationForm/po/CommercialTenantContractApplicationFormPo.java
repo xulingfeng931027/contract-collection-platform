@@ -19,8 +19,6 @@ import java.math.BigDecimal;
 @TableName(value = "commercial_tenant_contract_application_form", autoResultMap = true)
 @SuperBuilder
 public class CommercialTenantContractApplicationFormPo extends AbstractPo<String> {
-
-    private String id;
     /**
      * 合约申请单状态
      */
