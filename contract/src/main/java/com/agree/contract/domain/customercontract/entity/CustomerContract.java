@@ -17,6 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 public class CustomerContract extends AbstractIdObject<String> {
+    String id;
 
     /**
      * 申请单id
@@ -54,9 +55,5 @@ public class CustomerContract extends AbstractIdObject<String> {
             throw new BaseException("合约状态不合法");
         }
     }
-
-//    public boolean statusIsValid() {
-//        return status == ContractStatusEnum.VALID;
-//    }
 
 }

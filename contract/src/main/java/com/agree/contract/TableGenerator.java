@@ -1,6 +1,6 @@
 package com.agree.contract;
 
-import com.agree.contract.domain.customercontract.entity.CustomerContract;
+import com.agree.contract.infrastructure.commercialTenantContractApplicationForm.po.CommercialTenantContractApplicationFormPo;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -87,7 +87,7 @@ public class TableGenerator {
             conn = DriverManager.getConnection(dbUrl, username, password);
 
             // generate and execute create table SQL statement
-            String sql = generateTableSql(CustomerContract.class, "customer_contract");
+            String sql = generateTableSql(CommercialTenantContractApplicationFormPo.class, "commercial_tenant_contract_application_form");
             System.out.print(sql);
             createTable(conn, "1", sql);
         } catch (SQLException e) {

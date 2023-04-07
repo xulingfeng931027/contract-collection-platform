@@ -17,6 +17,12 @@ import java.math.BigDecimal;
  * todo 实体类中不要使用@data注解 实体所有的充血方法都应当是他业务职责的体现.避免用户直接使用set方法来修改业务属性.
  * 如果需要修改相关属性,根据实际的业务需求来封装明确的充血方法
  * todo 定义各种数据模型的基类 ???
+ * 商户合约聚合,它包含了
+ *   商户合约(实体) -> @see 类名 单独的表
+ *   商户信息(值对象)-> 序列化字段存储 没有单独的表
+ *   结算账户信息(值对象) -> 同上
+ *   暂存账户信息(值对象) -> 同上
+ *   商户合约实体是他的聚合根
  */
 @Getter
 @SuperBuilder
@@ -26,7 +32,7 @@ public class CommercialTenantContractApplicationForm extends AbstractIdObject<St
      */
     private ContractApplicationFormStatusEnum status;
     /**
-     * 收费种类
+     * 收费种类 todo 有明显业务含义的常量都应该定义成枚举
      */
     private ChargeTypeEnum chargeType;
 

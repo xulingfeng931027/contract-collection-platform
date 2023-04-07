@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
  */
 @Service
 public class ContractAndAccountInfoDomainService {
+    /**
+     * 核心系统规则校验码
+     */
     private static final String ACCOUNT_RULE_CODE = "XXX";
     /**
      * 签约服务防腐层

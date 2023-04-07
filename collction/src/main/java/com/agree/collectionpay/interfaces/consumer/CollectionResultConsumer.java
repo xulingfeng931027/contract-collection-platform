@@ -21,7 +21,7 @@ public class CollectionResultConsumer {
     @Autowired
     private CollectionRecordService collectionRecordService;
 
-    @KafkaListener(topics = {"collectionResult"})
+    @KafkaListener(topics = {"BATCH_COLLECTION_RESULT"})
     public void handMessage(ConsumerRecord<String, String> record) {
         String msg = record.value();
         List<ModifyCollectionRecordReqDto> list = JSON.parseArray(msg, ModifyCollectionRecordReqDto.class);
