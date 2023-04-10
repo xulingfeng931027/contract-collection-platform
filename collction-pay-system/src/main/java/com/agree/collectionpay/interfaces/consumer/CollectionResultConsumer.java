@@ -1,7 +1,7 @@
 package com.agree.collectionpay.interfaces.consumer;
 
 import com.agree.collectionpay.application.collectionrecord.dto.ModifyCollectionRecordReqDto;
-import com.agree.collectionpay.application.collectionrecord.service.CollectionRecordService;
+import com.agree.collectionpay.application.modulecollection.collectionrecord.service.CollectionRecordService;
 import com.alibaba.fastjson2.JSON;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

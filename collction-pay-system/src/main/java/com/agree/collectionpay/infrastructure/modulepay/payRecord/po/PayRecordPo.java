@@ -1,6 +1,7 @@
 package com.agree.collectionpay.infrastructure.modulepay.payRecord.po;
 
 import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
+import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
 import com.agree.common.api.AbstractPo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

@@ -1,6 +1,6 @@
 package com.agree.collectionpay.domain.modulepay.payRecord.entity;
 
-import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
+import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
 import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
 import com.agree.common.api.AbstractAggregationObject;
 import lombok.Getter;

@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 /**
  * @author xulingfeng
- * @date 2023/3/22
  * @description 签约和账户信息领域服务
  */
 @Service
@@ -37,7 +36,7 @@ public class ContractAndAccountInfoDomainService {
      */
     @Transactional(rollbackFor = Exception.class)
     public void checkCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
-        // 获取参数中的客户合约id列表
+        // 获取请求参数中的客户合约id列表
         List<String> customerContractIdList = collectionInfoList.stream().map(e -> e.getCustomerContract().getId())
                 .collect(Collectors.toList());
 
@@ -50,16 +49,16 @@ public class ContractAndAccountInfoDomainService {
         accountInfoSupport.checkAccountInfo(customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
                 .collect(Collectors.toList()));
 
-        // 完善（代收信息在中的）客户合约
+        // 完善代收信息中的客户合约属性
         completeCustomerContract(collectionInfoList, customerContractList);
 
     }
 
     /**
-     * 完善（代收信息在中的）客户合约
+     * 完善代收信息中的客户合约属性
      *
-     * @param collectionInfoList
-     * @param customerContractList
+     * @param collectionInfoList   代收信息列表
+     * @param customerContractList 客户合约列表
      */
     private void completeCustomerContract(List<CollectionInfo> collectionInfoList, List<CustomerContract> customerContractList) {
         Map<String, CustomerContract> map = customerContractList.stream().collect(Collectors.toMap(CustomerContract::getId, e -> e));

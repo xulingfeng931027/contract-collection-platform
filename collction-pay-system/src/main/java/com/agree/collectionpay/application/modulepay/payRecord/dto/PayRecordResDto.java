@@ -1,5 +1,6 @@
 package com.agree.collectionpay.application.modulepay.payRecord.dto;
 
+import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
 import lombok.Data;
 
 import java.math.BigDecimal;

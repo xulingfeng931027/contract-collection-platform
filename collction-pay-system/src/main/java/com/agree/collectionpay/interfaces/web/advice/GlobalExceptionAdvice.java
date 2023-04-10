@@ -1,4 +1,4 @@
-package com.agree.contract.interfaces.handler;
+package com.agree.collectionpay.interfaces.web.advice;
 
 import com.agree.common.exception.BaseException;
 import com.agree.common.web.Response;
