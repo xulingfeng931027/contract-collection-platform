@@ -21,7 +21,7 @@ public class BaseException extends RuntimeException {
 
 
     /**
-     * 创建一个<code>BaseException</code>
+     * 创建一个异常
      *
      * @param baseErrorCode 错误码
      */
@@ -31,7 +31,7 @@ public class BaseException extends RuntimeException {
     }
 
     /**
-     * 创建一个<code>BaseException</code>
+     * 创建一个异常
      */
     public BaseException(String description) {
         this.description = description;

@@ -1,7 +1,6 @@
 package com.agree.common.mq;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -77,9 +76,8 @@ public class BaseMqMessage {
      * 设置数据对象
      *
      * @param dataObj 数据对象
-     * @throws JsonProcessingException
      */
-    public void setData(Object dataObj) throws Exception {
+    public void setData(Object dataObj) {
         if (dataObj != null) {
             if (dataObj instanceof String) {
                 data = (String) dataObj;
@@ -107,26 +105,6 @@ public class BaseMqMessage {
         } else {
             return JSONObject.parseObject(this.data, clazz);
         }
-    }
-
-    /**
-     * 从消息体中获取消息Map对象
-     *
-     * @return 消息Map对象
-     * @throws Exception
-     */
-    public Map<String, Object> getDataMap() throws Exception {
-        return this.getData(HashMap.class);
-    }
-
-    /**
-     * 从消息体中获取消息字符串
-     *
-     * @return 消息字符串
-     * @throws Exception
-     */
-    public String getDataString() throws Exception {
-        return this.getData(String.class);
     }
 
     /**
