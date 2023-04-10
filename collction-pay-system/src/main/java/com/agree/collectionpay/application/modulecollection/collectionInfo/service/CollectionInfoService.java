@@ -138,10 +138,10 @@ public class CollectionInfoService {
         collectionInfoList.forEach(e -> e.completeCommercialTenantContract(commercialTenantContract));
         //校验商户账户信息
         String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
-        accountInfoSupport.checkAccountInfo(settlementAccountId, ACCOUNT_RULE_CODE);
+        accountInfoSupport.checkAccountInfo(settlementAccountId);
         String stagingAccountInfoId = commercialTenantContract.getStagingAccountInfo().getId();
         if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
-            accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId(), ACCOUNT_RULE_CODE);
+            accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
         //todo 此处使用了领域服务  查询并校验客户合约
         contractAndAccountInfoDomainService.checkCustomerContractAndCustomerAccountInfo(collectionInfoList);
@@ -157,7 +157,7 @@ public class CollectionInfoService {
         collectionInfoList.forEach(e -> {
             CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(e, receiveAccountId);
             //todo 优化为批量插入
-            collectionRecordService.save(collectionRecord);
+            collectionRecordRepository.saveRecord(collectionRecord);
         });
     }
 

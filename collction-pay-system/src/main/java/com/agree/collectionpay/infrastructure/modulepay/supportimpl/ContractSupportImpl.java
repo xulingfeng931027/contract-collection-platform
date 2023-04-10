@@ -1,12 +1,14 @@
-package com.agree.collectionpay.infrastructure.supportImpl;
+package com.agree.collectionpay.infrastructure.modulepay.supportimpl;
+
 
 import com.agree.collectionpay.application.modulepay.support.ContractSupport;
 import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantContract;
 
 /**
  * @author xulingfeng
- * @date 2023/4/8
- * @description
+ * @className NumberSupport
+ * @description 防腐层  调用签约服务
+ * @date 2022/9/11
  */
 public class ContractSupportImpl implements ContractSupport {
     /**
@@ -18,5 +20,4 @@ public class ContractSupportImpl implements ContractSupport {
     public CommercialTenantContract queryCommercialTenantContract(String contractId) {
         return null;
     }
-
 }

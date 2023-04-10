@@ -1,8 +1,9 @@
-package com.agree.collectionpay.domain.modulecollection.valueobject;
+package com.agree.collectionpay.domain.modulepay.valueobject;
 
-import com.agree.collectionpay.domain.modulecollection.exception.CollectionException;
+import com.agree.collectionpay.domain.modulepay.exception.PayException;
 import com.agree.common.api.AbstractValueObject;
 import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.FundGatherModeEnum;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -54,14 +55,7 @@ public class CommercialTenantContract extends AbstractValueObject {
      */
     public void checkStatusIfNormal() {
         if (status != ContractStatusEnum.VALID) {
-            throw new CollectionException("商户合约状态不正常");
+            throw new PayException("商户合约状态不正常");
         }
-    }
-
-    /**
-     * 判定是否是归总归集方式
-     */
-    public boolean fundGatherModeIsSum() {
-        return fundGatherMode == FundGatherModeEnum.SUM;
     }
 }

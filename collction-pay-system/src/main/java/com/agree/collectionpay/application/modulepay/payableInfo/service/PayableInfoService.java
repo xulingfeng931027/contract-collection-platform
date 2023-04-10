@@ -6,17 +6,16 @@ import com.agree.collectionpay.application.modulepay.payRecord.dto.PayRecordResD
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.ExecutePayReqDto;
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.PayableInfoReqDto;
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.PayableInfoResDto;
-import com.agree.collectionpay.application.modulepay.support.CommercialTenantContractSupport;
+import com.agree.collectionpay.application.modulepay.support.AccountInfoSupport;
+import com.agree.collectionpay.application.modulepay.support.ContractSupport;
 import com.agree.collectionpay.application.modulepay.support.PayableInfoSupport;
-import com.agree.collectionpay.domain.modulecollection.support.AccountInfoSupport;
-import com.agree.collectionpay.domain.modulecollection.support.ContractSupport;
 import com.agree.collectionpay.domain.modulepay.payRecord.PayRecordFactory;
 import com.agree.collectionpay.domain.modulepay.payRecord.entity.PayRecord;
 import com.agree.collectionpay.domain.modulepay.payRecord.repository.PayRecordRepository;
 import com.agree.collectionpay.domain.modulepay.entity.PayableInfo;
-import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
-import com.agree.collectionpay.domain.modulecollection.valueobject.CommercialTenantContract;
-import com.agree.collectionpay.domain.modulecollection.valueobject.PayResultEnum;
+import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
+import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantContract;
+import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
 import com.agree.common.mq.BaseMqMessage;
 import com.alibaba.fastjson2.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +65,7 @@ public class PayableInfoService {
     public PayRecordResDto singlePay(PayableInfoReqDto payableInfoDto) {
         PayableInfo payableInfo = payableInfoAssembler.toEntity(payableInfoDto);
         //查询商户合约
-        CommercialTenantContract commercialTenantContract = contractSupport.queryContract(payableInfoDto.getCommercialTenantContractId(), payableInfoDto.getUserCode());
+        CommercialTenantContract commercialTenantContract = contractSupport.queryCommercialTenantContract(payableInfoDto.getCommercialTenantContractId());
         //校验商户合约状态
         commercialTenantContract.checkStatusIfNormal();
         //校验商户账户信息

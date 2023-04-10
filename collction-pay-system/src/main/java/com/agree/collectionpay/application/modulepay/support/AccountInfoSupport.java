@@ -1,7 +1,7 @@
 package com.agree.collectionpay.application.modulepay.support;
 
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.ExecutePayReqDto;
-import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
+import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -20,28 +20,18 @@ public interface AccountInfoSupport {
      */
     Map<String, Object> executeCollection(ExecutePayReqDto ExecutePayReqDto);
 
-    /**
-     * 批量执行收款
-     *
-     * @return
-     */
-    boolean executeCollection(List<ExecutePayReqDto> ExecutePayReqDto);
-
-    List<String> checkAccountInfo(List<String> accountId, String ruleCode);
 
     /**
      * 单个校验账户信息
      *
      * @param accountId
-     * @param ruleCode
      */
-    void checkAccountInfo(String accountId, String ruleCode);
+    void checkAccountInfo(String accountId);
 
     /**
      * 单个校验账户信息
      *
      * @param accountId
-     * @param ruleCode
      */
     AccountInfo queryAccountInfo(String accountId);
 }

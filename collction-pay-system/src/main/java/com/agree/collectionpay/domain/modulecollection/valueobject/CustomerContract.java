@@ -28,11 +28,6 @@ public class CustomerContract extends AbstractValueObject {
      */
     private AgencyTypeEnum agencyType;
 
-//    /**
-//     * 手续费
-//     */
-//    private BigDecimal commissionCharge;
-
     /**
      * 客户账户信息
      */

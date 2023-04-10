@@ -1,4 +1,4 @@
-package com.agree.collectionpay.domain.modulecollection.valueobject;
+package com.agree.collectionpay.domain.modulepay.valueobject;
 
 /**
  * @author xulingfeng

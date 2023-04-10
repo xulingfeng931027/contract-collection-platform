@@ -2,7 +2,7 @@ package com.agree.collectionpay.domain.modulepay.payRecord;
 
 import com.agree.collectionpay.domain.modulepay.payRecord.entity.PayRecord;
 import com.agree.collectionpay.domain.modulepay.entity.PayableInfo;
-import com.agree.collectionpay.domain.modulecollection.valueobject.PayResultEnum;
+import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
 
 import java.util.Map;
 

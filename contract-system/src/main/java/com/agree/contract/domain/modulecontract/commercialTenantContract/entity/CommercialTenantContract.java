@@ -62,4 +62,5 @@ public class CommercialTenantContract extends AbstractAggregationObject<String> 
             throw new BaseException("商户合约状态无效");
         }
     }
+
 }

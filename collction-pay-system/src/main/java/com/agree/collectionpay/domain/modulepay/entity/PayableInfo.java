@@ -1,7 +1,7 @@
 package com.agree.collectionpay.domain.modulepay.entity;
 
-import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
-import com.agree.collectionpay.domain.modulecollection.valueobject.CommercialTenantContract;
+import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
+import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantContract;
 import com.agree.common.api.AbstractAggregationObject;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
