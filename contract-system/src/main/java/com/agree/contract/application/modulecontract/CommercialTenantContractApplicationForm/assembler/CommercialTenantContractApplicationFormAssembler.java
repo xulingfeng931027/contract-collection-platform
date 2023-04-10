@@ -1,6 +1,7 @@
 package com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.assembler;
 
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormReqDto;
+import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormResDto;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
 import org.mapstruct.Mapper;
 
@@ -15,9 +16,13 @@ import org.mapstruct.Mapper;
  */
 @Mapper(componentModel = "spring")//todo 此处使用spring模式 后续使用可以直接注入
 public interface CommercialTenantContractApplicationFormAssembler {
-
+    /**
+     * 将dto转为实体
+     */
     CommercialTenantContractApplicationForm toEntity(CommercialTenantContractApplicationFormReqDto contractContractDto);
-
-    CommercialTenantContractApplicationFormReqDto toDto(CommercialTenantContractApplicationForm contractDto);
+    /**
+     * 将实体转为dto
+     */
+    CommercialTenantContractApplicationFormResDto toDto(CommercialTenantContractApplicationForm contractDto);
 
 }

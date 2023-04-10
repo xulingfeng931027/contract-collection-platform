@@ -9,7 +9,7 @@ import org.apache.kafka.common.errors.ApiException;
 /**
  * @author xulingfeng
  * @date 2023/3/17
- * @description 账户信息
+ * @description 客户信息
  */
 @Getter
 @Builder

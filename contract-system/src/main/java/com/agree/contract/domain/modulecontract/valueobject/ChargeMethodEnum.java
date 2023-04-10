@@ -7,7 +7,6 @@ import lombok.Getter;
  * @date 2023/3/26
  * @description 扣费方式
  */
-@Getter
 public enum ChargeMethodEnum {
     /**
      * 全额收费

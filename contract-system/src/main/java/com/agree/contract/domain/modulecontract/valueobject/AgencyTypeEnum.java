@@ -9,19 +9,11 @@ public enum AgencyTypeEnum {
     /**
      * 本行卡
      */
-    LOCAL_CARD(1),
+    LOCAL_CARD,
     /**
      * 他行卡
      */
-    OTHER_CARD(2);
+    OTHER_CARD,
 
-    private Integer code;
 
-    AgencyTypeEnum(Integer code) {
-        this.code = code;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
 }

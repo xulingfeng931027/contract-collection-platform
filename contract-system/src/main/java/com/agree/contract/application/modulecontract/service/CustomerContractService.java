@@ -1,4 +1,4 @@
-package com.agree.contract.application.modulecontract.customerContract.service;
+package com.agree.contract.application.modulecontract.service;
 
 import com.agree.contract.application.modulecontract.support.AccountInfoSupport;
 import com.agree.contract.application.modulecontract.support.CommercialTenantInfoSupport;

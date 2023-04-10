@@ -6,5 +6,12 @@ package com.agree.contract.domain.modulecontract.valueobject;
  * @date 2022/9/11
  */
 public enum ContractStatusEnum {
-    VALID, INVALID;
+    /**
+     * 有效
+     */
+    VALID,
+    /**
+     * 无效
+     */
+    INVALID;
 }
