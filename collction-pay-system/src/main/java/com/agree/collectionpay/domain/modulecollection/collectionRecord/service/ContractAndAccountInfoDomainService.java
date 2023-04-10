@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
  */
 @Service
 public class ContractAndAccountInfoDomainService {
-    private static final String ACCOUNT_RULE_CODE = "XXX";
     /**
      * 签约服务防腐层
      */
