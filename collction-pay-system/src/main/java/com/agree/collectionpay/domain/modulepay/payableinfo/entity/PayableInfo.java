@@ -1,4 +1,4 @@
-package com.agree.collectionpay.domain.modulepay.entity;
+package com.agree.collectionpay.domain.modulepay.payableinfo.entity;
 
 import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
 import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantContract;

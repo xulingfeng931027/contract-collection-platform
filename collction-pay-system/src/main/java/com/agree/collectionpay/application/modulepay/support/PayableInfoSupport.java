@@ -1,7 +1,7 @@
 package com.agree.collectionpay.application.modulepay.support;
 
 
-import com.agree.collectionpay.domain.modulepay.entity.PayableInfo;
+import com.agree.collectionpay.domain.modulepay.payableinfo.entity.PayableInfo;
 
 /**
  * @author xulingfeng

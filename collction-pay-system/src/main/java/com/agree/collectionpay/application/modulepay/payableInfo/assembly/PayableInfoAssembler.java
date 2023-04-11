@@ -2,7 +2,7 @@ package com.agree.collectionpay.application.modulepay.payableInfo.assembly;
 
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.PayableInfoReqDto;
 import com.agree.collectionpay.application.modulepay.payableInfo.dto.PayableInfoResDto;
-import com.agree.collectionpay.domain.modulepay.entity.PayableInfo;
+import com.agree.collectionpay.domain.modulepay.payableinfo.entity.PayableInfo;
 import org.mapstruct.Mapper;
 
 /**

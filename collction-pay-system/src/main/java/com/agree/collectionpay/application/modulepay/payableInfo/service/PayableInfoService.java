@@ -12,7 +12,7 @@ import com.agree.collectionpay.application.modulepay.support.PayableInfoSupport;
 import com.agree.collectionpay.domain.modulepay.payRecord.PayRecordFactory;
 import com.agree.collectionpay.domain.modulepay.payRecord.entity.PayRecord;
 import com.agree.collectionpay.domain.modulepay.payRecord.repository.PayRecordRepository;
-import com.agree.collectionpay.domain.modulepay.entity.PayableInfo;
+import com.agree.collectionpay.domain.modulepay.payableinfo.entity.PayableInfo;
 import com.agree.collectionpay.domain.modulepay.valueobject.AccountInfo;
 import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantContract;
 import com.agree.collectionpay.domain.modulepay.valueobject.PayResultEnum;
