@@ -3,7 +3,7 @@ package com.agree.contract.application.modulecontract.support;
 /**
  * @author xulingfeng
  * @description 核心系统防腐层
- * @date 2023/3/11
+ * 
  */
 public interface AccountInfoSupport {
     /**

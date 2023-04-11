@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 /**
  * @author xulingfeng
  * @description 客户合约申请单转换器
- * @date 2023/3/11
+ * 
  */
 @Mapper(componentModel = "spring")
 public interface CustomerContractApplicationFormAssembler {

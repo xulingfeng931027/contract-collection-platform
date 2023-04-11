@@ -2,7 +2,7 @@ package com.agree.common.exception;
 
 /**
  * @author xulingfeng
- * @date 2023/3/11
+ * 
  * @description 基础错误码结构
  *
  */

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author xulingfeng
  * @description 接收代收结果事件消息
- * @date 2022/9/11
+ * 
  */
 @Component
 public class CollectionResultConsumer {

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author xulingfeng
  * @description 代收记录服务
- * @date 2023/3/11
+ * 
  */
 @Service
 public class CollectionRecordService {

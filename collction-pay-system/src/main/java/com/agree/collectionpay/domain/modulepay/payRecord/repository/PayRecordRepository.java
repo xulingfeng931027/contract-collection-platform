@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
  * @author xulingfeng
  * @className BillingRecordRepository
  * @description 计费记录仓储接口
- * @date 2023/3/11
+ * 
  */
 public interface PayRecordRepository {
 

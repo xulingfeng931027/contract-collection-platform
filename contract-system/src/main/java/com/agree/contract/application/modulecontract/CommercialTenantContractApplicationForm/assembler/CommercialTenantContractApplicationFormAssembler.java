@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 
 /**
  * @author xulingfeng
- * @description 合约转换器
- * @date 2023/3/11
+ * @description 商户合约申请单装配器
+ * 
  * //todo
  * 1.装配器负责dto到领域对象之间的相互转化
  * 2.不包含业务逻辑

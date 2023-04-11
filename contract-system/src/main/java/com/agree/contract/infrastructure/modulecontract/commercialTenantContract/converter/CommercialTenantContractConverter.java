@@ -7,15 +7,18 @@ import org.mapstruct.Mapping;
 
 /**
  * @author xulingfeng
- * @date 2023/3/20
- * @description
+ * @description 商户合约转换器
  */
 @Mapper(componentModel = "spring")
 public interface CommercialTenantContractConverter {
-
+    /**
+     * 将商户合约实体转换为po
+     */
     @Mapping(source = "commercialTenantContract.commercialTenantInfo.legalPersonNumber", target = "legalPersonNumber")
     CommercialTenantContractPo toPo(CommercialTenantContract commercialTenantContract);
 
-
-    CommercialTenantContract toEntity(CommercialTenantContractPo businessContract);
+    /**
+     * 将商户合约po转换为实体
+     */
+    CommercialTenantContract toEntity(CommercialTenantContractPo commercialTenantContractPo);
 }

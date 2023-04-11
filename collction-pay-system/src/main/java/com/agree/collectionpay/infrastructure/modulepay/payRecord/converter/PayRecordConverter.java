@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 /**
  * @author xulingfeng
  * @description 计费记录转配器
- * @date 2023/3/11
+ * 
  */
 @Mapper(componentModel = "spring")
 public interface PayRecordConverter {

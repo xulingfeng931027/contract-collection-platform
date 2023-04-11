@@ -9,7 +9,7 @@ import lombok.Getter;
 import static com.agree.contract.domain.modulecontract.exception.ContractErrorCode.COMMERCIAL_TENANT_STATUS_NOT_NORMAL;
 
 /**
- * //todo   值对象 需要单独定义值对象的dto 不要直接引用领域层的值对象 在应用层不分实体和值对象 全都是dto???  dto需要分req和res
+ * //todo   值对象 需要单独定义值对象的dto 不要直接引用领域层的值对象   dto需要分req和res
  * @author xulingfeng
  * @date 2023/3/17
  * @description 商户信息

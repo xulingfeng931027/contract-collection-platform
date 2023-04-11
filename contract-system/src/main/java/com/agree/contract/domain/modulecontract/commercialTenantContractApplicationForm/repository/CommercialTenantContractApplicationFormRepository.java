@@ -7,7 +7,7 @@ import com.agree.contract.infrastructure.modulecontract.commercialTenantContract
 /**
  * @author xulingfeng
  * @description  商户合约申请单仓储接口
- * @date 2023/3/11
+ * 
  *
  */
 public interface CommercialTenantContractApplicationFormRepository {

@@ -2,14 +2,14 @@ package com.agree.contract.application.modulecontract.service;
 
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.assembler.CommercialTenantContractApplicationFormAssembler;
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormReqDto;
-import com.agree.contract.domain.modulecontract.exception.ContractErrorCode;
-import com.agree.contract.domain.modulecontract.exception.ContractException;
 import com.agree.contract.application.modulecontract.support.AccountInfoSupport;
 import com.agree.contract.application.modulecontract.support.CommercialTenantInfoSupport;
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.modulecontract.commercialTenantContract.repository.CommercialTenantContractRepository;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.repository.CommercialTenantContractApplicationFormRepository;
+import com.agree.contract.domain.modulecontract.exception.ContractErrorCode;
+import com.agree.contract.domain.modulecontract.exception.ContractException;
 import com.agree.contract.domain.modulecontract.factory.CommercialTenantFactory;
 import com.agree.contract.domain.modulecontract.valueobject.CommercialTenantInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xulingfeng
- * @description 签约服务
- * @date 2023/3/11
- * todo  加统一异常处理? 异常类型定义? 统一返回结构定义? 实体值对象异常基类的定义?
+ * @description 商户签约服务
  */
 @Service
 public class CommercialTenantContractApplicationFormService {
@@ -38,21 +36,19 @@ public class CommercialTenantContractApplicationFormService {
 
     /**
      * 商户签约
-     * todo 流程编排的一般范式:
-     *  见ppt
-     *
-     * @return
      */
     @Transactional(rollbackFor = Exception.class)
     public CommercialTenantContractApplicationFormReqDto agencyContract(CommercialTenantContractApplicationFormReqDto commercialTenantContractApplicationFormReqDto) {
         String legalPersonNumber = commercialTenantContractApplicationFormReqDto.getLegalPersonNumber();
         //先将入参转为实体
-        CommercialTenantContractApplicationForm applicationForm = commercialTenantContractApplicationFormAssembler.toEntity(commercialTenantContractApplicationFormReqDto);
+        CommercialTenantContractApplicationForm applicationForm = commercialTenantContractApplicationFormAssembler.
+                toEntity(commercialTenantContractApplicationFormReqDto);
         //校验商户合约申请单
         applicationForm.checkIfValid();
         // todo 1.按照用户故事地图的命令进行流程编排
         //校验重复签约
-        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(applicationForm.getCommercialTenantInfo().getLegalPersonNumber(), commercialTenantContractApplicationFormReqDto.getChargeType())) {
+        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(applicationForm.getCommercialTenantInfo().getLegalPersonNumber(),
+                commercialTenantContractApplicationFormReqDto.getChargeType())) {
             throw new ContractException(ContractErrorCode.REPEAT_AGENCY);
         }
         //查询商户信息 此处防腐层调用
@@ -67,6 +63,7 @@ public class CommercialTenantContractApplicationFormService {
         if (applicationForm.fundGatherModeIsSum()) {
             accountInfoSupport.checkAccountInfo(applicationForm.getStagingAccountInfo().getId());
         }
+
         //保存合约申请单
         String applicationFormId = commercialTenantContractApplicationFormRepository.saveApplicationForm(applicationForm);
         //生成并保存合约

@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * @author xulingfeng
  * @description 代收记录mapper
- * @date 2023/3/11
+ * 
  */
 @Mapper
 public interface CollectionRecordMapper extends BaseMapper<CollectionRecordPo> {

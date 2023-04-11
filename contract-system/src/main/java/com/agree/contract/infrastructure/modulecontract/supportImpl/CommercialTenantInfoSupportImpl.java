@@ -6,9 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author xulingfeng
- * @className NumberSupport
  * @description 商户系统防腐层接口
- * @date 2022/9/11
  */
 @Service
 public class CommercialTenantInfoSupportImpl implements CommercialTenantInfoSupport {

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @author xulingfeng
  * @className BillingRecordMapper
  * @description
- * @date 2023/3/11
+ * 
  */
 @Mapper
 public interface CommercialTenantContractMapper extends BaseMapper<CommercialTenantContractPo> {

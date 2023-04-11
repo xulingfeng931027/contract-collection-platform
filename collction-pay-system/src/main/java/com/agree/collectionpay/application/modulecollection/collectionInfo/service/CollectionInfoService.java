@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 /**
  * @author xulingfeng
  * @description 代收信息服务
- * @date 2023/3/11
+ * 
  */
 @Service
 public class CollectionInfoService {

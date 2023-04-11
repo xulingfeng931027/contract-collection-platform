@@ -6,7 +6,6 @@ import com.agree.collectionpay.domain.modulecollection.support.ContractSupport;
 import com.agree.collectionpay.domain.modulecollection.valueobject.CustomerContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +33,6 @@ public class ContractAndAccountInfoDomainService {
      *
      * @param collectionInfoList 代收信息
      */
-    @Transactional(rollbackFor = Exception.class)
     public void checkCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
         // 获取请求参数中的客户合约id列表
         List<String> customerContractIdList = collectionInfoList.stream().map(e -> e.getCustomerContract().getId())

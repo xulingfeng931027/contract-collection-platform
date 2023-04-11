@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * @author xulingfeng
  * @description 计费记录转配器
- * @date 2023/3/11
+ * 
  */
 @Mapper
 public interface CollectionRecordAssembler {

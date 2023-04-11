@@ -5,7 +5,7 @@ import com.agree.collectionpay.domain.modulecollection.collectionRecord.entity.C
 /**
  * @author xulingfeng
  * @description 代收记录仓储接口
- * @date 2023/3/11
+ * 
  */
 public interface CollectionRecordRepository {
 

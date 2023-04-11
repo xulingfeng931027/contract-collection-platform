@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author xulingfeng
- * @date 2023/3/11
+ * 
  */
 @Mapper(componentModel = "spring")
 public interface PayRecordAssembler {

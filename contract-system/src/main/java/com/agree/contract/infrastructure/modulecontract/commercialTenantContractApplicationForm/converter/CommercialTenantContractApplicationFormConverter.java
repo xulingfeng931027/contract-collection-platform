@@ -6,14 +6,18 @@ import org.mapstruct.Mapper;
 
 /**
  * @author xulingfeng
- * @date 2023/3/20
- * @description
+ * @description 商户合约申请单转换器
  */
 @Mapper(componentModel = "spring")
 public interface CommercialTenantContractApplicationFormConverter {
+    /**
+     * 将商户合约申请单实体转换为po
+     */
+    CommercialTenantContractApplicationFormPo toPo(CommercialTenantContractApplicationForm applicationForm);
 
-    CommercialTenantContractApplicationFormPo toPo(CommercialTenantContractApplicationForm commercialTenantContract);
+    /**
+     * 将商户合约申请单po转换为实体
+     */
 
-
-    CommercialTenantContractApplicationForm toEntity(CommercialTenantContractApplicationFormPo businessContract);
+    CommercialTenantContractApplicationForm toEntity(CommercialTenantContractApplicationFormPo applicationFormPo);
 }

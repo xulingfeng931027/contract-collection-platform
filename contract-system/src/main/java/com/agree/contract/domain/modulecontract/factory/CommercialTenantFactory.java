@@ -13,20 +13,21 @@ public class CommercialTenantFactory {
     /**
      * 生成商户合约
      *
-     * @param commercialTenantContractApplicationForm 合约申请单
+     * @param applicationForm 合约申请单
      * @param applicationFormId                       合约申请单id
      * @return 商户合约
      */
-    public static CommercialTenantContract generateCommercialTenantContract(CommercialTenantContractApplicationForm commercialTenantContractApplicationForm, String applicationFormId) {
+    public static CommercialTenantContract generateCommercialTenantContract(CommercialTenantContractApplicationForm applicationForm,
+                                                                            String applicationFormId) {
         return CommercialTenantContract.builder()
                 .contractApplicationFormId(applicationFormId)
                 .status(ContractStatusEnum.VALID)
-                .chargeType(commercialTenantContractApplicationForm.getChargeType())
-                .fundGatherMode(commercialTenantContractApplicationForm.getFundGatherMode())
-                .commissionCharge(commercialTenantContractApplicationForm.getCommissionCharge())
-                .settlementAccountInfo(commercialTenantContractApplicationForm.getSettlementAccountInfo())
-                .stagingAccountInfo(commercialTenantContractApplicationForm.getStagingAccountInfo())
-                .commercialTenantInfo(commercialTenantContractApplicationForm.getCommercialTenantInfo())
+                .chargeType(applicationForm.getChargeType())
+                .fundGatherMode(applicationForm.getFundGatherMode())
+                .commissionCharge(applicationForm.getCommissionCharge())
+                .settlementAccountInfo(applicationForm.getSettlementAccountInfo())
+                .stagingAccountInfo(applicationForm.getStagingAccountInfo())
+                .commercialTenantInfo(applicationForm.getCommercialTenantInfo())
                 .build();
     }
 
