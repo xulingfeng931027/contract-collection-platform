@@ -32,7 +32,7 @@ public class CollectionInfo extends AbstractAggregationObject<String> {
     private CommercialTenantContract commercialTenantContract;
 
     /**
-     * 补全合约信息
+     * 补全客户合约
      *
      * @param customerContract
      */
@@ -41,7 +41,7 @@ public class CollectionInfo extends AbstractAggregationObject<String> {
     }
 
     /**
-     * 补全合约信息
+     * 补全商户合约
      *
      * @param commercialTenantContract
      */

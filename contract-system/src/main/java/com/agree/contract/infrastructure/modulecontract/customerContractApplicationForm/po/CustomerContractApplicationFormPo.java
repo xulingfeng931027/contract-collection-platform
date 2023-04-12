@@ -24,10 +24,10 @@ public class CustomerContractApplicationFormPo extends AbstractPo<String> {
      * 合约申请单状态
      */
     private ContractApplicationFormStatusEnum status;
-    /**
-     * 收费种类
-     */
-    private ChargeTypeEnum chargeType;
+//    /**
+//     * 收费种类
+//     */
+//    private ChargeTypeEnum chargeType;
     /**
      * 签约模式
      */
@@ -37,6 +37,12 @@ public class CustomerContractApplicationFormPo extends AbstractPo<String> {
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
     private AccountInfo customerAccountInfo;
+
+    /**
+     * 客户信息
+     */
+    @TableField(typeHandler = FastjsonTypeHandler.class)
+    private CustomerInfo customerInfo;
 
     /**
      * 商户合约id
