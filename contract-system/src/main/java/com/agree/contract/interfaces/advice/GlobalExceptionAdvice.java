@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * mvc统一异常处理类
  *
  * @author xulingfeng
- * @date 2023/3/2
+ * 
  */
 @Slf4j
 @RestControllerAdvice

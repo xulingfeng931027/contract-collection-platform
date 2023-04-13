@@ -9,7 +9,6 @@ import java.util.Map;
 
 /**
  * @author xulingfeng
- * @date 2023/4/3
  * @description 代收记录工厂类
  */
 public class CollectionRecordFactory {

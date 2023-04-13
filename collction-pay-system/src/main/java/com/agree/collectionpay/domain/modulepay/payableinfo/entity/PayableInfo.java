@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
+ *
  * @description 应缴信息
  */
 @Getter

@@ -2,7 +2,7 @@ package com.agree.contract.domain.modulecontract.valueobject.enumType;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
+ * 
  * @description 客户状态枚举
  */
 

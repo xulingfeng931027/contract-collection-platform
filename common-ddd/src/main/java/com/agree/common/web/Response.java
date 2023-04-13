@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 /**
  * @author xulingfeng
  * @description 基础接口返回结构
- * @date 2023/3/1
+ * 
  */
 @Data
 @AllArgsConstructor

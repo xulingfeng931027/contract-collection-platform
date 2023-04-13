@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
+ * 
  * todo dto的定义
  *    1.dto一般分为reqDto和resDto
  *     如:签约成功后,一般不会返回的所有的申请单信息,可能造成数据泄露,建议分别定义reqDto和resDto

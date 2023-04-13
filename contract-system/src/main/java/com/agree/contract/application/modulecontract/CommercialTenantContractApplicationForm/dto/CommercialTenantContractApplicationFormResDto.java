@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
+ * 
  */
 @Data
 public class CommercialTenantContractApplicationFormResDto {

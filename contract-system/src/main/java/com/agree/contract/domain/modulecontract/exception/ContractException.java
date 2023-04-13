@@ -4,7 +4,7 @@ import com.agree.common.exception.BaseException;
 
 /**
  * @author xulingfeng
- * @date 2023/4/7
+ * 
  * @description 签约相关异常类
  */
 public class ContractException extends BaseException {

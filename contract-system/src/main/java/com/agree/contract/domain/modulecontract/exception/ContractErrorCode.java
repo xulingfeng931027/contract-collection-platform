@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
  * 签约异常码实现类
  *
  * @author xulingfeng
- * @date 2023/3/15
  */
 @AllArgsConstructor
 public enum ContractErrorCode implements BaseErrorCode {

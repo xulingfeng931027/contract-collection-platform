@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * @author xulingfeng
- * @date 2023/3/19
+ * 
  * @description 代收记录
  */
 @TableName(value = "collection_record", autoResultMap = true)

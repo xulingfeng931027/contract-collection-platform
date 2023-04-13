@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * @date 2023/3/23
+ *
  * @description 调用收款接口的请求参数
  */
 @Builder

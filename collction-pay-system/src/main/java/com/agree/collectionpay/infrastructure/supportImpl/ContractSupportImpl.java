@@ -5,7 +5,6 @@ import com.agree.collectionpay.domain.modulepay.valueobject.CommercialTenantCont
 
 /**
  * @author xulingfeng
- * @date 2023/4/8
  * @description
  */
 public class ContractSupportImpl implements ContractSupport {

@@ -2,7 +2,7 @@ package com.agree.contract.domain.modulecontract.valueobject.enumType;
 
 /**
  * @author xulingfeng
- * @date 2023/3/26
+ * 
  * @description 扣费方式
  */
 public enum ChargeMethodEnum {

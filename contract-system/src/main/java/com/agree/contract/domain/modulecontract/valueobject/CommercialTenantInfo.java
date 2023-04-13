@@ -12,7 +12,7 @@ import static com.agree.contract.domain.modulecontract.exception.ContractErrorCo
 /**
  * //todo   值对象 需要单独定义值对象的dto 不要直接引用领域层的值对象   dto需要分req和res
  * @author xulingfeng
- * @date 2023/3/17
+ * 
  * @description 商户信息
  * todo
  * 1.值对象没有id,生命周期,依赖于实体存在

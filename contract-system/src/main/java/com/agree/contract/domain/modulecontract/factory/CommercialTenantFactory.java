@@ -6,7 +6,7 @@ import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractSta
 
 /**
  * @author xulingfeng
- * @date 2023/3/24
+ * 
  * @description 商户合约工厂类
  */
 public class CommercialTenantFactory {

@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
  * @description 商户合约申请单
  */
 

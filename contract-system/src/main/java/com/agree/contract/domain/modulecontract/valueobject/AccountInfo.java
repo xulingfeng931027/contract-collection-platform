@@ -8,7 +8,7 @@ import lombok.Getter;
 
 /**
  * @author xulingfeng
- * @date 2023/3/17
+ * 
  * @description 账户信息
  */
 @Getter

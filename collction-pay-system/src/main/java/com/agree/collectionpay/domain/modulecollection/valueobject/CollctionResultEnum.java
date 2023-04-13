@@ -2,7 +2,6 @@ package com.agree.collectionpay.domain.modulecollection.valueobject;
 
 /**
  * @author xulingfeng
- * @date 2023/4/3
  * @description 代收结果
  */
 public enum CollctionResultEnum {

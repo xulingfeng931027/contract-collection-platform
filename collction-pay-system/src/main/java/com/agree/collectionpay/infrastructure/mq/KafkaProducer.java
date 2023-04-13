@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author xulingfeng
  * @version 1.0
- * @date 2023/4/1
+ * 
  */
 @Component
 public class KafkaProducer {

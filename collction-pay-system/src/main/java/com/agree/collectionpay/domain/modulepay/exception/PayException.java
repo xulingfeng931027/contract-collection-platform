@@ -5,7 +5,6 @@ import com.agree.common.exception.BaseException;
 
 /**
  * @author xulingfeng
- * @date 2023/4/7
  * @description 主动缴费相关异常
  */
 public class PayException extends BaseException {

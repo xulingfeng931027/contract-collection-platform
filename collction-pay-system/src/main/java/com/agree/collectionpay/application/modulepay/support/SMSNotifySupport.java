@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * @author xulingfeng
- * @date 2023/4/1
+ * 
  * @description 短信通知防腐层
  */
 public interface SMSNotifySupport {

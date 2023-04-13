@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * @date 2023/3/19
+ * 
  * @description 代收信息
  */
 @SuperBuilder

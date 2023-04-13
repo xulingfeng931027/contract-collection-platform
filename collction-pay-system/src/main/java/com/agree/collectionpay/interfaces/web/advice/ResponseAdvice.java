@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * web接口返回结果处理
  *
  * @author xulingfeng
- * @date 2023/3/2
  */
 @RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
