@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author xulingfeng
- * @className BillingController
+ * 
  * @description 缴费控制器
  * 
  */

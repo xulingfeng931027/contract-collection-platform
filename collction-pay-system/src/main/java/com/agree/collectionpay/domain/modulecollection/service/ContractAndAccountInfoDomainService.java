@@ -1,4 +1,4 @@
-package com.agree.collectionpay.domain.modulecollection.collectionRecord.service;
+package com.agree.collectionpay.domain.modulecollection.service;
 
 import com.agree.collectionpay.domain.modulecollection.collectionInfo.entity.CollectionInfo;
 import com.agree.collectionpay.domain.modulecollection.support.AccountInfoSupport;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -32,8 +31,9 @@ public class ContractAndAccountInfoDomainService {
      * 批量校验客户合约和客户账户信息
      *
      * @param collectionInfoList 代收信息
+     * @return 客户合约列表
      */
-    public void checkCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
+    public List<CustomerContract> queryAndCheckCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
         // 获取请求参数中的客户合约id列表
         List<String> customerContractIdList = collectionInfoList.stream().map(e -> e.getCustomerContract().getId())
                 .collect(Collectors.toList());
@@ -46,20 +46,14 @@ public class ContractAndAccountInfoDomainService {
         // 校验客户账户 (调用核心系统)
         accountInfoSupport.checkAccountInfo(customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
                 .collect(Collectors.toList()));
-
         // 完善代收信息中的客户合约属性
-        completeCustomerContract(collectionInfoList, customerContractList);
-
+        return customerContractList;
     }
 
-    /**
-     * 完善代收信息中的客户合约属性
-     *
-     * @param collectionInfoList   代收信息列表
-     * @param customerContractList 客户合约列表
-     */
-    private void completeCustomerContract(List<CollectionInfo> collectionInfoList, List<CustomerContract> customerContractList) {
-        Map<String, CustomerContract> map = customerContractList.stream().collect(Collectors.toMap(CustomerContract::getId, e -> e));
-        collectionInfoList.forEach(e -> e.completeCustomerContract(map.get(e.getCustomerContract().getId())));
-    }
+
+    /*
+    *  避免隐式修改参数， 默认传入的参数都是不可变的。方法的入参禁止被修改，如果需要返回数据，需要构造新的返回对象进行返回，避免入参在下一步被直接使用产生问题。
+         说明：在领域层，从repository或者api中调用方法是有返回List、Set等集合对象的可能的，同时这些集合对象也会参与后面的业务逻辑，传递到实体、领域服务中，
+* 那么我们就需要有一种方式，避免在另一个代码位置出现了意外修改集合对象的可能。
+    * */
 }

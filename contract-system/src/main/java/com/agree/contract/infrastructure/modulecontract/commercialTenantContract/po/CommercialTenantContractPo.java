@@ -1,7 +1,11 @@
 package com.agree.contract.infrastructure.modulecontract.commercialTenantContract.po;
 
 import com.agree.common.api.AbstractPo;
-import com.agree.contract.domain.modulecontract.valueobject.*;
+import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
+import com.agree.contract.domain.modulecontract.valueobject.CommercialTenantInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.FundGatherModeEnum;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;

@@ -1,7 +1,7 @@
 package com.agree.contract.domain.modulecontract.commercialTenantContract.repository;
 
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
-import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
 import com.agree.contract.infrastructure.modulecontract.commercialTenantContract.repositoryImpl.CommercialTenantContractRepositoryImpl;
 
 /**

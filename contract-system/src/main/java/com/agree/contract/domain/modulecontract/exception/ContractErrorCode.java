@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 public enum ContractErrorCode implements BaseErrorCode {
 
     BIZ_COMMON_EXCEPTION(-3, "通用业务异常"),
-    UNKNOWN_EXCEPTION(-1, ""),
+    UNKNOWN_EXCEPTION(-1, "未知异常"),
     REPEAT_AGENCY(1001, "重复签约"),
     COMMERCIAL_TENANT_STATUS_NOT_NORMAL(1002, "商户状态不正常"),
 

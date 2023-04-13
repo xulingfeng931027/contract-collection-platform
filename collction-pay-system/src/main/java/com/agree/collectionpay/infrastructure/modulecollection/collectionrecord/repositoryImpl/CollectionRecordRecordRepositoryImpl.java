@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author xulingfeng
- * @className BillingRecordRepositoryImpl
+ * 
  * @description 代收记录仓储接口实现
  * 
  */

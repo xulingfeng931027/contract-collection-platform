@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author xulingfeng
- * @className BillingRecordRepositoryImpl
- * @description 计费记录仓储接口实现
+ *
+ * @description 商户合约申请单仓储接口实现
  * 
  */
 @Repository

@@ -1,6 +1,7 @@
 package com.agree.contract.domain.modulecontract.valueobject;
 
 import com.agree.common.api.AbstractValueObject;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.CustomerStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

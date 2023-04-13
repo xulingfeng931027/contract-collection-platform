@@ -15,7 +15,6 @@ import java.util.UUID;
 /**
  * @author: xulingfeng
  * @description: 领域事件消息基类
- * @date: 2023/3/2 16:47
  **/
 @Data
 @NoArgsConstructor

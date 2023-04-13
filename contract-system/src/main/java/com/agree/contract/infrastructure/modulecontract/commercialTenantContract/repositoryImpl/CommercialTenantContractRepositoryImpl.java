@@ -2,7 +2,7 @@ package com.agree.contract.infrastructure.modulecontract.commercialTenantContrac
 
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.modulecontract.commercialTenantContract.repository.CommercialTenantContractRepository;
-import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
 import com.agree.contract.infrastructure.modulecontract.commercialTenantContract.converter.CommercialTenantContractConverter;
 import com.agree.contract.infrastructure.modulecontract.commercialTenantContract.mapper.CommercialTenantContractMapper;
 import com.agree.contract.infrastructure.modulecontract.commercialTenantContract.po.CommercialTenantContractPo;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author xulingfeng
- * @className BillingRecordRepositoryImpl
+ * 
  * @description 计费记录仓储接口实现
  * 
  */

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @author xulingfeng
- * @date 2023/3/19
+ *2023/3/19
  * @description 核心系统回调代收服务参数
  */
 @Data

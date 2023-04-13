@@ -2,7 +2,7 @@ package com.agree.contract.domain.modulecontract.factory;
 
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
-import com.agree.contract.domain.modulecontract.valueobject.ContractStatusEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
 
 /**
  * @author xulingfeng
@@ -13,8 +13,8 @@ public class CommercialTenantFactory {
     /**
      * 生成商户合约
      *
-     * @param applicationForm 合约申请单
-     * @param applicationFormId                       合约申请单id
+     * @param applicationForm   合约申请单
+     * @param applicationFormId 合约申请单id
      * @return 商户合约
      */
     public static CommercialTenantContract generateCommercialTenantContract(CommercialTenantContractApplicationForm applicationForm,

@@ -1,4 +1,4 @@
-package com.agree.contract.domain.modulecontract.valueobject;
+package com.agree.contract.domain.modulecontract.valueobject.enumType;
 
 /**
  * @author xulingfeng

@@ -4,6 +4,7 @@ import com.agree.contract.application.modulecontract.CommercialTenantContractApp
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormResDto;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * @author xulingfeng
@@ -19,10 +20,11 @@ public interface CommercialTenantContractApplicationFormAssembler {
     /**
      * 将dto转为实体
      */
+    @Mapping(source = "legalPersonNumber",target ="commercialTenantInfo.legalPersonNumber" )
     CommercialTenantContractApplicationForm toEntity(CommercialTenantContractApplicationFormReqDto contractContractDto);
     /**
      * 将实体转为dto
      */
-    CommercialTenantContractApplicationFormResDto toDto(CommercialTenantContractApplicationForm contractDto);
+    CommercialTenantContractApplicationFormResDto toDto(CommercialTenantContractApplicationForm applicationForm);
 
 }

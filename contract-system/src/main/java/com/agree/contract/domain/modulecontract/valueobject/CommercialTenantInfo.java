@@ -2,6 +2,7 @@ package com.agree.contract.domain.modulecontract.valueobject;
 
 import com.agree.common.api.AbstractValueObject;
 import com.agree.contract.domain.modulecontract.exception.ContractException;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.CommercialTenantStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

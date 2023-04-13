@@ -1,7 +1,12 @@
 package com.agree.contract.infrastructure.modulecontract.commercialTenantContractApplicationForm.po;
 
 import com.agree.common.api.AbstractPo;
-import com.agree.contract.domain.modulecontract.valueobject.*;
+import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
+import com.agree.contract.domain.modulecontract.valueobject.CommercialTenantInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeMethodEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.FundGatherModeEnum;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
@@ -13,7 +18,7 @@ import java.math.BigDecimal;
 /**
  * @author xulingfeng
  * @date 2023/3/17
- * @description
+ * @description 商户合约申请单po
  */
 @Data
 @TableName(value = "commercial_tenant_contract_application_form", autoResultMap = true)

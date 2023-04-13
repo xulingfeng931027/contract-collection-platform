@@ -2,8 +2,8 @@ package com.agree.collectionpay.domain.modulepay.valueobject;
 
 import com.agree.collectionpay.domain.modulepay.exception.PayException;
 import com.agree.common.api.AbstractValueObject;
-import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.FundGatherModeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.FundGatherModeEnum;
 import lombok.Builder;
 import lombok.Getter;
 

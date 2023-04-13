@@ -1,9 +1,8 @@
 package com.agree.contract.domain.modulecontract.customerContractApplicationForm.repository;
 
-import com.agree.contract.domain.commercialTenantContract.entity.CommercialTenantContract;
-import com.agree.contract.domain.customerContractApplicationForm.entity.CustomerContractApplicationForm;
-import com.agree.contract.infrastructure.commercialTenantContract.repositoryImpl.CommercialTenantContractRepositoryImpl;
-import com.agree.contract.infrastructure.customerContractApplicationForm.repositoryImpl.CustomerContractApplicationFormRepositoryImpl;
+
+import com.agree.contract.domain.modulecontract.customerContractApplicationForm.entity.CustomerContractApplicationForm;
+import com.agree.contract.infrastructure.modulecontract.customerContractApplicationForm.repositoryImpl.CustomerContractApplicationFormRepositoryImpl;
 
 /**
  * @author xulingfeng

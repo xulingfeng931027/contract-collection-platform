@@ -1,7 +1,7 @@
 package com.agree.contract.application.modulecontract.CommercialTenantContract.dto;
 
-import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.ContractStatusEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
 import lombok.Data;
 
 /**

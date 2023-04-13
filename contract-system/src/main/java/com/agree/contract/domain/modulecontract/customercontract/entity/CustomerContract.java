@@ -3,9 +3,9 @@ package com.agree.contract.domain.modulecontract.customercontract.entity;
 import com.agree.common.api.AbstractAggregationObject;
 import com.agree.common.exception.BaseException;
 import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
-import com.agree.contract.domain.modulecontract.valueobject.AgencyTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.ContractStatusEnum;
 import com.agree.contract.domain.modulecontract.valueobject.CustomerInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.AgencyTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

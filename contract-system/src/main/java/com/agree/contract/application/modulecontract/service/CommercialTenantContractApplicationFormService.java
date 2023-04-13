@@ -2,6 +2,7 @@ package com.agree.contract.application.modulecontract.service;
 
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.assembler.CommercialTenantContractApplicationFormAssembler;
 import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormReqDto;
+import com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto.CommercialTenantContractApplicationFormResDto;
 import com.agree.contract.application.modulecontract.support.AccountInfoSupport;
 import com.agree.contract.application.modulecontract.support.CommercialTenantInfoSupport;
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
@@ -37,18 +38,18 @@ public class CommercialTenantContractApplicationFormService {
     /**
      * 商户签约
      */
-    @Transactional(rollbackFor = Exception.class)
-    public CommercialTenantContractApplicationFormReqDto agencyContract(CommercialTenantContractApplicationFormReqDto commercialTenantContractApplicationFormReqDto) {
-        String legalPersonNumber = commercialTenantContractApplicationFormReqDto.getLegalPersonNumber();
+    @Transactional(rollbackFor = ContractException.class)
+    public CommercialTenantContractApplicationFormResDto agencyContract(CommercialTenantContractApplicationFormReqDto dto) {
         //先将入参转为实体
         CommercialTenantContractApplicationForm applicationForm = commercialTenantContractApplicationFormAssembler.
-                toEntity(commercialTenantContractApplicationFormReqDto);
+                toEntity(dto);
         //校验商户合约申请单
         applicationForm.checkIfValid();
         // todo 1.按照用户故事地图的命令进行流程编排
+        //获取法人证件号
+        String legalPersonNumber = applicationForm.getCommercialTenantInfo().getLegalPersonNumber();
         //校验重复签约
-        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(applicationForm.getCommercialTenantInfo().getLegalPersonNumber(),
-                commercialTenantContractApplicationFormReqDto.getChargeType())) {
+        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(legalPersonNumber, dto.getChargeType())) {
             throw new ContractException(ContractErrorCode.REPEAT_AGENCY);
         }
         //查询商户信息 此处防腐层调用
@@ -59,17 +60,16 @@ public class CommercialTenantContractApplicationFormService {
         applicationForm.completeCommercialTenantInfo(commercialTenantInfo);
         //校验商户结算账户信息
         accountInfoSupport.checkAccountInfo(applicationForm.getSettlementAccountInfo().getId());
-        //如果汇总归集还要校验暂存户信息
+        //如果归集模式为汇总归集  还需要校验暂存户信息
         if (applicationForm.fundGatherModeIsSum()) {
             accountInfoSupport.checkAccountInfo(applicationForm.getStagingAccountInfo().getId());
         }
-
         //保存合约申请单
         String applicationFormId = commercialTenantContractApplicationFormRepository.saveApplicationForm(applicationForm);
         //生成并保存合约
         CommercialTenantContract commercialTenantContract = CommercialTenantFactory.generateCommercialTenantContract(applicationForm, applicationFormId);
         commercialTenantContractRepository.saveContract(commercialTenantContract);
-        return commercialTenantContractApplicationFormReqDto;
+        return commercialTenantContractApplicationFormAssembler.toDto(applicationForm);
     }
     /*
     *

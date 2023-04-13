@@ -1,7 +1,12 @@
 package com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity;
 
 import com.agree.common.api.AbstractAggregationObject;
-import com.agree.contract.domain.modulecontract.valueobject.*;
+import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
+import com.agree.contract.domain.modulecontract.valueobject.CommercialTenantInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeMethodEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.FundGatherModeEnum;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -41,7 +46,7 @@ public class CommercialTenantContractApplicationForm extends AbstractAggregation
      */
     private FundGatherModeEnum fundGatherMode;
     /**
-     * 手续费
+     * 手续费 todo 费用相关的字段都应该使用BigDecimal类型
      */
     private BigDecimal commissionCharge;
     /**

@@ -1,6 +1,4 @@
-package com.agree.contract.domain.modulecontract.valueobject;
-
-import lombok.Getter;
+package com.agree.contract.domain.modulecontract.valueobject.enumType;
 
 /**
  * @author xulingfeng

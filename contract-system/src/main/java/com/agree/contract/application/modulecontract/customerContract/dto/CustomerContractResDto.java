@@ -1,9 +1,9 @@
 package com.agree.contract.application.modulecontract.customerContract.dto;
 
 import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
-import com.agree.contract.domain.modulecontract.valueobject.AgencyTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.ContractStatusEnum;
 import com.agree.contract.domain.modulecontract.valueobject.CustomerInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.AgencyTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
 import lombok.Data;
 
 /**

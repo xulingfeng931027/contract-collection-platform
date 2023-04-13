@@ -1,7 +1,11 @@
 package com.agree.contract.application.modulecontract.customerContractApplicationForm.dto;
 
 import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
-import com.agree.contract.domain.modulecontract.valueobject.*;
+import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
+import com.agree.contract.domain.modulecontract.valueobject.CustomerInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.AgencyTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractApplicationFormStatusEnum;
 import lombok.Data;
 
 /**

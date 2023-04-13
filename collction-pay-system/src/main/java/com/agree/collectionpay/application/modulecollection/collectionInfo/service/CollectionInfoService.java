@@ -9,12 +9,13 @@ import com.agree.collectionpay.domain.modulecollection.collectionInfo.entity.Col
 import com.agree.collectionpay.domain.modulecollection.collectionRecord.entity.CollectionRecord;
 import com.agree.collectionpay.domain.modulecollection.collectionRecord.factory.CollectionRecordFactory;
 import com.agree.collectionpay.domain.modulecollection.collectionRecord.repository.CollectionRecordRepository;
-import com.agree.collectionpay.domain.modulecollection.collectionRecord.service.ContractAndAccountInfoDomainService;
 import com.agree.collectionpay.domain.modulecollection.exception.CollectionException;
+import com.agree.collectionpay.domain.modulecollection.service.ContractAndAccountInfoDomainService;
 import com.agree.collectionpay.domain.modulecollection.support.AccountInfoSupport;
 import com.agree.collectionpay.domain.modulecollection.support.ContractSupport;
 import com.agree.collectionpay.domain.modulecollection.valueobject.CollctionResultEnum;
 import com.agree.collectionpay.domain.modulecollection.valueobject.CommercialTenantContract;
+import com.agree.collectionpay.domain.modulecollection.valueobject.CustomerContract;
 import com.agree.collectionpay.infrastructure.mq.KafkaProducer;
 import com.alibaba.fastjson2.JSON;
 import com.google.common.collect.Lists;
@@ -88,7 +89,7 @@ public class CollectionInfoService {
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
         //todo 此处使用了领域服务  查询并校验客户合约
-        contractAndAccountInfoDomainService.checkCustomerContractAndCustomerAccountInfo(Lists.newArrayList(collectionInfo));
+        contractAndAccountInfoDomainService.queryAndCheckCustomerContractAndCustomerAccountInfo(Lists.newArrayList(collectionInfo)).get(0);
         String receiveAccountId;
         if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
             receiveAccountId = stagingAccountInfoId;
@@ -144,7 +145,8 @@ public class CollectionInfoService {
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
         //todo 此处使用了领域服务  查询并校验客户合约
-        contractAndAccountInfoDomainService.checkCustomerContractAndCustomerAccountInfo(collectionInfoList);
+        List<CustomerContract> customerContractList = contractAndAccountInfoDomainService.queryAndCheckCustomerContractAndCustomerAccountInfo(collectionInfoList);
+        completeCustomerContract(collectionInfoList, customerContractList);
         String receiveAccountId;
         if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
             receiveAccountId = stagingAccountInfoId;
@@ -168,5 +170,17 @@ public class CollectionInfoService {
      */
     private String getCommercialTenantContractId(List<CollectionInfoDto> collectionInfoDtoList) {
         return collectionInfoDtoList.get(0).getCommercialTenantContractId();
+    }
+
+    /**
+     * 完善代收信息中的客户合约属性
+     *
+     * @param collectionInfoList   代收信息列表
+     * @param customerContractList 客户合约列表
+     */
+    private List<CollectionInfo> completeCustomerContract(List<CollectionInfo> collectionInfoList, List<CustomerContract> customerContractList) {
+        Map<String, CustomerContract> map = customerContractList.stream().collect(Collectors.toMap(CustomerContract::getId, e -> e));
+        collectionInfoList.forEach(e -> e.completeCustomerContract(map.get(e.getCustomerContract().getId())));
+        return collectionInfoList;
     }
 }

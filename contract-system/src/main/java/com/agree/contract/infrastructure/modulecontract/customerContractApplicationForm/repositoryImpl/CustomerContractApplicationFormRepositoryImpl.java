@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author xulingfeng
- * @className BillingRecordRepositoryImpl
+ * 
  * @description 客户合约申请单仓储接口实现
  * 
  */

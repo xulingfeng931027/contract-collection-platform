@@ -2,9 +2,9 @@ package com.agree.contract.infrastructure.modulecontract.customerContract.po;
 
 import com.agree.common.api.AbstractPo;
 import com.agree.contract.domain.modulecontract.valueobject.AccountInfo;
-import com.agree.contract.domain.modulecontract.valueobject.AgencyTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.ContractStatusEnum;
 import com.agree.contract.domain.modulecontract.valueobject.CustomerInfo;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.AgencyTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ContractStatusEnum;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;

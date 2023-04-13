@@ -1,7 +1,7 @@
 package com.agree.contract.application.modulecontract.CommercialTenantContractApplicationForm.dto;
 
-import com.agree.contract.domain.modulecontract.valueobject.ChargeTypeEnum;
-import com.agree.contract.domain.modulecontract.valueobject.FundGatherModeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.ChargeTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.FundGatherModeEnum;
 import lombok.Data;
 
 import javax.validation.constraints.Min;

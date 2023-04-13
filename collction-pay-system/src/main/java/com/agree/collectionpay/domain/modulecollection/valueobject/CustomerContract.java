@@ -2,7 +2,7 @@ package com.agree.collectionpay.domain.modulecollection.valueobject;
 
 import com.agree.collectionpay.domain.modulecollection.exception.CollectionException;
 import com.agree.common.api.AbstractValueObject;
-import com.agree.contract.domain.modulecontract.valueobject.AgencyTypeEnum;
+import com.agree.contract.domain.modulecontract.valueobject.enumType.AgencyTypeEnum;
 import lombok.Builder;
 import lombok.Getter;
 

@@ -1,14 +1,10 @@
 package com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.repository;
 
-import com.agree.contract.domain.modulecontract.commercialTenantContract.entity.CommercialTenantContract;
 import com.agree.contract.domain.modulecontract.commercialTenantContractApplicationForm.entity.CommercialTenantContractApplicationForm;
-import com.agree.contract.infrastructure.modulecontract.commercialTenantContract.repositoryImpl.CommercialTenantContractRepositoryImpl;
 
 /**
  * @author xulingfeng
- * @description  商户合约申请单仓储接口
- * 
- *
+ * @description 商户合约申请单仓储接口
  */
 public interface CommercialTenantContractApplicationFormRepository {
 
@@ -20,9 +16,9 @@ public interface CommercialTenantContractApplicationFormRepository {
      *  3.如果入参采用了实体或值对象 相当于外界可以越过聚合根来操作聚合内的数据,就打破了数据一致性的约束
      *  4.领域层仓储接口负责对领域层的模型进行持久化操作 不关心底层数据模型的结构和操作过程
      *  5.领域层接口的实现在基础设施层 他封装了从领域对象到po并存储的过程.
-     * @see CommercialTenantContractRepositoryImpl#saveContract(CommercialTenantContract)
      * todo    基础设施层仓储接口即mapper
-     * @return 主键
+     *
+     * @return 商户合约申请单id
      */
     String saveApplicationForm(CommercialTenantContractApplicationForm applicationForm);
 
