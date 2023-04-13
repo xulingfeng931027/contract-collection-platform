@@ -50,6 +50,7 @@ public class CommercialTenantContractApplicationFormService {
         String legalPersonNumber = applicationForm.getCommercialTenantInfo().getLegalPersonNumber();
         //校验重复签约
         if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(legalPersonNumber, dto.getChargeType())) {
+            // 抛出签约异常（商户重复签约），业务流程终止
             throw new ContractException(ContractErrorCode.REPEAT_AGENCY);
         }
         //查询商户信息 此处防腐层调用
@@ -60,14 +61,16 @@ public class CommercialTenantContractApplicationFormService {
         applicationForm.completeCommercialTenantInfo(commercialTenantInfo);
         //校验商户结算账户信息
         accountInfoSupport.checkAccountInfo(applicationForm.getSettlementAccountInfo().getId());
-        //如果归集模式为汇总归集  还需要校验暂存户信息
+        //如果归集模式为汇总归集，需要校验暂存账户信息
         if (applicationForm.fundGatherModeIsSum()) {
+            // 校验暂存账户信息
             accountInfoSupport.checkAccountInfo(applicationForm.getStagingAccountInfo().getId());
         }
         //保存合约申请单
         String applicationFormId = commercialTenantContractApplicationFormRepository.saveApplicationForm(applicationForm);
         //生成并保存合约
-        CommercialTenantContract commercialTenantContract = CommercialTenantFactory.generateCommercialTenantContract(applicationForm, applicationFormId);
+        CommercialTenantContract commercialTenantContract = CommercialTenantFactory.generateCommercialTenantContract(applicationForm,
+                applicationFormId);
         commercialTenantContractRepository.saveContract(commercialTenantContract);
         return commercialTenantContractApplicationFormAssembler.toDto(applicationForm);
     }
