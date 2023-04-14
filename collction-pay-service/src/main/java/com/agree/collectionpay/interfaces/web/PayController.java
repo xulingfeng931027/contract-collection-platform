@@ -1,8 +1,8 @@
 package com.agree.collectionpay.interfaces.web;
 
-import com.agree.collectionpay.application.modulepay.payRecord.dto.PayRecordReqDto;
-import com.agree.collectionpay.application.modulepay.payRecord.dto.PayRecordResDto;
-import com.agree.collectionpay.application.modulepay.payRecord.service.PayRecordService;
+import com.agree.collectionpay.application.pay.payRecord.dto.PayRecordReqDto;
+import com.agree.collectionpay.application.pay.payRecord.dto.PayRecordResDto;
+import com.agree.collectionpay.application.pay.payRecord.service.PayRecordService;
 import com.agree.common.ddd.web.Response;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;

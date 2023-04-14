@@ -1,7 +1,7 @@
 package com.agree.collectionpay.infrastructure.supportImpl;
 
 
-import com.agree.collectionpay.application.modulepay.support.SMSNotifySupport;
+import com.agree.collectionpay.application.support.SMSNotifySupport;
 
 import java.util.Map;
 

@@ -1,9 +1,9 @@
 package com.agree.collectionpay.infrastructure.supportImpl;
 
 
-import com.agree.collectionpay.application.modulepay.payableInfo.dto.ExecutePayReqDto;
-import com.agree.collectionpay.domain.modulecollection.support.AccountInfoSupport;
-import com.agree.collectionpay.domain.modulecollection.valueobject.AccountInfo;
+import com.agree.collectionpay.application.pay.payableInfo.dto.ExecutePayReqDto;
+import com.agree.collectionpay.domain.collection.support.AccountInfoSupport;
+import com.agree.collectionpay.domain.collection.valueobject.AccountInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
