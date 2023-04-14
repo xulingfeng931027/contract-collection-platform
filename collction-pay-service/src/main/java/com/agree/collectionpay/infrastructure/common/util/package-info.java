@@ -1,0 +1,1 @@
+package com.agree.collectionpay.infrastructure.common.util;
