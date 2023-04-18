@@ -6,6 +6,7 @@ import com.agree.contract.application.contract.support.CustomerInfoSupport;
 import com.agree.contract.domain.contract.commercialtenantcontract.repository.CommercialTenantContractRepository;
 import com.agree.contract.domain.contract.customercontract.entity.CustomerContract;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.internal.CustomizerRegistry;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,20 +16,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CustomerContractService {
-
-    private static final String ACCOUNT_RULE_CODE = "XXX";
-    @Autowired
-    private CommercialTenantContractRepository commercialTenantContractRepository;
-    @Autowired
-    private AccountInfoSupport accountInfoSupport;
-    @Autowired
-    private CommercialTenantInfoSupport commercialTenantInfoSupport;
-    @Autowired
-    private CustomerInfoSupport customerInfoSupport;
-
-    public CustomerContract queryCustomerContract(String userCode, String commercialTenantContractId) {
-        return null;
-    }
-
 
 }

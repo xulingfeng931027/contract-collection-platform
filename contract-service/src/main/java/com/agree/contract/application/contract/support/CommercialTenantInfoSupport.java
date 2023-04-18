@@ -1,6 +1,8 @@
 package com.agree.contract.application.contract.support;
 
+import com.agree.contract.domain.contract.exception.ContractException;
 import com.agree.contract.domain.contract.valueobject.CommercialTenantInfo;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xulingfeng
@@ -18,5 +20,6 @@ public interface CommercialTenantInfoSupport {
      * 调用三方商户信息系统接口
      * @return 商户信息
      */
+    @Transactional(rollbackFor = ContractException.class)
     CommercialTenantInfo queryCommercialTenantInfo(String idCard);
 }

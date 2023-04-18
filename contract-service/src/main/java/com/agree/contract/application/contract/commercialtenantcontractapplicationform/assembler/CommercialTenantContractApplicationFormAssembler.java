@@ -15,7 +15,7 @@ import org.mapstruct.Mapping;
  * 2.不包含业务逻辑
  * 3.包含业务逻辑相关的实体值对象的构建应该由领域层的factory来完成
  */
-@Mapper(componentModel = "spring")//todo 此处使用spring模式 后续使用可以直接注入
+@Mapper(componentModel = "spring") //todo 此处使用spring模式 后续使用可以直接注入
 public interface CommercialTenantContractApplicationFormAssembler {
     /**
      * 将dto转为实体

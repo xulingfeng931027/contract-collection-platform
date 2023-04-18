@@ -46,14 +46,15 @@ public class ContractAndAccountInfoDomainService {
         // 校验客户账户 (调用核心系统)
         accountInfoSupport.checkAccountInfo(customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
                 .collect(Collectors.toList()));
-        // 完善代收信息中的客户合约属性
         return customerContractList;
     }
 
 
+
     /*
-    *  避免隐式修改参数， 默认传入的参数都是不可变的。方法的入参禁止被修改，如果需要返回数据，需要构造新的返回对象进行返回，避免入参在下一步被直接使用产生问题。
-         说明：在领域层，从repository或者api中调用方法是有返回List、Set等集合对象的可能的，同时这些集合对象也会参与后面的业务逻辑，传递到实体、领域服务中，
-* 那么我们就需要有一种方式，避免在另一个代码位置出现了意外修改集合对象的可能。
+    *  参考与建议：
+    *     避免隐式修改参数， 默认传入的参数都是不可变的。方法的入参禁止被修改，如果需要返回数据，需要构造新的返回对象进行返回，避免入参在下一步被直接使用产生问题。
+          说明：在领域层，从repository或者api中调用方法是有返回List、Set等集合对象的可能的，同时这些集合对象也会参与后面的业务逻辑，传递到实体、领域服务中，
+    *     那么我们就需要有一种方式，避免在另一个代码位置出现了意外修改集合对象的可能。
     * */
 }
