@@ -4,9 +4,11 @@ import com.agree.collectionpay.domain.collection.collectionInfo.entity.Collectio
 import com.agree.collectionpay.domain.collection.support.AccountInfoSupport;
 import com.agree.collectionpay.domain.collection.support.ContractSupport;
 import com.agree.collectionpay.domain.collection.valueobject.CustomerContract;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +35,7 @@ public class ContractAndAccountInfoDomainService {
      * @param collectionInfoList 代收信息
      * @return 客户合约列表
      */
-    public List<CustomerContract> queryAndCheckCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
+    public List<CustomerContract> queryBatchAndCheckCustomerContractAndCustomerAccountInfo(List<CollectionInfo> collectionInfoList) {
         // 获取请求参数中的客户合约id列表
         List<String> customerContractIdList = collectionInfoList.stream().map(e -> e.getCustomerContract().getId())
                 .collect(Collectors.toList());
@@ -49,6 +51,16 @@ public class ContractAndAccountInfoDomainService {
         return customerContractList;
     }
 
+
+    /**
+     * 校验单个客户合约和客户账户信息
+     *
+     * @param collectionInfo 代收信息
+     * @return 客户合约列表
+     */
+    public CustomerContract querySingleAndCheckCustomerContractAndCustomerAccountInfo(CollectionInfo collectionInfo) {
+        return queryBatchAndCheckCustomerContractAndCustomerAccountInfo(Lists.newArrayList(collectionInfo)).get(0);
+    }
 
 
     /*

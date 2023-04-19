@@ -88,14 +88,20 @@ public class CollectionInfoService {
         if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
+
         //todo 此处使用了领域服务  查询并校验客户合约
-        contractAndAccountInfoDomainService.queryAndCheckCustomerContractAndCustomerAccountInfo(Lists.newArrayList(collectionInfo)).get(0);
+        CustomerContract customerContract = contractAndAccountInfoDomainService
+                .querySingleAndCheckCustomerContractAndCustomerAccountInfo(collectionInfo);
         String receiveAccountId;
-        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
-            receiveAccountId = stagingAccountInfoId;
-        } else {
-            receiveAccountId = settlementAccountId;
-        }
+
+        // ????????????????
+//        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+//            receiveAccountId = stagingAccountInfoId;
+//        } else {
+//            receiveAccountId = settlementAccountId;
+//        }
+
+
         //调用核心系统执行代收
         Map<String, Object> collectionResult = accountInfoSupport.executeCollection(assemblyCollectionParamsReq(Lists.newArrayList(collectionInfo), receiveAccountId).get(0));
 
@@ -106,6 +112,7 @@ public class CollectionInfoService {
         collectionRecordRepository.saveRecord(collectionRecord);
         return collectionInfoDto;
     }
+
 
     private void notifyCommercialTenantAndCustomer(CollectionRecord collectionRecord, Map<String, Object> collectionResult) {
         //如果缴费成功，则通知商户
@@ -145,7 +152,7 @@ public class CollectionInfoService {
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
         //todo 此处使用了领域服务  查询并校验客户合约
-        List<CustomerContract> customerContractList = contractAndAccountInfoDomainService.queryAndCheckCustomerContractAndCustomerAccountInfo(collectionInfoList);
+        List<CustomerContract> customerContractList = contractAndAccountInfoDomainService.queryBatchAndCheckCustomerContractAndCustomerAccountInfo(collectionInfoList);
         completeCustomerContract(collectionInfoList, customerContractList);
         String receiveAccountId;
         if (StringUtils.isNoneBlank(stagingAccountInfoId)) {

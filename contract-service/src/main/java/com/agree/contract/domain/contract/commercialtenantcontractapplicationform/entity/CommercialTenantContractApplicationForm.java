@@ -53,7 +53,7 @@ public class CommercialTenantContractApplicationForm extends AbstractAggregation
      */
     private ChargeMethodEnum chargeMethod;
     /**
-     * 商户信息
+     * 商户信息 todo 值对象示例
      */
     private CommercialTenantInfo commercialTenantInfo;
     /**
