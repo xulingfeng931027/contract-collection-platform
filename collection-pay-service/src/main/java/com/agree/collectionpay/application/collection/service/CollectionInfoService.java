@@ -17,7 +17,6 @@ import com.agree.collectionpay.domain.collection.support.ContractSupport;
 import com.agree.collectionpay.domain.collection.valueobject.CollectionResult;
 import com.agree.collectionpay.domain.collection.valueobject.CommercialTenantContract;
 import com.agree.collectionpay.domain.collection.valueobject.CustomerContract;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,14 +69,12 @@ public class CollectionInfoService {
         commercialTenantContract.checkStatusIfNormal();
         //完善合约信息
         collectionInfo.completeCommercialTenantContract(commercialTenantContract);
-        //校验商户账户信息
-        String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
-        accountInfoSupport.checkAccountInfo(settlementAccountId);
-        String stagingAccountInfoId = commercialTenantContract.getStagingAccountInfo().getId();
-        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+        //校验结算账户信息
+        accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettlementAccountInfo().getId());
+        if (commercialTenantContract.fundGatherModeIsSum()) {
+            //校验暂存账户信息
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
-
         //todo 此处使用了领域服务  查询并校验客户合约
         CustomerContract customerContract = contractAndAccountInfoDomainService
                 .querySingleAndCheckCustomerContractAndCustomerAccountInfo(collectionInfo);
