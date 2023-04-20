@@ -46,8 +46,6 @@ public class KafkaProducer {
      * 1、send(String topic, @Nullable V data)：向指定主题发送消息，如果 topic 不存在，则自动创建，
      * 但是创建的主题默认只有一个分区 - PartitionCount: 1、分区也没有副本 - ReplicationFactor: 1，1表示自身。
      * 2、send 方法默认是异步的，主线程会直接继续向后运行，想要获取发送结果是否成功，请添加回调方法 addCallback。
-     * [WARN ][org.apache.kafka.common.utils.LogContext$KafkaLogger.warn(LogContext.java:241)]:[Producer clientId=producer-1] Connection to node -1 could not be established. Broker may not be available.
-     * [ERROR][org.springframework.kafka.support.LoggingProducerListener.onError(LoggingProducerListener.java:76)]:Exception thrown when sending a message with key='xxx' and payload='xxx' to topic bgt.basic.agency.frame.topic:
      * 3、send().get() 可以同步阻塞主线程直到获取执行结果，或者执行超时抛出异常.
      * java.util.concurrent.ExecutionException: org.springframework.kafka.core.KafkaProducerException:
      * Failed to send; nested exception is org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.
@@ -81,7 +79,6 @@ public class KafkaProducer {
      * 但是创建的主题默认只有一个分区 - PartitionCount: 1、分区也没有副本 - ReplicationFactor: 1，1表示自身。
      * 2、send 方法默认是异步的，主线程会直接继续向后运行，想要获取发送结果是否成功，请添加回调方法 addCallback。
      * [WARN ][org.apache.kafka.common.utils.LogContext$KafkaLogger.warn(LogContext.java:241)]:[Producer clientId=producer-1] Connection to node -1 could not be established. Broker may not be available.
-     * [ERROR][org.springframework.kafka.support.LoggingProducerListener.onError(LoggingProducerListener.java:76)]:Exception thrown when sending a message with key='xxx' and payload='xxx' to topic bgt.basic.agency.frame.topic:
      * 3、send().get() 可以同步阻塞主线程直到获取执行结果，或者执行超时抛出异常.
      * java.util.concurrent.ExecutionException: org.springframework.kafka.core.KafkaProducerException:
      * Failed to send; nested exception is org.apache.kafka.common.errors.TimeoutException: Failed to update metadata after 60000 ms.

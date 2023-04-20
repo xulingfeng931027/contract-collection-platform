@@ -1,8 +1,8 @@
 package com.agree.contract.infrastructure.contract.customerContractApplicationForm.po;
 
 import com.agree.common.ddd.obj.AbstractPo;
-import com.agree.contract.domain.contract.valueobject.enumType.AgencyTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.contract.valueobject.enumType.SigningMode;
 import com.agree.contract.infrastructure.contract.commercialTenantcontractapplicationform.po.AccountInfoPo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -26,7 +26,7 @@ public class CustomerContractApplicationFormPo extends AbstractPo<String> {
     /**
      * 签约模式
      */
-    private AgencyTypeEnum agencyTypeEnum;
+    private SigningMode signingMode;
     /**
      * 客户账户信息
      */

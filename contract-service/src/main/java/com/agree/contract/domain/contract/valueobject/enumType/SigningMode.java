@@ -5,7 +5,7 @@ package com.agree.contract.domain.contract.valueobject.enumType;
  * 
  * @description 签约模式
  */
-public enum AgencyTypeEnum {
+public enum SigningMode {
     /**
      * 本行卡
      */

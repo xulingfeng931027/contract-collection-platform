@@ -4,7 +4,7 @@ package com.agree.collectionpay.domain.collection.valueobject.enumtypes;
  * @author xulingfeng
  * @description 客户签约模式
  */
-public enum AgencyTypeEnum {
+public enum SigningMode {
     /**
      * 本行卡
      */

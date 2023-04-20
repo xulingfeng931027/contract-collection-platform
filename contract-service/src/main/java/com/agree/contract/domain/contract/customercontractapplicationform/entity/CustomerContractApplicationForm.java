@@ -3,8 +3,8 @@ package com.agree.contract.domain.contract.customercontractapplicationform.entit
 import com.agree.common.ddd.obj.AbstractAggregationObject;
 import com.agree.contract.domain.contract.valueobject.AccountInfo;
 import com.agree.contract.domain.contract.valueobject.CustomerInfo;
-import com.agree.contract.domain.contract.valueobject.enumType.AgencyTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.contract.valueobject.enumType.SigningMode;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -25,7 +25,7 @@ public class CustomerContractApplicationForm extends AbstractAggregationObject<S
     /**
      * 签约模式
      */
-    private AgencyTypeEnum agencyTypeEnum;
+    private SigningMode signingMode;
     /**
      * 关联的商户合约id
      */

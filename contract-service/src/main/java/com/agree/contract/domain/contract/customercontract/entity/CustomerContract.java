@@ -4,8 +4,8 @@ import com.agree.common.ddd.exception.BaseException;
 import com.agree.common.ddd.obj.AbstractAggregationObject;
 import com.agree.contract.domain.contract.valueobject.AccountInfo;
 import com.agree.contract.domain.contract.valueobject.CustomerInfo;
-import com.agree.contract.domain.contract.valueobject.enumType.AgencyTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractStatusEnum;
+import com.agree.contract.domain.contract.valueobject.enumType.SigningMode;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
@@ -31,7 +31,7 @@ public class CustomerContract extends AbstractAggregationObject<String> {
     /**
      * 签约模式 本行/他行卡
      */
-    private AgencyTypeEnum agencyType;
+    private SigningMode signingMode;
 
     /**
      * 关联的商户合约id

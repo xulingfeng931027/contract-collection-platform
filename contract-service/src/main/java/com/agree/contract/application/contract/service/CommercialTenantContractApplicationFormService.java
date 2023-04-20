@@ -39,7 +39,7 @@ public class CommercialTenantContractApplicationFormService {
      * 商户签约
      */
     @Transactional(rollbackFor = ContractException.class)
-    public CommercialTenantContractApplicationFormResDto agencyContract(CommercialTenantContractApplicationFormReqDto dto) {
+    public CommercialTenantContractApplicationFormResDto commercialTenantSignContract(CommercialTenantContractApplicationFormReqDto dto) {
         //先将入参转为实体
         CommercialTenantContractApplicationForm applicationForm = commercialTenantContractApplicationFormAssembler.
                 toEntity(dto);
@@ -51,7 +51,7 @@ public class CommercialTenantContractApplicationFormService {
         //校验重复签约
         if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(legalPersonNumber, dto.getChargeType())) {
             // 抛出签约异常（商户重复签约），业务流程终止
-            throw new ContractException(ContractErrorCode.REPEAT_AGENCY);
+            throw new ContractException(ContractErrorCode.REPEAT_SIGNING);
         }
         //查询商户信息 此处防腐层调用
         CommercialTenantInfo commercialTenantInfo = commercialTenantInfoSupport.queryCommercialTenantInfo(legalPersonNumber);

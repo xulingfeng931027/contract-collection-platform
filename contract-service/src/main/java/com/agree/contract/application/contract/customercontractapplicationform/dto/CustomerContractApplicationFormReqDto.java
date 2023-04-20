@@ -3,9 +3,9 @@ package com.agree.contract.application.contract.customercontractapplicationform.
 import com.agree.contract.domain.contract.commercialtenantcontract.entity.CommercialTenantContract;
 import com.agree.contract.domain.contract.valueobject.AccountInfo;
 import com.agree.contract.domain.contract.valueobject.CustomerInfo;
-import com.agree.contract.domain.contract.valueobject.enumType.AgencyTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ChargeTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractApplicationFormStatusEnum;
+import com.agree.contract.domain.contract.valueobject.enumType.SigningMode;
 import lombok.Data;
 
 /**
@@ -27,7 +27,7 @@ public class CustomerContractApplicationFormReqDto {
     /**
      * 签约模式
      */
-    private AgencyTypeEnum agencyTypeEnum;
+    private SigningMode signingMode;
     /**
      * 客户账户信息
      */

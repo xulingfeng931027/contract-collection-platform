@@ -31,9 +31,9 @@ public class CommercialTenantContractController {
      * @param commercialTenantContractApplicationFormReqDto
      * @return
      */
-    @PostMapping("/agency")
-    public CommercialTenantContractApplicationFormResDto agencyContract(@RequestBody @Validated CommercialTenantContractApplicationFormReqDto commercialTenantContractApplicationFormReqDto) {
-        return commercialTenantContractApplicationFormService.agencyContract(commercialTenantContractApplicationFormReqDto);
+    @PostMapping("/commercial/tenant/sign")
+    public CommercialTenantContractApplicationFormResDto commercialTenantSignContract(@RequestBody @Validated CommercialTenantContractApplicationFormReqDto commercialTenantContractApplicationFormReqDto) {
+        return commercialTenantContractApplicationFormService.commercialTenantSignContract(commercialTenantContractApplicationFormReqDto);
     }
 
     /**

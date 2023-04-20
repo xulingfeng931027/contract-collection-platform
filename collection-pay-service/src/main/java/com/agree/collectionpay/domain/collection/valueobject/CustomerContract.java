@@ -1,8 +1,8 @@
 package com.agree.collectionpay.domain.collection.valueobject;
 
 import com.agree.collectionpay.domain.collection.exception.CollectionException;
-import com.agree.collectionpay.domain.collection.valueobject.enumtypes.AgencyTypeEnum;
 import com.agree.collectionpay.domain.collection.valueobject.enumtypes.ContractStatusEnum;
+import com.agree.collectionpay.domain.collection.valueobject.enumtypes.SigningMode;
 import com.agree.common.ddd.obj.AbstractValueObject;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +27,7 @@ public class CustomerContract extends AbstractValueObject {
     /**
      * 签约模式 本行/他行卡
      */
-    private AgencyTypeEnum agencyType;
+    private SigningMode signingMode;
 
     /**
      * 客户账户信息

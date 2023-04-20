@@ -2,8 +2,8 @@ package com.agree.contract.application.contract.customercontract.dto;
 
 import com.agree.contract.domain.contract.valueobject.AccountInfo;
 import com.agree.contract.domain.contract.valueobject.CustomerInfo;
-import com.agree.contract.domain.contract.valueobject.enumType.AgencyTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractStatusEnum;
+import com.agree.contract.domain.contract.valueobject.enumType.SigningMode;
 import lombok.Data;
 
 /**
@@ -27,7 +27,7 @@ public class CustomerContractResDto {
     /**
      * 签约模式 本行/他行卡
      */
-    private AgencyTypeEnum agencyType;
+    private SigningMode signingMode;
 
     /**
      * 客户信息
