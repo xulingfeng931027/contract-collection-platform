@@ -11,7 +11,11 @@ import java.util.List;
  */
 public interface CollectionRecordRepository {
 
-
+    /**
+     * 保存代收记录
+     * @param collectionRecord
+     * @return
+     */
     String saveRecord(CollectionRecord collectionRecord);
 
     /**
@@ -23,8 +27,7 @@ public interface CollectionRecordRepository {
     /**
      * 修改代收记录状态
      *
-     * @param collectionRecord
-     * @return
+     * @return 1表示成功
      */
     Integer updateStatus(CollectionRecord collectionRecord);
 }

@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * @author xulingfeng
- * 
+ *
  * @description 代收记录仓储接口实现
- * 
+ *
  */
 @Repository
 @Slf4j
@@ -22,15 +22,19 @@ public class CollectionRecordRecordRepositoryImpl implements CollectionRecordRep
     @Autowired
     private CollectionRecordMapper collectionRecordMapper;
 
+    /**
+     * 保存代收记录
+     *
+     * @return
+     */
     @Override
     public String saveRecord(CollectionRecord collectionRecord) {
         return null;
     }
 
     /**
-     * 批量保存
+     * 批量保存代收记录
      *
-     * @param collectionRecordList
      * @return
      */
     @Override
@@ -41,8 +45,7 @@ public class CollectionRecordRecordRepositoryImpl implements CollectionRecordRep
     /**
      * 修改代收记录状态
      *
-     * @param collectionRecord
-     * @return
+     * @return 1表示成功
      */
     @Override
     public Integer updateStatus(CollectionRecord collectionRecord) {
