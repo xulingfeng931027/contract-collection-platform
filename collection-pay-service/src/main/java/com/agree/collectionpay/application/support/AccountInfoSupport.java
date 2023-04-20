@@ -19,14 +19,14 @@ public interface AccountInfoSupport {
     PayResult executePay(PayableInfo payableInfo);
 
     /**
-     * 单个校验账户信息
+     * 校验单个账户信息
      *
      * @param accountId
      */
     boolean checkAccountInfo(String accountId);
 
     /**
-     * 单个校验账户信息
+     * 查询单个账户信息
      *
      * @param accountId
      */

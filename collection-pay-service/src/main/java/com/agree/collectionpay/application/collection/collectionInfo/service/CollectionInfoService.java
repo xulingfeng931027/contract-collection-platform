@@ -87,7 +87,7 @@ public class CollectionInfoService {
         CollectionResult collectionResult = accountInfoSupport.executeCollection(collectionInfo);
 
         //生成并保存代收记录
-        CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(collectionInfo, collectionResult);
+        CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForSingle(collectionInfo, collectionResult);
         //发送消息通知
         notifyCommercialTenantAndCustomer(collectionRecord, collectionResult);
         collectionRecordRepository.saveRecord(collectionRecord);
@@ -135,10 +135,12 @@ public class CollectionInfoService {
         List<CustomerContract> customerContractList = contractAndAccountInfoDomainService.queryBatchAndCheckCustomerContractAndCustomerAccountInfo(collectionInfoList);
         //完善客户合约信息
         completeCustomerContract(collectionInfoList, customerContractList);
-        //调用核心接口代收
+        //调用核心接口代收(异步)
         accountInfoSupport.executeCollection(collectionInfoList);
-        //保存记录
-        collectionInfoList.forEach(e -> {
+        //批量代收并保存记录
+        List<CollectionRecord> collectionRecords = CollectionRecordFactory.generateCollectionRecordForSingle(collectionInfoList);
+        collectionInfoList.forEach(e ->
+        collectionInfoList.forEach(e ->
             CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(e);
             collectionRecordRepository.saveRecord(collectionRecord);
         });

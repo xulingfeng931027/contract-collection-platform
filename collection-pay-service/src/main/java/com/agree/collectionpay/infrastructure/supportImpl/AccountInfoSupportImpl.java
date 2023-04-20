@@ -20,8 +20,8 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
 
 
     /**
-     * 执行收款
-     *
+     * 执行单笔收款
+     * 调用核心系统
      * @return
      */
     @Override

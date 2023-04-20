@@ -31,7 +31,6 @@ public class ContractAndAccountInfoDomainService {
 
     /**
      * 批量校验客户合约和客户账户信息
-     *
      * @param collectionInfoList 代收信息
      * @return 客户合约列表
      */
@@ -46,8 +45,9 @@ public class ContractAndAccountInfoDomainService {
         customerContractList.forEach(CustomerContract::statusIfValid);
 
         // 校验客户账户 (调用核心系统)
-        accountInfoSupport.checkAccountInfo(customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
-                .collect(Collectors.toList()));
+        List<String> customerAccountIds = customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
+                .collect(Collectors.toList());
+        accountInfoSupport.checkAccountInfo(customerAccountIds);
         return customerContractList;
     }
 

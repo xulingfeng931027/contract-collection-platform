@@ -13,24 +13,26 @@ import java.util.List;
  */
 public interface AccountInfoSupport {
     /**
-     * 执行收款
-     *
+     * 执行单笔代收
      * @return
      */
-
     CollectionResult executeCollection(CollectionInfo collectionInfo);
 
     /**
-     * 批量执行收款
-     *
+     * 执行批量代收
      * @return
      */
     boolean executeCollection(List<CollectionInfo> collectionInfoList);
 
+    /**
+     * 批量校验账户信息
+     * @param accountId
+     * @return
+     */
     List<String> checkAccountInfo(List<String> accountId);
 
     /**
-     * 单个校验账户信息
+     * 校验账户信息
      *
      * @param accountId
      */
