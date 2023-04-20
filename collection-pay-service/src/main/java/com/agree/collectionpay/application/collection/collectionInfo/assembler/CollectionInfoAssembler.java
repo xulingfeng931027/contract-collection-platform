@@ -1,6 +1,6 @@
 package com.agree.collectionpay.application.collectionInfo.assembler;
 
-import com.agree.collectionpay.application.collectionInfo.dto.CollectionInfoDto;
+import com.agree.collectionpay.application.collection.collectionInfo.dto.CollectionInfoDto;
 import com.agree.collectionpay.domain.collection.collectionInfo.entity.CollectionInfo;
 import org.mapstruct.Mapper;
 

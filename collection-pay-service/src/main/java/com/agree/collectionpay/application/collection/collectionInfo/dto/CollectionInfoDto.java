@@ -1,4 +1,4 @@
-package com.agree.collectionpay.application.collectionInfo.dto;
+package com.agree.collectionpay.application.collection.collectionInfo.dto;
 
 import lombok.Data;
 

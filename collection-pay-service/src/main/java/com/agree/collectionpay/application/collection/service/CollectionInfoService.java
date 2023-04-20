@@ -1,8 +1,8 @@
-package com.agree.collectionpay.application.collection.collectionInfo.service;
+package com.agree.collectionpay.application.collection.service;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.agree.collectionpay.application.collection.collectionInfo.dto.CollectionInfoDto;
 import com.agree.collectionpay.application.collectionInfo.assembler.CollectionInfoAssembler;
-import com.agree.collectionpay.application.collectionInfo.dto.CollectionInfoDto;
 import com.agree.collectionpay.application.support.EventPublishSupport;
 import com.agree.collectionpay.application.support.SMSNotifySupport;
 import com.agree.collectionpay.domain.collection.collectionInfo.entity.CollectionInfo;

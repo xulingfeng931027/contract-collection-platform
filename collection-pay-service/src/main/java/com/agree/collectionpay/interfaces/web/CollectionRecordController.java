@@ -1,6 +1,6 @@
 package com.agree.collectionpay.interfaces.web;
 
-import com.agree.collectionpay.application.collection.collectionInfo.service.CollectionInfoService;
+import com.agree.collectionpay.application.collection.service.CollectionInfoService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
