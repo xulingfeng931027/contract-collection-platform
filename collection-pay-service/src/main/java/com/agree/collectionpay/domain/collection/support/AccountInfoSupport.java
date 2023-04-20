@@ -22,14 +22,14 @@ public interface AccountInfoSupport {
      * 执行批量代收
      * @return
      */
-    boolean executeCollection(List<CollectionInfo> collectionInfoList);
+    void executeCollection(List<CollectionInfo> collectionInfoList);
 
     /**
      * 批量校验账户信息
-     * @param accountId
+     * @param accountId 账户id
      * @return
      */
-    List<String> checkAccountInfo(List<String> accountId);
+    void checkAccountInfo(List<String> accountId);
 
     /**
      * 校验账户信息

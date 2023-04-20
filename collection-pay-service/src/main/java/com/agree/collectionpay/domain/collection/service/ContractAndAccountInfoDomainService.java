@@ -43,9 +43,9 @@ public class ContractAndAccountInfoDomainService {
         // 校验客户合约
         customerContractList.forEach(CustomerContract::statusIfValid);
 
-        // 校验客户账户 (调用核心系统)
         List<String> customerAccountIds = customerContractList.stream().map(e -> e.getCustomerAccountInfo().getId())
                 .collect(Collectors.toList());
+        // 校验客户账户 (调用核心系统)
         accountInfoSupport.checkAccountInfo(customerAccountIds);
         return customerContractList;
     }

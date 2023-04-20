@@ -35,13 +35,18 @@ public class AccountInfoSupportImpl implements AccountInfoSupport {
      * @return
      */
     @Override
-    public boolean executeCollection(List<CollectionInfo> collectionInfoList) {
-        return false;
+    public void executeCollection(List<CollectionInfo> collectionInfoList) {
     }
 
+    /**
+     * 批量校验账户信息
+     *
+     * @param accountId 账户id
+     * @return
+     */
     @Override
-    public List<String> checkAccountInfo(List<String> accountId) {
-        return null;
+    public void checkAccountInfo(List<String> accountId) {
+
     }
 
     /**

@@ -53,7 +53,7 @@ public class CollectionInfoService {
 
 
     /**
-     * 代收
+     * 单笔代收
      *
      * @return
      */
@@ -109,7 +109,7 @@ public class CollectionInfoService {
      *
      * @return 执行结果
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = CollectionException.class)
     public void batchCollection(List<CollectionInfoDto> collectionInfoDtoList) {
         if (CollectionUtil.isEmpty(collectionInfoDtoList)) {
             return;
@@ -125,13 +125,13 @@ public class CollectionInfoService {
         //校验商户合约
         commercialTenantContract.checkStatusIfNormal();
         collectionInfoList.forEach(e -> e.completeCommercialTenantContract(commercialTenantContract));
-        //校验商户账户信息
-        String settlementAccountId = commercialTenantContract.getSettlementAccountInfo().getId();
-        accountInfoSupport.checkAccountInfo(settlementAccountId);
-        String stagingAccountInfoId = commercialTenantContract.getStagingAccountInfo().getId();
-        if (StringUtils.isNoneBlank(stagingAccountInfoId)) {
+        //校验结算账户信息
+        accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettlementAccountInfo().getId());
+        if (commercialTenantContract.fundGatherModeIsSum()) {
+            //校验暂存账户信息信息
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
+        //调用领域服务 查询并校验客户合约
         List<CustomerContract> customerContractList = contractAndAccountInfoDomainService.queryBatchAndCheckCustomerContractAndCustomerAccountInfo(collectionInfoList);
         //完善客户合约信息
         completeCustomerContract(collectionInfoList, customerContractList);
