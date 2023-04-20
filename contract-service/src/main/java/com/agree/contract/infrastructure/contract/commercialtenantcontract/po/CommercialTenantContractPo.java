@@ -1,11 +1,11 @@
 package com.agree.contract.infrastructure.contract.commercialtenantcontract.po;
 
 import com.agree.common.ddd.obj.AbstractPo;
-import com.agree.contract.domain.contract.valueobject.AccountInfo;
-import com.agree.contract.domain.contract.valueobject.CommercialTenantInfo;
 import com.agree.contract.domain.contract.valueobject.enumType.ChargeTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractStatusEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.FundGatherModeEnum;
+import com.agree.contract.infrastructure.contract.commercialTenantcontractapplicationform.po.AccountInfoPo;
+import com.agree.contract.infrastructure.contract.commercialTenantcontractapplicationform.po.CommercialTenantInfoPo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
@@ -13,7 +13,6 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @author xulingfeng
@@ -49,26 +48,22 @@ public class CommercialTenantContractPo extends AbstractPo<String> {
      * 结算账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo settlementAccountInfo;
+    private AccountInfoPo settlementAccountInfo;
 
     /**
      * 暂存账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo stagingAccountInfo;
+    private AccountInfoPo stagingAccountInfo;
     /**
      * 商户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private CommercialTenantInfo commercialTenantInfo;
+    private CommercialTenantInfoPo commercialTenantInfo;
 
     /**
      * 商户法人证件号
      */
     private String legalPersonNumber;
-
-    private Date createTime;
-
-    private Date updateTime;
 
 }

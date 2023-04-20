@@ -1,8 +1,6 @@
 package com.agree.contract.infrastructure.contract.commercialTenantcontractapplicationform.po;
 
 import com.agree.common.ddd.obj.AbstractPo;
-import com.agree.contract.domain.contract.valueobject.AccountInfo;
-import com.agree.contract.domain.contract.valueobject.CommercialTenantInfo;
 import com.agree.contract.domain.contract.valueobject.enumType.ChargeMethodEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ChargeTypeEnum;
 import com.agree.contract.domain.contract.valueobject.enumType.ContractApplicationFormStatusEnum;
@@ -49,17 +47,17 @@ public class CommercialTenantContractApplicationFormPo extends AbstractPo<String
      * 结算账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo settlementAccountInfo;
+    private AccountInfoPo settlementAccountInfo;
 
     /**
      * 暂存账户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private AccountInfo stagingAccountInfo;
+    private AccountInfoPo stagingAccountInfo;
     /**
      * 商户信息
      */
     @TableField(typeHandler = FastjsonTypeHandler.class)
-    private CommercialTenantInfo commercialTenantInfo;
+    private CommercialTenantInfoPo commercialTenantInfo;
 
 }
