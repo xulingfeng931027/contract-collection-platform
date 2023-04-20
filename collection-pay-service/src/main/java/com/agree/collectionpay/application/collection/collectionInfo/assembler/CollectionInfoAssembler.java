@@ -1,4 +1,4 @@
-package com.agree.collectionpay.application.collectionInfo.assembler;
+package com.agree.collectionpay.application.collection.collectionInfo.assembler;
 
 import com.agree.collectionpay.application.collection.collectionInfo.dto.CollectionInfoDto;
 import com.agree.collectionpay.domain.collection.collectionInfo.entity.CollectionInfo;
