@@ -71,18 +71,17 @@ public class CollectionInfoService {
         collectionInfo.completeCommercialTenantContract(commercialTenantContract);
         //校验结算账户信息
         accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettlementAccountInfo().getId());
+        //如果是汇总模式，则校验暂存账户信息
         if (commercialTenantContract.fundGatherModeIsSum()) {
             //校验暂存账户信息
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
         }
         //todo 此处使用了领域服务  查询并校验客户合约
-        CustomerContract customerContract = contractAndAccountInfoDomainService
-                .querySingleAndCheckCustomerContractAndCustomerAccountInfo(collectionInfo);
+        CustomerContract customerContract = contractAndAccountInfoDomainService.querySingleAndCheckCustomerContractAndCustomerAccountInfo(collectionInfo);
         //补全合约
         collectionInfo.completeCustomerContract(customerContract);
         //调用核心系统执行代收
         CollectionResult collectionResult = accountInfoSupport.executeCollection(collectionInfo);
-
         //生成并保存代收记录
         CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForSingle(collectionInfo, collectionResult);
         //发送消息通知
@@ -124,6 +123,7 @@ public class CollectionInfoService {
         collectionInfoList.forEach(e -> e.completeCommercialTenantContract(commercialTenantContract));
         //校验结算账户信息
         accountInfoSupport.checkAccountInfo(commercialTenantContract.getSettlementAccountInfo().getId());
+        //如果是汇总模式，则校验暂存账户信息
         if (commercialTenantContract.fundGatherModeIsSum()) {
             //校验暂存账户信息信息
             accountInfoSupport.checkAccountInfo(commercialTenantContract.getStagingAccountInfo().getId());
