@@ -34,22 +34,22 @@ public class CollectionRecordFactory {
 
     /**
      * 批量代收生成记录
+     *
      * @param collectionInfoList 代收信息列表
      * @return 代收记录列表
      */
-    public static List<CollectionRecord> generateCollectionRecordForSingle(List<CollectionInfo> collectionInfoList) {
-        List<CollectionRecord> collectionRecords = collectionInfoList.stream().map(collectionInfo -> {
-                    return CollectionRecord.builder()
-                            .amount(collectionInfo.getAmount())
-                            .commercialTenantContractId(collectionInfo.getCommercialTenantContract().getId())
-                            .customerContractId(collectionInfo.getCustomerContract().getId())
-                            .createTime(new Date())
-                            // 批量代收，异步执行，默认状态为执行中
-                            .status(CollectionResultEnum.PROCESSING)
-                            .build();
-                }
+    public static List<CollectionRecord> generateCollectionRecordForBatch(List<CollectionInfo> collectionInfoList) {
+        List<CollectionRecord> collectionRecords = collectionInfoList.stream().map(collectionInfo ->
+                CollectionRecord.builder()
+                        .amount(collectionInfo.getAmount())
+                        .commercialTenantContractId(collectionInfo.getCommercialTenantContract().getId())
+                        .customerContractId(collectionInfo.getCustomerContract().getId())
+                        .createTime(new Date())
+                        // 批量代收，异步执行，默认状态为执行中
+                        .status(CollectionResultEnum.PROCESSING)
+                        .build()
         ).collect(Collectors.toList());
-        return  collectionRecords;
+        return collectionRecords;
     }
 
 }

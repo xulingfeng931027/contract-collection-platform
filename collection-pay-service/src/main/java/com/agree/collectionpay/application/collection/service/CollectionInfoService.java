@@ -137,13 +137,9 @@ public class CollectionInfoService {
         completeCustomerContract(collectionInfoList, customerContractList);
         //调用核心接口代收(异步)
         accountInfoSupport.executeCollection(collectionInfoList);
-        //批量代收并保存记录
-        List<CollectionRecord> collectionRecords = CollectionRecordFactory.generateCollectionRecordForSingle(collectionInfoList);
-        collectionInfoList.forEach(e ->
-        collectionInfoList.forEach(e ->
-            CollectionRecord collectionRecord = CollectionRecordFactory.generateCollectionRecordForBatch(e);
-            collectionRecordRepository.saveRecord(collectionRecord);
-        });
+        //批量生成保存代收记录
+        List<CollectionRecord> collectionRecords = CollectionRecordFactory.generateCollectionRecordForBatch(collectionInfoList);
+        collectionRecordRepository.saveRecordBatch(collectionRecords);
     }
 
     /**

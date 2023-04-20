@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author xulingfeng
  * 
@@ -22,6 +24,17 @@ public class CollectionRecordRecordRepositoryImpl implements CollectionRecordRep
 
     @Override
     public String saveRecord(CollectionRecord collectionRecord) {
+        return null;
+    }
+
+    /**
+     * 批量保存
+     *
+     * @param collectionRecordList
+     * @return
+     */
+    @Override
+    public String saveRecordBatch(List<CollectionRecord> collectionRecordList) {
         return null;
     }
 
