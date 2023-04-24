@@ -49,7 +49,8 @@ public class CommercialTenantContractApplicationFormService {
         //获取法人证件号
         String legalPersonNumber = applicationForm.getCommercialTenantInfo().getLegalPersonNumber();
         //校验重复签约
-        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(legalPersonNumber, dto.getChargeType())) {
+        if (commercialTenantContractRepository.existByLegalPersonNumberAndChargeType(legalPersonNumber,
+                applicationForm.getChargeType())) {
             // 抛出签约异常（商户重复签约），业务流程终止
             throw new ContractException(ContractErrorCode.REPEAT_SIGNING);
         }

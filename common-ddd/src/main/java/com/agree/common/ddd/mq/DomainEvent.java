@@ -21,7 +21,7 @@ public class DomainEvent<T> {
     /**
      * 事件内容
      */
-    private T data;
+    private String data;
     /**
      * 发送的topic
      */
