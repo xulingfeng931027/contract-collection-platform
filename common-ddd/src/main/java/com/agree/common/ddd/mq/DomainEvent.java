@@ -9,7 +9,7 @@ import java.util.Date;
  * @description: 领域事件消息基类
  **/
 @Data
-public class DomainEvent {
+public class DomainEvent<T> {
     /**
      * 事件id
      */
@@ -21,7 +21,7 @@ public class DomainEvent {
     /**
      * 事件内容
      */
-    private String data;
+    private T data;
     /**
      * 发送的topic
      */
