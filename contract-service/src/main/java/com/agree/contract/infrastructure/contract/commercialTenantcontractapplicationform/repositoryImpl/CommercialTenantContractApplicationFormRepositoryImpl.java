@@ -10,6 +10,7 @@ import com.agree.contract.infrastructure.contract.commercialtenantcontract.repos
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xulingfeng
@@ -36,6 +37,7 @@ public class CommercialTenantContractApplicationFormRepositoryImpl implements Co
      * @see CommercialTenantContractRepositoryImpl#saveContract(CommercialTenantContract)
      */
     @Override
+    @Transactional
     public String saveApplicationForm(CommercialTenantContractApplicationForm applicationForm) {
         CommercialTenantContractApplicationFormPo po = contractConverter.toPo(applicationForm);
         contractMapper.insert(po);
