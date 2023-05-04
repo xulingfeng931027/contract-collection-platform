@@ -45,7 +45,6 @@ public class CommercialTenantContractApplicationFormService {
                 toEntity(dto);
         //校验商户合约申请单
         applicationForm.checkIfValid();
-        // todo 1.按照用户故事地图的命令进行流程编排
         //获取法人证件号
         String legalPersonNumber = applicationForm.getCommercialTenantInfo().getLegalPersonNumber();
         //校验重复签约

@@ -11,10 +11,12 @@ import lombok.Data;
 public class BaseException extends RuntimeException {
 
     /**
-     * 错误码 必填
+     * 错误码
      */
     private Integer code;
-
+    /**
+     * 描述
+     */
     private String description;
 
     private static final Integer DEFAULT_CODE = -1;

@@ -1,7 +1,6 @@
 package com.agree.contract.infrastructure.contract.commercialTenantcontractapplicationform.po;
 
 import com.agree.contract.domain.contract.valueobject.enumType.AccountStatusEnum;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -11,7 +10,6 @@ import lombok.Getter;
  */
 @Getter
 @Builder
-@AllArgsConstructor
 public class AccountInfoPo {
     /**
      * 账户id

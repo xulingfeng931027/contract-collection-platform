@@ -11,13 +11,6 @@ import java.math.BigDecimal;
 
 /**
  * @author xulingfeng
- * 
- * todo dto的定义
- *    1.dto一般分为reqDto和resDto
- *     如:签约成功后,一般不会返回的所有的申请单信息,可能造成数据泄露,建议分别定义reqDto和resDto
- *    2.dto一般可以通过添加注解来实现参数校验,与业务无关的参数校验可以放在这里.
- *     如:参数不能为空,字符串的长度,数字的范围
- *
  */
 @Data
 public class CommercialTenantContractApplicationFormReqDto {

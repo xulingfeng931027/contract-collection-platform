@@ -1,11 +1,11 @@
 package com.agree.contract.domain.contract.valueobject;
 
 import com.agree.common.ddd.obj.AbstractValueObject;
+import com.agree.contract.domain.contract.exception.ContractException;
 import com.agree.contract.domain.contract.valueobject.enumType.CustomerStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.apache.kafka.common.errors.ApiException;
 
 /**
  * @author xulingfeng
@@ -43,7 +43,7 @@ public class CustomerInfo  extends AbstractValueObject {
      */
     public void checkStatusIfNormal() {
         if (status != CustomerStatusEnum.NORMAL) {
-            throw new ApiException("客户状态不正常");
+            throw new ContractException("客户状态不正常");
         }
     }
 

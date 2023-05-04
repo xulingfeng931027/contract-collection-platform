@@ -4,7 +4,6 @@ import com.agree.contract.domain.contract.valueobject.enumType.CustomerStatusEnu
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.apache.kafka.common.errors.ApiException;
 
 /**
  * @author xulingfeng
@@ -35,18 +34,5 @@ public class CustomerInfoPo {
      * 证件号
      */
     private String idCard;
-
-    /**
-     * 判定客户状态是否正常
-     */
-    public void checkStatusIfNormal() {
-        if (status != CustomerStatusEnum.NORMAL) {
-            throw new ApiException("客户状态不正常");
-        }
-    }
-
-//    public boolean statusIsNormal() {
-//        return status == CustomerStatusEnum.NORMAL;
-//    }
 }
 
