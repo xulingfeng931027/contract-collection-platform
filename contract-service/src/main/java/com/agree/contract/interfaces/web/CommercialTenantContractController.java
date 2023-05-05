@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @description 商户签约
  */
 @RestController
-@RequestMapping("/commercia/tenant/contract")
+@RequestMapping("/commercial/tenant/contract")
 public class CommercialTenantContractController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class CommercialTenantContractController {
      * @param commercialTenantContractApplicationFormReqDto
      * @return
      */
-    @PostMapping("/commercial/tenant/sign")
+    @PostMapping("/signing")
     public CommercialTenantContractApplicationFormResDto commercialTenantSignContract(@RequestBody @Validated CommercialTenantContractApplicationFormReqDto commercialTenantContractApplicationFormReqDto) {
         return commercialTenantContractApplicationFormService.commercialTenantSignContract(commercialTenantContractApplicationFormReqDto);
     }

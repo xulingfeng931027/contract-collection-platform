@@ -6,7 +6,7 @@ import com.agree.contract.infrastructure.contract.customerContractApplicationFor
 
 /**
  * @author xulingfeng
- * @description  商户合约申请单仓储接口
+ * @description  客户合约申请单仓储接口
  *
  */
 public interface CustomerContractApplicationFormRepository {
@@ -14,7 +14,7 @@ public interface CustomerContractApplicationFormRepository {
     /**
      * 保存客户合约申请单
      * @see CustomerContractApplicationFormRepositoryImpl#save(CustomerContractApplicationForm)
-     * @return 主键
+     * @return 客户合约申请单ID
      */
     String save(CustomerContractApplicationForm form);
 

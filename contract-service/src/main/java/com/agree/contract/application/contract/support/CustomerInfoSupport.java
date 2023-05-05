@@ -9,10 +9,12 @@ import com.agree.contract.domain.contract.valueobject.CustomerInfo;
  * 
  */
 public interface CustomerInfoSupport {
+
     /**
      * 查询客户信息
      *
-     * @return
+     * @param idCard 身份证号
+     * @return 客户信息
      */
     CustomerInfo queryCustomerInfo(String idCard);
 

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 /**
  * @author xulingfeng
  * 
- * @description 计费记录仓储接口实现
+ * @description 商户合约仓储接口实现
  * 
  */
 @Repository
@@ -52,10 +52,10 @@ public class CommercialTenantContractRepositoryImpl implements CommercialTenantC
 
 
     /**
-     * 查询 合约
+     * 查询商户合约
      *
-     * @param id
-     * @return
+     * @param id 商户合约ID
+     * @return 商户合约
      */
     @Override
     public CommercialTenantContract getById(String id) {

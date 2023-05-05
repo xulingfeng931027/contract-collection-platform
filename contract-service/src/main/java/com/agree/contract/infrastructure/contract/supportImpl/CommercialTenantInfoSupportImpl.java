@@ -2,11 +2,14 @@ package com.agree.contract.infrastructure.contract.supportImpl;
 
 import com.agree.contract.application.contract.support.CommercialTenantInfoSupport;
 import com.agree.contract.domain.contract.valueobject.CommercialTenantInfo;
+import com.agree.contract.domain.contract.valueobject.enumType.CommercialTenantStatusEnum;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 /**
  * @author xulingfeng
- * @description 商户系统防腐层接口
+ * @description 商户系统防腐层接口实现
  */
 @Service
 public class CommercialTenantInfoSupportImpl implements CommercialTenantInfoSupport {
@@ -30,7 +33,13 @@ public class CommercialTenantInfoSupportImpl implements CommercialTenantInfoSupp
      * @param businessTenantInfo 第三方系统的商户信息
      */
     private CommercialTenantInfo convert(BusinessTenantInfo businessTenantInfo) {
-        return CommercialTenantInfo.builder().build();
+        return CommercialTenantInfo.builder()
+                .name(businessTenantInfo.getName())
+                .phone(businessTenantInfo.getPhone())
+                .status(CommercialTenantStatusEnum.valueOf(businessTenantInfo.getStatus()))
+                .legalPersonNumber(businessTenantInfo.getLegalPersonNumber())
+                .taxPayerNumber(businessTenantInfo.getTaxPayerNumber())
+                .build();
     }
 
     /**
@@ -45,6 +54,14 @@ public class CommercialTenantInfoSupportImpl implements CommercialTenantInfoSupp
     /**
      * 模拟从第三方系统获取的商户信息
      */
-    static class BusinessTenantInfo {}
+    @Getter
+    @Setter
+    static class BusinessTenantInfo {
+        private String name;
+        private String phone;
+        private String status;
+        private String legalPersonNumber;
+        private String taxPayerNumber;
+    }
 
 }

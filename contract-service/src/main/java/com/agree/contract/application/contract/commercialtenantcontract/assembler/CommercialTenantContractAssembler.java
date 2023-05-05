@@ -6,12 +6,15 @@ import org.mapstruct.Mapper;
 
 /**
  * @author xulingfeng
- * @description 合约转换器
+ * @description 商户合约装配器
  * 
  */
 @Mapper(componentModel = "spring")
 public interface CommercialTenantContractAssembler {
 
-    CommercialTenantContractResDto toDto(CommercialTenantContract contractContractDto);
+    /**
+     * 将实体转为响应dto
+     */
+    CommercialTenantContractResDto toDto(CommercialTenantContract commercialTenantContract);
 
 }

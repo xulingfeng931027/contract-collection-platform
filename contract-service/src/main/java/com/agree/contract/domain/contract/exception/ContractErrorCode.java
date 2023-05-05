@@ -15,6 +15,9 @@ public enum ContractErrorCode implements BaseErrorCode {
     UNKNOWN_EXCEPTION(-1, "未知异常"),
     REPEAT_SIGNING(1001, "重复签约"),
     COMMERCIAL_TENANT_STATUS_NOT_NORMAL(1002, "商户状态不正常"),
+    CUSTOMER_STATUS_NOT_NORMAL(1003, "客户状态不正常"),
+    COMMERCIAL_TENANT_CONTRACT_STATUS_INVALID(2001, "商户合约状态无效"),
+    CUSTOMER_CONTRACT_STATUS_INVALID(2002, "客户合约状态无效"),
 
     ;
     private final int code;

@@ -6,8 +6,8 @@ import com.agree.contract.infrastructure.contract.commercialtenantcontract.repos
 
 /**
  * @author xulingfeng
- * @className BillingRecordRepository
- * @description 计费记录仓储接口
+ * @className CommercialTenantContractRepository
+ * @description 商户合约仓储接口
  * 
  */
 public interface CommercialTenantContractRepository {

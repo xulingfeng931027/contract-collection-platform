@@ -12,7 +12,9 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CustomerContractApplicationFormAssembler {
 
-
+    /**
+     * 将请求dto转为实体
+     */
     CustomerContractApplicationForm toEntity(CustomerContractApplicationFormReqDto dto);
 
 }

@@ -24,9 +24,7 @@ public class CustomerContractApplicationFormRepositoryImpl implements CustomerCo
     @Autowired
     private CustomerContractApplicationFormMapper contractMapper;
 
-
     /**
-     *
      *
      * @param form 客户合约申请单
      * @return 主键

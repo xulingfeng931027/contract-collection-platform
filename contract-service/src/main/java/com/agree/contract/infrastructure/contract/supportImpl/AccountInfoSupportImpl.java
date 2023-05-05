@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author xulingfeng
- * @description 模拟调用核心系统
+ * @description 核心系统防腐层实现（模拟调用核心系统）
  * 
  */
 @Service
 @Slf4j
 public class AccountInfoSupportImpl implements AccountInfoSupport {
-
 
     /**
      * 校验账户信息

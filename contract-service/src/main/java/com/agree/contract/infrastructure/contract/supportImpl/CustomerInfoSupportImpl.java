@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author xulingfeng
- * @description 客户系统防腐层
+ * @description 客户系统防腐层接口实现
  * 
  */
 @Service
@@ -18,8 +18,8 @@ public class CustomerInfoSupportImpl implements CustomerInfoSupport {
     /**
      * 查询客户信息
      *
-     * @param idCard
-     * @return
+     * @param idCard 身份证号
+     * @return 客户信息
      */
     @Override
     public CustomerInfo queryCustomerInfo(String idCard) {

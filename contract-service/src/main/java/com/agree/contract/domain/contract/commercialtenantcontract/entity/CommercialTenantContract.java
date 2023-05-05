@@ -1,7 +1,7 @@
 package com.agree.contract.domain.contract.commercialtenantcontract.entity;
 
-import com.agree.common.ddd.exception.BaseException;
 import com.agree.common.ddd.obj.AbstractAggregationObject;
+import com.agree.contract.domain.contract.exception.ContractException;
 import com.agree.contract.domain.contract.valueobject.AccountInfo;
 import com.agree.contract.domain.contract.valueobject.CommercialTenantInfo;
 import com.agree.contract.domain.contract.valueobject.enumType.ChargeMethodEnum;
@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
+
+import static com.agree.contract.domain.contract.exception.ContractErrorCode.COMMERCIAL_TENANT_CONTRACT_STATUS_INVALID;
 
 /**
  * @author xulingfeng
@@ -64,7 +66,7 @@ public class CommercialTenantContract extends AbstractAggregationObject<String> 
 
     public void checkStatusIfValid() {
         if (status != ContractStatusEnum.VALID) {
-            throw new BaseException("商户合约状态无效");
+            throw new ContractException(COMMERCIAL_TENANT_CONTRACT_STATUS_INVALID);
         }
     }
 

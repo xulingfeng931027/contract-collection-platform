@@ -80,7 +80,7 @@ public class CommercialTenantContractApplicationForm extends AbstractAggregation
     /**
      * 填充商户信息到实体
      *
-     * @param commercialTenantInfo
+     * @param commercialTenantInfo 商户信息
      */
     public void completeCommercialTenantInfo(CommercialTenantInfo commercialTenantInfo) {
         this.commercialTenantInfo = commercialTenantInfo;

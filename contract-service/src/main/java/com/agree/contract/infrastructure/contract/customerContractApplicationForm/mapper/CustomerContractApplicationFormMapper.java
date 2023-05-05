@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author xulingfeng
- * @className BillingRecordMapper
  * @description
  * 
  */

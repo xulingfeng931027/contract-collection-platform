@@ -9,7 +9,7 @@ import com.agree.contract.domain.contract.commercialtenantcontractapplicationfor
 public interface CommercialTenantContractApplicationFormRepository {
 
     /**
-     * 保存合约
+     * 保存合约申请单
      *
      * @return 商户合约申请单id
      */

@@ -14,12 +14,12 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CommercialTenantContractApplicationFormAssembler {
     /**
-     * 将dto转为实体
+     * 将请求dto转为实体
      */
     @Mapping(source = "legalPersonNumber",target ="commercialTenantInfo.legalPersonNumber" )
     CommercialTenantContractApplicationForm toEntity(CommercialTenantContractApplicationFormReqDto contractContractDto);
     /**
-     * 将实体转为dto
+     * 将实体转为响应dto
      */
     CommercialTenantContractApplicationFormResDto toDto(CommercialTenantContractApplicationForm applicationForm);
 

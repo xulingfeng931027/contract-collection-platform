@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 /**
  * @author xulingfeng
  * 
- * @description 客户合约
+ * @description 商户合约
  */
 @Data
 @TableName("commercial_tenant_contract")
